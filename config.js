@@ -5,7 +5,7 @@ var SITE = {
   spotify: "https://open.spotify.com/artist/4YPy9Sft4BXfXqGPImfPQm",
   appleMusic: "",      // Apple Music artist link
   youtube: "https://www.youtube.com/@jonswaii",
-  latestVideoId: "",   // the code after watch?v= in your newest video's link
+  latestVideoId: "iv-OUBYvlTk",
   podcast: "",         // Spotify podcast show link, e.g. https://open.spotify.com/show/XXXX
   podcastName: "The Podcast",
 
