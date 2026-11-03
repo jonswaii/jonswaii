@@ -16,7 +16,7 @@ var SITE = {
 
   // Unreleased: upload mp3s into the music/ folder, then list them here
   unreleased: [
-    { title: "Untitled 01", note: "Demo · SP-404", file: "music/untitled-01.mp3" },
+    { title: "Violent Coffs", note: "Unreleased · Jon Swaii", file: "music/violent-coffs.mp3" },
     { title: "Untitled 02", note: "Rough mix",     file: "music/untitled-02.mp3" },
     { title: "Untitled 03", note: "Loose joint",   file: "music/untitled-03.mp3" }
   ],
