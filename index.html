@@ -20,22 +20,70 @@
   </div>
 </header>
 <main>
-  <div class="hero" style="border-bottom:0">
-    <div class="wrap">
+  <!-- HERO: draw on it -->
+  <div class="stage" id="stage">
+    <canvas id="ink" aria-hidden="true"></canvas>
+    <div class="wrap stage-in">
       <div class="meta mono"><span>Richmond, VA</span><span>Rapper · Producer · Artist</span></div>
       <h1 class="name"><span>Jon</span><span class="r">Swaii</span></h1>
-      <div class="tagline"><div class="serif">The words are the paintbrush.</div></div>
+      <div class="stage-foot">
+        <div class="serif">The words are the paintbrush.</div>
+        <span class="mono hint" id="hint">✎ Drag across the page to draw</span>
+      </div>
     </div>
   </div>
-  <nav class="doors" aria-label="Sections">
-    <div class="wrap">
-      <a class="door" href="music.html"><span><span class="w">Music</span><span class="mono">Spotify · Apple · Unreleased vault</span></span><span class="arrow">→</span></a>
-      <a class="door red" href="art.html"><span><span class="w">Art</span><span class="mono">Canvases · Sketches · Merch</span></span><span class="arrow">→</span></a>
-      <a class="door" href="podcast.html"><span><span class="w">Podcast</span><span class="mono">Coming soon</span></span><span class="arrow">→</span></a>
-      <a class="door" href="youtube.html"><span><span class="w">YouTube</span><span class="mono">Latest videos</span></span><span class="arrow">→</span></a>
-    </div>
-  </nav>
 
+  <!-- MUSIC PREVIEW -->
+  <section class="pv">
+    <div class="wrap pv-grid">
+      <div class="pv-label">
+        <span class="mono pv-k">Now playing</span>
+        <h2 class="pv-h">Music</h2>
+        <a class="pv-more mono" href="music.html">Unreleased vault →</a>
+      </div>
+      <div class="pv-body">
+        <div class="embed" id="spotify-mini" style="margin-top:0"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ART PREVIEW -->
+  <section class="pv pv-art">
+    <div class="wrap pv-grid">
+      <div class="pv-label">
+        <span class="mono pv-k">On the wall</span>
+        <h2 class="pv-h">Art</h2>
+        <a class="pv-more mono" href="art.html">Canvases &amp; merch →</a>
+      </div>
+      <div class="pv-body">
+        <div class="wall" id="wall" tabindex="0" aria-label="Art preview, scroll sideways">
+          <a class="hang" href="art.html" style="--r:-2deg"><span class="fr"><span class="ph"><b>Untitled 01</b></span><img src="art/01.jpg" alt="Untitled 01 by Jon Swaii" loading="lazy" onerror="this.remove()"></span></a>
+          <a class="hang sq" href="art.html" style="--r:1.5deg"><span class="fr"><span class="ph"><b>Untitled 02</b></span><img src="art/02.jpg" alt="Untitled 02 by Jon Swaii" loading="lazy" onerror="this.remove()"></span></a>
+          <a class="hang" href="art.html" style="--r:-1deg"><span class="fr"><span class="ph"><b>Untitled 03</b></span><img src="art/03.jpg" alt="Untitled 03 by Jon Swaii" loading="lazy" onerror="this.remove()"></span></a>
+          <a class="hang tee-card" href="art.html#shop" style="--r:2deg"><span class="fr"><span class="ph"><b>Wear it</b><span class="mono">Tees from the canvases</span></span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO PREVIEW -->
+  <section class="pv">
+    <div class="wrap pv-grid">
+      <div class="pv-label">
+        <span class="mono pv-k">Latest</span>
+        <h2 class="pv-h">Watch</h2>
+        <a class="pv-more mono" href="youtube.html">All videos →</a>
+      </div>
+      <div class="pv-body">
+        <div class="yt" id="yt-box"><div class="yt-ph"><div><div class="tri"></div><span class="mono">Latest video</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <a class="pod" href="podcast.html">
+    <span class="wrap pod-in"><span class="mono">Podcast</span><span class="pod-w">Coming soon</span><span class="mono">→</span></span>
+  </a>
 </main>
 <footer>
   <div class="wrap">
