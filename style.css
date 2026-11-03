@@ -274,3 +274,6 @@ footer{border-top:3px solid var(--ink)}
 .pod-w{font-size:clamp(1.6rem,5vw,2.6rem);font-weight:900;text-transform:uppercase;font-stretch:65%}
 .pod:hover .pod-w{color:var(--red)}
 @media (prefers-reduced-motion:reduce){.hang{transform:none}}
+
+.hang.first{flex-basis:clamp(240px,70vw,380px)}
+.hang.first .fr{margin-top:0}

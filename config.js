@@ -23,7 +23,7 @@ var SITE = {
 
   // Shop: art = photo in the art/ folder, link = checkout link (leave "" until ready)
   merch: [
-    { name: "Untitled 01 Tee", art: "art/01.jpg", price: "$35", link: "" },
+    { name: "I Forgot to Live Tee", art: "art/01.jpg", price: "$35", link: "" },
     { name: "Untitled 02 Tee", art: "art/02.jpg", price: "$35", link: "" },
     { name: "Untitled 03 Tee", art: "art/03.jpg", price: "$35", link: "" }
   ]
