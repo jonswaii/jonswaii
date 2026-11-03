@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact | Jon Swaii</title>
+<meta name="description" content="Contact Jon Swaii.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,800;62..125,900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<header>
+  <div class="wrap bar mono">
+    <a class="rec home" href="./"><i></i> Jon<span class="full">&nbsp;Swaii</span></a>
+    <nav><a href="music.html">Music</a><a href="art.html">Art</a><a href="podcast.html">Podcast</a><a href="youtube.html">YouTube</a></nav>
+  </div>
+</header>
+<main>
+  <div class="pagehead"><div class="wrap"><h1>Contact</h1><p>Booking, sync licensing, beats, commissions, merch, press. Hit me here.</p></div></div>
+  <section id="contact" style="border-bottom:0;padding-top:clamp(40px,6vw,64px)">
+    <div class="wrap">
+      
+      <!-- EDIT: replace YOUR_FORM_ID with a Formspree form code -->
+      <form id="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="rv">
+        <input type="hidden" name="_subject" value="New message from jonswaii site">
+        <p class="hidden"><label>Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <label><span class="mono">Name</span><input id="c-name" name="name" required autocomplete="name"></label>
+        <label><span class="mono">Email</span><input id="c-email" name="email" type="email" required autocomplete="email"></label>
+        <label class="full"><span class="mono">What's this about</span>
+          <select id="c-type" name="type"><option>Booking / show</option><option>Sync licensing</option><option>Beats</option><option>Art / commission</option><option>Merch</option><option>Press / interview</option><option>Collab</option><option>Book updates</option><option>Something else</option></select>
+        </label>
+        <label class="full"><span class="mono">Message</span><textarea id="c-msg" name="message" required></textarea></label>
+        <div class="full"><button class="pill" id="c-send" type="submit">Send it</button><p id="c-status" role="status"></p></div>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="socials">
+      <a class="pill" href="https://www.instagram.com/jonswaii/" target="_blank" rel="noopener">@jonswaii</a>
+      <a class="pill" href="https://www.instagram.com/wolveseatfirst/" target="_blank" rel="noopener">@wolveseatfirst</a>
+      <a class="pill solid" href="contact.html">Contact</a>
+    </div>
+    <div class="row mono" style="margin-top:22px"><span>© <span id="yr">2026</span> Jon Swaii · Glass Knot Productions</span><span>Richmond, VA</span></div>
+  </div>
+</footer>
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
