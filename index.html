@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jon Swaii</title>
+<meta name="description" content="Jon Swaii. Rapper, producer, filmmaker from Richmond, VA. The Remarkable Nobody.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,800;62..125,900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  /* EDIT: search this file for "EDIT:" to find every link you need to fill in */
+  :root{
+    --ink:#0a0a0a; --paper:#ecebe7; --paper2:#dddcd6; --grey:#6d6c68; --red:#d0021b;
+    --display:"Archivo", "Arial Narrow", Impact, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --serif:"Instrument Serif", Georgia, serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--display);font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.09;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  .mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+  .serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+  h1,h2,h3{margin:0;font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.01em;text-wrap:balance}
+  h2{font-size:clamp(3rem,10vw,7.5rem);font-stretch:68%}
+  p{margin:0 0 1em}
+  :focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+  /* top bar */
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:41}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--ink);color:var(--paper)}
+  .bar{display:flex;justify-content:space-between;align-items:center;height:44px;gap:16px}
+  .bar nav{display:flex;gap:22px}
+  .bar a{text-decoration:none}
+  .bar nav a{opacity:.7} .bar nav a:hover{opacity:1}
+  .rec{display:flex;align-items:center;gap:8px}
+  .rec i{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.4s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (max-width:700px){.bar nav{display:none}}
+
+  /* hero */
+  .hero{padding-block:clamp(28px,5vw,56px) 0;border-bottom:3px solid var(--ink)}
+  .hero .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;border-bottom:1px solid var(--ink);padding-bottom:12px}
+  .name{font-size:clamp(5.2rem,27vw,22rem);font-stretch:62%;line-height:.78;letter-spacing:-.02em;margin-top:18px}
+  .name span{display:block}
+  .name .r{color:var(--red)}
+  .tagline{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:end;padding-block:26px 34px}
+  .tagline .serif{font-size:clamp(1.9rem,5vw,3.4rem);line-height:1}
+  .tagline p{max-width:44ch;font-size:1.05rem;margin:0}
+  @media (max-width:760px){.tagline{grid-template-columns:1fr}}
+
+  /* ticker */
+  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--ink)}
+  .ticker div{display:inline-block;padding-block:12px;animation:tick 38s linear infinite;font-size:1.25rem;font-weight:800;text-transform:uppercase;font-stretch:75%}
+  .ticker b{color:var(--red);margin-inline:18px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  section{padding-block:clamp(64px,10vw,120px);border-bottom:3px solid var(--ink)}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+
+  /* tracklist */
+  .tracks{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+  .tracks li{border-bottom:1px solid var(--ink)}
+  .tracks a{display:grid;grid-template-columns:3.2rem 1fr auto;gap:16px;align-items:center;padding:16px 4px;text-decoration:none;transition:background .15s,color .15s,padding .2s}
+  .tracks a:hover{background:var(--ink);color:var(--paper);padding-inline:14px}
+  .tracks .n{font-family:var(--mono);font-size:.8rem;color:var(--grey)}
+  .tracks a:hover .n{color:var(--red)}
+  .tracks .t{font-size:clamp(1.8rem,6vw,3.6rem);font-weight:900;text-transform:uppercase;font-stretch:70%;line-height:.95}
+  .tracks .play{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;white-space:nowrap}
+
+  .platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .pill{display:inline-block;border:2px solid var(--ink);padding:10px 18px;text-decoration:none;font-weight:800;text-transform:uppercase;font-size:.9rem;letter-spacing:.02em;transition:background .15s,color .15s}
+  .pill:hover,.pill.solid{background:var(--ink);color:var(--paper)}
+  .pill.solid:hover{background:var(--red);border-color:var(--red)}
+
+  /* series grid */
+  .series{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;background:var(--ink);border:3px solid var(--ink)}
+  @media (max-width:760px){.series{grid-template-columns:1fr}}
+  .ep{background:var(--paper);min-width:0;display:flex;flex-direction:column}
+  .frame{position:relative;aspect-ratio:16/9;background:var(--ink);color:var(--paper);overflow:hidden;display:grid;place-items:center;max-width:100%}
+  .frame .big{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:900;text-transform:uppercase;font-stretch:65%;text-align:center;line-height:.85;padding:0 16px;position:relative;z-index:2}
+  .frame .corner{position:absolute;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;z-index:2}
+  .frame .tl{top:12px;left:14px} .frame .tr{top:12px;right:14px} .frame .bl{bottom:12px;left:14px} .frame .br{bottom:12px;right:14px}
+  .ep .body{padding:22px 22px 26px}
+  .ep h3{font-size:2rem;font-stretch:70%}
+  .ep p{color:#2c2c2a;margin-top:8px}
+  .ep .mono{color:var(--grey)}
+  /* frame looks */
+  .f-wolves{background:radial-gradient(circle at 70% 30%,#3a0006,#0a0a0a 60%)}
+  .f-wolves::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px)}
+  .f-steel{background:linear-gradient(180deg,#000 0 13%,#5f6266 13%,#2b2d30 60%,#121314 87%,#000 87%)}
+  .f-tapes{background:#1b1a17}
+  .f-tapes::before{content:"";position:absolute;inset:18% 22%;border:2px solid var(--paper);border-radius:6px;opacity:.6}
+  .f-tapes::after{content:"";position:absolute;left:34%;right:34%;top:44%;height:12%;border-left:16px solid var(--paper);border-right:16px solid var(--paper);opacity:.5;border-radius:50%}
+  .f-coffs{background:linear-gradient(135deg,#e9e8e4,#a9a8a3)}
+  .f-coffs .big,.f-coffs .corner{color:var(--ink)}
+  .f-coffs::before{content:"";position:absolute;left:-10%;right:-10%;top:46%;height:9%;background:var(--ink);transform:rotate(-8deg)}
+  .f-coffs .big{background:var(--paper);padding:4px 14px}
+  .f-wolves .big{color:var(--paper)} .f-wolves .big em{color:var(--red);font-style:normal}
+
+
+  /* art gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,28px);align-items:start}
+  @media (max-width:860px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.gallery{grid-template-columns:1fr}}
+  .piece{margin:0;min-width:0}
+  .piece .fr{position:relative;background:var(--paper2);border:10px solid var(--ink);box-shadow:0 1px 0 var(--ink);overflow:hidden;max-width:100%}
+  .piece.tall .fr{aspect-ratio:3/4} .piece.sq .fr{aspect-ratio:1/1} .piece.wide .fr{aspect-ratio:4/3}
+  .piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.15) contrast(1.05);transition:filter .3s,transform .5s}
+  .piece:hover img{filter:none;transform:scale(1.03)}
+  .piece .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;color:var(--grey);
+     background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(10,10,10,.05) 12px 13px)}
+  .piece .ph b{display:block;font-size:2rem;font-weight:900;color:var(--ink);font-stretch:65%;text-transform:uppercase;line-height:.9;margin-bottom:6px}
+  .piece figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:10px}
+  .piece figcaption b{font-weight:800;text-transform:uppercase;font-stretch:75%;font-size:1.15rem}
+  .piece figcaption .mono{color:var(--grey);white-space:nowrap}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+  .filters button{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;background:transparent;border:2px solid var(--ink);padding:8px 14px;cursor:pointer;color:var(--ink)}
+  .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .artnote{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-top:48px;padding-top:28px;border-top:1px solid var(--ink)}
+  @media (max-width:640px){.artnote{grid-template-columns:1fr}}
+  .artnote .serif{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.05}
+
+  /* book */
+  .book{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+  .book>*{min-width:0}
+  @media (max-width:760px){.book{grid-template-columns:1fr}.cover{width:min(320px,calc(100% - 14px))}}
+  .cover{aspect-ratio:2/3;background:var(--ink);color:var(--paper);padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:14px 14px 0 var(--red);max-width:100%;position:relative}
+  .cover .ct{font-size:clamp(2.4rem,10vw,4.4rem);overflow-wrap:anywhere;font-weight:900;text-transform:uppercase;font-stretch:62%;line-height:.82}
+  .cover .ct em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;font-size:.6em;display:block;color:var(--red);margin-bottom:4px}
+  .cover .stamp{position:absolute;top:44%;right:-6px;transform:rotate(8deg);background:var(--red);color:var(--paper);padding:6px 12px}
+  .book .serif{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.05;margin-bottom:18px}
+
+  /* sync */
+  .sync{background:var(--ink);color:var(--paper)}
+  .sync .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #3a3a38;margin-top:34px}
+  @media (max-width:760px){.sync .cols{grid-template-columns:1fr}}
+  .sync .col{padding:22px 22px 22px 0;border-bottom:1px solid #3a3a38;min-width:0}
+  .sync .col h3{font-size:1.9rem;font-stretch:70%}
+  .sync .col p{color:#b9b8b2;margin-top:8px}
+  .sync .pill{border-color:var(--paper)} .sync .pill.solid{background:var(--paper);color:var(--ink)}
+  .sync .pill.solid:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+
+  /* contact */
+  form{display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:760px}
+  form .full{grid-column:1/-1}
+  @media (max-width:560px){form{grid-template-columns:1fr}}
+  label{display:grid;gap:6px}
+  input,select,textarea{width:100%;background:transparent;border:0;border-bottom:2px solid var(--ink);padding:10px 2px;font:500 1.05rem var(--display);color:var(--ink);border-radius:0}
+  textarea{min-height:110px;resize:vertical}
+  button.pill{cursor:pointer;font-family:var(--display);background:var(--ink);color:var(--paper)}
+  button.pill:hover{background:var(--red);border-color:var(--red)}
+  .hidden{display:none}
+  [hidden]{display:none!important}
+  #c-status{font-family:var(--mono);font-size:.8rem;margin-top:8px}
+
+  .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+  footer{padding-block:28px}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  .rv{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.pre{opacity:0;transform:translateY(30px)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker div,.rec i{animation:none}.js .rv.pre{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar mono">
+    <a class="rec" href="./"><i></i> Jon Swaii</a>
+    <nav>
+      <a href="#music">Music</a><a href="#series">Series</a><a href="#art">Art</a><a href="#book">Book</a><a href="#sync">Sync</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact">Book me ›</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="meta mono"><span>Richmond, VA</span><span>Rapper · Producer · Filmmaker · Artist</span><span>Est. on the SP-404</span></div>
+      <h1 class="name"><span>Jon</span><span class="r">Swaii</span></h1>
+      <div class="tagline">
+        <div class="serif">The words are the paintbrush.</div>
+        <p>Rap, beats, film and canvas out of Richmond. Earned freedom over comfortable captivity. Also known as The Remarkable Nobody.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div>
+    Poor Thang <b>/</b> BlackLight <b>/</b> Often <b>/</b> The Footnote <b>/</b> Violent Coffs <b>/</b> Nuclear Option <b>/</b> Wolves Eat First <b>/</b> Steel Season <b>/</b> The Nobody Tapes <b>/</b>
+    Poor Thang <b>/</b> BlackLight <b>/</b> Often <b>/</b> The Footnote <b>/</b> Violent Coffs <b>/</b> Nuclear Option <b>/</b> Wolves Eat First <b>/</b> Steel Season <b>/</b> The Nobody Tapes <b>/</b>
+  </div></div>
+
+  <section id="music">
+    <div class="wrap">
+      <div class="head rv"><h2>Music</h2><span class="mono">Tap a track to listen</span></div>
+      <!-- EDIT: replace each href="#" with that song's Spotify / YouTube / SoundCloud link -->
+      <ol class="tracks rv">
+        <li><a href="#"><span class="n">01</span><span class="t">Poor Thang</span><span class="play">▶ Play</span></a></li>
+        <li><a href="#"><span class="n">02</span><span class="t">BlackLight</span><span class="play">▶ Play</span></a></li>
+        <li><a href="#"><span class="n">03</span><span class="t">Often</span><span class="play">▶ Play</span></a></li>
+        <li><a href="#"><span class="n">04</span><span class="t">The Footnote</span><span class="play">▶ Play</span></a></li>
+        <li><a href="#"><span class="n">05</span><span class="t">Violent Coffs</span><span class="play">▶ Play</span></a></li>
+        <li><a href="#"><span class="n">06</span><span class="t">Nuclear Option</span><span class="play">▶ Play</span></a></li>
+      </ol>
+      <!-- EDIT: streaming profile links -->
+      <div class="platforms rv">
+        <a class="pill solid" href="#">Spotify</a><a class="pill" href="#">Apple Music</a><a class="pill" href="#">YouTube</a><a class="pill" href="#">SoundCloud</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="series">
+    <div class="wrap">
+      <div class="head rv"><h2>Series</h2><span class="mono">Video · Commentary · Film</span></div>
+      <div class="series rv">
+        <!-- EDIT: each card's link -->
+        <a class="ep" href="#" style="text-decoration:none">
+          <div class="frame f-wolves"><span class="corner tl">@WOLVESEATFIRST</span><span class="corner tr">REC ●</span><span class="big">Wolves <em>Eat</em> First</span><span class="corner bl">00:01:20</span><span class="corner br">100K+ VIEWS</span></div>
+          <div class="body"><div class="mono">Commentary</div><h3>Wolves Eat First</h3><p>Hard hooks, screen grabs, no filler. Minute-long breakdowns of the stories they'd rather you skip.</p></div>
+        </a>
+        <a class="ep" href="#" style="text-decoration:none">
+          <div class="frame f-steel"><span class="corner tl" style="top:18%">FRIDAYS</span><span class="big">Steel Season</span><span class="corner br" style="bottom:18%">JOURNAL</span></div>
+          <div class="body"><div class="mono">Every Friday</div><h3>Steel Season</h3><p>A letterboxed, narrated journal. Slow, quiet, cinematic.</p></div>
+        </a>
+        <a class="ep" href="#" style="text-decoration:none">
+          <div class="frame f-tapes"><span class="corner tl">SIDE A</span><span class="big">The Nobody Tapes</span><span class="corner br">SPOKEN WORD</span></div>
+          <div class="body"><div class="mono">Spoken word</div><h3>The Nobody Tapes</h3><p>Spoken word over real-life footage. Words first, everything else second.</p></div>
+        </a>
+        <a class="ep" href="#" style="text-decoration:none">
+          <div class="frame f-coffs"><span class="corner tl">DOWNTOWN RVA</span><span class="big">Violent Coffs</span><span class="corner br">SKIT SERIES</span></div>
+          <div class="body"><div class="mono">Political rap · Skits</div><h3>Violent Coffs</h3><p>A political rap universe shot on the streets of downtown Richmond.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="art">
+    <div class="wrap">
+      <div class="head rv"><h2>Art</h2><span class="mono">Canvas · Sketches · Designs</span></div>
+      <div class="filters" role="group" aria-label="Filter art">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="canvas" aria-pressed="false">Canvases</button>
+        <button type="button" data-f="sketch" aria-pressed="false">Sketches</button>
+        <button type="button" data-f="design" aria-pressed="false">Designs</button>
+      </div>
+      <!-- EDIT: drop photos into the art/ folder named 01.jpg, 02.jpg... and change titles below -->
+      <div class="gallery rv">
+        <figure class="piece tall" data-kind="canvas">
+          <div class="fr">
+            <div class="ph"><div><b>Untitled 01</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/01.jpg" alt="Untitled 01, Ink + paint on canvas, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Untitled 01</b><span class="mono">Ink + paint on canvas</span></figcaption>
+        </figure>
+        <figure class="piece sq" data-kind="canvas">
+          <div class="fr">
+            <div class="ph"><div><b>Untitled 02</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/02.jpg" alt="Untitled 02, Mixed media on canvas, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Untitled 02</b><span class="mono">Mixed media on canvas</span></figcaption>
+        </figure>
+        <figure class="piece tall" data-kind="canvas">
+          <div class="fr">
+            <div class="ph"><div><b>Untitled 03</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/03.jpg" alt="Untitled 03, Ink + paint on canvas, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Untitled 03</b><span class="mono">Ink + paint on canvas</span></figcaption>
+        </figure>
+        <figure class="piece wide" data-kind="sketch">
+          <div class="fr">
+            <div class="ph"><div><b>Notebook 01</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/04.jpg" alt="Notebook 01, Ballpoint on paper, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Notebook 01</b><span class="mono">Ballpoint on paper</span></figcaption>
+        </figure>
+        <figure class="piece tall" data-kind="sketch">
+          <div class="fr">
+            <div class="ph"><div><b>Notebook 02</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/05.jpg" alt="Notebook 02, Ballpoint on paper, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Notebook 02</b><span class="mono">Ballpoint on paper</span></figcaption>
+        </figure>
+        <figure class="piece sq" data-kind="design">
+          <div class="fr">
+            <div class="ph"><div><b>Flash 01</b><span class="mono">Photo coming</span></div></div>
+            <img src="art/06.jpg" alt="Flash 01, Tattoo design, by Jon Swaii" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption><b>Flash 01</b><span class="mono">Tattoo design</span></figcaption>
+        </figure>
+      </div>
+      <div class="artnote rv">
+        <div class="serif">Self-taught. Ballpoint in class notebooks, now ink and paint on canvas.</div>
+        <a class="pill solid" href="#contact" data-type="Art / commission">Commission a piece</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap book">
+      <div class="cover rv">
+        <span class="mono">A novel</span>
+        <div class="ct"><em>the</em>Remarkable Nobody</div>
+        <span class="mono">Jon Swaii</span>
+        <span class="stamp mono">In progress</span>
+      </div>
+      <div class="rv">
+        <div class="mono" style="color:var(--red)">The book</div>
+        <h2 style="margin-top:10px;font-size:clamp(2.6rem,9vw,7.5rem)">The Remarkable Nobody</h2>
+        <p class="serif" style="margin-top:22px">Valdez. A Brooklyn deli. Everything that happens behind the counter.</p>
+        <p style="max-width:48ch">The novel is being written now. Drop your email below and you'll hear first when chapters drop.</p>
+        <a class="pill solid" href="#contact">Get first chapter alerts</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sync" class="sync">
+    <div class="wrap">
+      <div class="mono" style="color:var(--red)">Licensing</div>
+      <h2 class="rv" style="margin-top:10px">Sync &amp; Beats</h2>
+      <p class="rv" style="max-width:52ch;margin-top:20px;color:#b9b8b2">Original music cleared and ready for picture. Built for fight promos, walkouts and indie film.</p>
+      <div class="cols rv">
+        <div class="col"><h3>Combat sports</h3><p>Walkout records, promo cuts and highlight beds that hit like the fight.</p></div>
+        <div class="col"><h3>Indie film</h3><p>Score, source cues and original songs for scenes that need weight.</p></div>
+        <div class="col"><h3>Custom beats</h3><p>SP-404 production for artists who want something that doesn't sound like everyone else.</p></div>
+      </div>
+      <div class="platforms"><a class="pill solid" href="#contact">Start a licensing request</a></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head rv"><h2>Contact</h2><span class="mono">Booking · Sync · Press · Collabs</span></div>
+      <!-- EDIT: replace YOUR_FORM_ID with a Formspree form code -->
+      <form id="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="rv">
+        <input type="hidden" name="_subject" value="New message from jonswaii site">
+        <p class="hidden"><label>Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <label><span class="mono">Name</span><input id="c-name" name="name" required autocomplete="name"></label>
+        <label><span class="mono">Email</span><input id="c-email" name="email" type="email" required autocomplete="email"></label>
+        <label class="full"><span class="mono">What's this about</span>
+          <select id="c-type" name="type"><option>Booking / show</option><option>Sync licensing</option><option>Beats</option><option>Art / commission</option><option>Press / interview</option><option>Collab</option><option>Book updates</option><option>Something else</option></select>
+        </label>
+        <label class="full"><span class="mono">Message</span><textarea id="c-msg" name="message" required></textarea></label>
+        <div class="full"><button class="pill" id="c-send" type="submit">Send it</button><p id="c-status" role="status"></p></div>
+      </form>
+
+      <!-- EDIT: social links -->
+      <div class="socials">
+        <a class="pill" href="https://www.instagram.com/jonswaii/" target="_blank" rel="noopener">@jonswaii</a>
+        <a class="pill" href="https://www.instagram.com/wolveseatfirst/" target="_blank" rel="noopener">@wolveseatfirst</a>
+        <a class="pill" href="https://www.instagram.com/theremarkablenobody/" target="_blank" rel="noopener">@theremarkablenobody</a>
+        <a class="pill" href="https://www.instagram.com/glassknotproductions/" target="_blank" rel="noopener">@glassknotproductions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row mono"><span>© <span id="yr">2026</span> Jon Swaii · Glass Knot Productions</span><span>Richmond, VA</span></div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
+  }
+  // art filters
+  var fb=[].slice.call(document.querySelectorAll('.filters button')), pcs=[].slice.call(document.querySelectorAll('.piece'));
+  fb.forEach(function(btn){btn.addEventListener('click',function(){
+    var k=btn.getAttribute('data-f');
+    fb.forEach(function(x){x.setAttribute('aria-pressed',x===btn?'true':'false');});
+    pcs.forEach(function(pc){pc.hidden=!(k==='all'||pc.getAttribute('data-kind')===k);});
+  });});
+  // commission button preselects the contact reason
+  [].forEach.call(document.querySelectorAll('[data-type]'),function(a){a.addEventListener('click',function(){
+    var sel=document.getElementById('c-type'); sel.value=a.getAttribute('data-type');
+  });});
+  var f=document.getElementById('contact-form'), b=document.getElementById('c-send'), st=document.getElementById('c-status');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=f.querySelector(':invalid'); if(bad){st.textContent='Fill in your name, email and message.'; bad.focus(); return;}
+    b.disabled=true; b.textContent='Sending...'; st.textContent='';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0; f.reset(); b.textContent='Sent'; st.textContent="Got it. I'll get back to you.";})
+      .catch(function(){b.disabled=false; b.textContent='Send it'; st.textContent="That didn't send. Hit me on Instagram @jonswaii instead.";});
+  });
+})();
+</script>
+</body>
+</html>
