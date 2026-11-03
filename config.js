@@ -6,6 +6,11 @@ var SITE = {
   appleMusic: "",      // Apple Music artist link
   youtube: "https://www.youtube.com/@jonswaii",
   latestVideoId: "iv-OUBYvlTk",
+  // More videos: paste each video link here (newest first). Titles are optional.
+  videos: [
+    { link: "https://youtu.be/iv-OUBYvlTk", title: "Latest" }
+  ],
+
   podcast: "",         // Spotify podcast show link, e.g. https://open.spotify.com/show/XXXX
   podcastName: "The Podcast",
 
