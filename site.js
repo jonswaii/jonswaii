@@ -10,7 +10,7 @@
 
   // links
   function link(id,url,fallback){var a=$(id); if(!a)return; if(url){a.href=url;a.target='_blank';a.rel='noopener';}else{a.href=fallback||'contact.html';a.removeAttribute('target');a.classList.add('dim');a.title='Coming soon';}}
-  link('l-spotify',SITE.spotify); link('l-apple',SITE.appleMusic); link('l-youtube',SITE.youtube); link('l-podcast',SITE.podcast);
+  link('l-spotify',SITE.spotify); link('l-apple',SITE.appleMusic); link('l-youtube',SITE.youtube); if(SITE.podcast){link('l-podcast',SITE.podcast);var lp=$('l-podcast');if(lp)lp.textContent='Listen on Spotify';}else{var lp2=$('l-podcast');if(lp2)lp2.href='contact.html?about=Something%20else';}
 
   // spotify embeds
   function spot(boxId,url,h){var box=$(boxId); if(!box)return false;
