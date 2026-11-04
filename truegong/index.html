@@ -56,6 +56,21 @@
       linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.18)),var(--gum);
       box-shadow:inset 0 -.4em .6em rgba(0,0,0,.18),0 .6em .9em rgba(0,0,0,.28);transition:background-color .5s}
   .gum:nth-child(1){transform:rotate(-10deg) translateY(-.2em)} .gum:nth-child(2){transform:translateY(-.9em);width:6.2em;height:5.8em} .gum:nth-child(3){transform:rotate(9deg)}
+  /* woozy hot sauce bottle */
+  .woz{position:relative;width:12em;height:31em;filter:drop-shadow(0 1.4em 1.6em rgba(0,0,0,.35))}
+  .woz .cap{position:absolute;left:4em;right:4em;top:0;height:3.4em;border-radius:.6em .6em .2em .2em;background:repeating-linear-gradient(90deg,#141414 0 .3em,#2b2b2b .3em .46em)}
+  .woz .band{position:absolute;left:3.9em;right:3.9em;top:3.2em;height:1.6em;background:var(--lbl);opacity:.95}
+  .woz .neck{position:absolute;left:4.3em;right:4.3em;top:4.6em;height:6em;background:linear-gradient(90deg,rgba(0,0,0,.3),var(--liq) 35%,var(--liq) 65%,rgba(0,0,0,.3))}
+  .woz .body{position:absolute;inset:9.6em 0 0 0;border-radius:5em 5em 1.4em 1.4em / 3.6em 3.6em 1.4em 1.4em;background:
+      linear-gradient(90deg,rgba(0,0,0,.3),transparent 20%,transparent 72%,rgba(0,0,0,.24)),
+      linear-gradient(180deg,rgba(255,255,255,.16),transparent 30%),var(--liq);overflow:hidden}
+  .woz .body::after{content:"";position:absolute;left:1.1em;top:3em;bottom:2.4em;width:1em;border-radius:1em;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.04))}
+  .woz .lbl{inset:14.2em .9em 2em;padding:.6em .5em}
+  .woz .lbl .tg{font-size:2.15em} .woz .lbl .ex{font-size:.66em;letter-spacing:.28em} .woz .lbl .lion{width:5.6em;margin:.3em 0} .woz .lbl .fl{font-size:1.15em} .woz .lbl .mg{font-size:.78em}
+  .heat{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle}
+  .heat i{width:7px;height:12px;border-radius:50%/60% 60% 40% 40%;background:rgba(20,40,29,.18)}
+  .heat i.on{background:#c8201a}
+
   /* shared label */
   .lbl{position:absolute;inset:9em 1.5em 3.4em;border-radius:1.1em;background:var(--lbl);color:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.8em;box-shadow:0 .1em .3em rgba(0,0,0,.18);transition:background-color .5s}
   .lbl .tg{font-family:var(--display);font-weight:900;font-size:2.7em;line-height:.86;letter-spacing:-.01em}
@@ -214,7 +229,7 @@
 
   /* prices in lineup + tiers */
   .card .from{font-weight:700;font-size:.85rem;margin-top:6px;font-variant-numeric:tabular-nums}
-  .tier .prs{display:flex;gap:18px;margin-top:8px;font-variant-numeric:tabular-nums}
+  .tier .prs{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-variant-numeric:tabular-nums}
   .tier .prs span{font-size:.85rem;color:var(--muted)} .tier .prs b{font-family:var(--body);font-size:1.25rem;display:inline;font-weight:700;color:var(--ink)}
 
   /* deals */
@@ -315,13 +330,14 @@
       <div>
         <div class="caps" style="color:var(--mustard)">Ital THC · Cold pressed · Richmond, VA</div>
         <h1 style="margin-top:14px">Pick your <em>pour.</em></h1>
-        <p class="lede">Clean, 100% natural drinks and gummies. Pick your flavor and how far you want to float. We bring it to your door.</p>
+        <p class="lede">Clean, 100% natural drinks, gummies and hot sauce. Pick your flavor and how far you want to float. We bring it to your door.</p>
 
         <div class="step">
-          <span class="caps">1 · Drink or gummy</span>
+          <span class="caps">1 · Drink, gummy or sauce</span>
           <div class="seg" role="group" aria-label="Product type">
             <button type="button" id="t-drink" aria-pressed="true">Drinks</button>
             <button type="button" id="t-gummy" aria-pressed="false">Gummies</button>
+            <button type="button" id="t-sauce" aria-pressed="false">Sauces</button>
           </div>
         </div>
         <div class="step">
@@ -356,7 +372,7 @@
       <div class="steps rv">
         <div class="stp">
           <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6h14v6l3 5v23a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V17l3-5z"/><path d="M14 22h20M14 33h20"/></svg>
-          <h3>Build it</h3><p>Pick drinks or gummies, your flavors and your strength. Mix and match anything.</p>
+          <h3>Build it</h3><p>Pick drinks, gummies or hot sauce, your flavors and your strength. Mix and match anything.</p>
         </div>
         <div class="stp">
           <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 43s14-12.5 14-23a14 14 0 0 0-28 0c0 10.5 14 23 14 23z"/><circle cx="24" cy="20" r="5"/></svg>
@@ -382,13 +398,15 @@
       <div class="grid rv" id="g-drink"></div>
       <h3 class="row-h rv">Gummies <span class="caps">Fruit-pressed · vegan</span></h3>
       <div class="grid rv" id="g-gummy"></div>
+      <h3 class="row-h rv">Hot sauce <span class="caps">5 oz · small batch</span></h3>
+      <div class="grid rv" id="g-sauce"></div>
       <div class="tiers rv" id="tiers"></div>
     </div>
   </section>
 
   <section class="deals" id="deals">
     <div class="wrap">
-      <div class="head rv"><h2>Stock up.</h2><span class="caps">Mix and match drinks and gummies</span></div>
+      <div class="head rv"><h2>Stock up.</h2><span class="caps">Mix and match drinks, gummies and sauce</span></div>
       <div class="dgrid rv">
         <div class="deal">
           <span class="tag">The Trio</span>
@@ -493,12 +511,20 @@
       {name:'Mango Basil',note:'Ripe mango, a little basil.',c:'#f29a1c',lbl:'#e5c534',bg:'#2a1f0c'},
       {name:'Matcha Blueberry',note:'Matcha with wild blueberry.',c:'#5e5bb0',lbl:'#b9a7e2',bg:'#1c1d2e'},
       {name:'Field Melon',note:'Fresh-cut watermelon.',c:'#e2453a',lbl:'#d9b43c',bg:'#2a1a15'}
+    ],
+    sauce:[
+      {name:'Jerk Sauce',note:'Allspice, thyme, scotch bonnet.',heat:3,c:'#5a2414',lbl:'#d9b43c',bg:'#24130c'},
+      {name:'Mango Hot Pepper',note:'Sweet mango up front, heat behind it.',heat:2,c:'#f0861c',lbl:'#e5c534',bg:'#2a1a0a'},
+      {name:'Green Chili Sauce',note:'Bright green chili, lime, garlic.',heat:2,c:'#5f8f2a',lbl:'#b9a7e2',bg:'#17260f'},
+      {name:'Fire Sauce',note:'The hottest one. You were warned.',heat:4,c:'#c8201a',lbl:'#d9b43c',bg:'#2a0f0c'}
     ]
   };
+  var NOUN={drink:'drink',gummy:'gummies',sauce:'sauce'};
+  function title(type,f){return type==='sauce'?(/sauce/i.test(f.name)?f.name:f.name+' sauce'):f.name+' '+NOUN[type];}
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,price:{drink:14,gummy:12},drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',vibe:'Easy body, clear head.'},
-    {name:'Floating',mg:50,lvl:2,price:{drink:20,gummy:18},drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',vibe:'Feet up. Music louder.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:30,gummy:26},drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',vibe:'Clear your schedule.'}
+    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:14,sauce:15},drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head.'},
+    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:20,sauce:21},drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up. Music louder.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30},drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule.'}
   ];
   var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
   /* ==================================================== */
@@ -520,6 +546,8 @@
     el.style.setProperty('--liq',f.c); el.style.setProperty('--gum',f.c); el.style.setProperty('--lbl',f.lbl);
     el.innerHTML= type==='drink'
       ? '<div class="btl"><div class="cap"></div><div class="neck"></div><div class="body"></div>'+label(mg)+'</div>'
+      : type==='sauce'
+      ? '<div class="woz"><div class="neck"></div><div class="body"></div><div class="cap"></div><div class="band"></div>'+label(mg)+'</div>'
       : '<div class="pch"><div class="body"></div><div class="zip"></div>'+label(mg)+'</div><div class="gums"><span class="gum"></span><span class="gum"></span><span class="gum"></span></div>';
     el.querySelector('.fl').textContent=f.name;
   }
@@ -531,7 +559,7 @@
     var list=LINE[state.type], f=list[state.i], d=DOSES[state.d], price=d.price[state.type];
     hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',hexA(f.c,.42));
     draw(art,state.type,f,d.mg); draw($('mini-art'),state.type,f,d.mg);
-    $('t-drink').setAttribute('aria-pressed',state.type==='drink'); $('t-gummy').setAttribute('aria-pressed',state.type==='gummy');
+    ['drink','gummy','sauce'].forEach(function(t){$('t-'+t).setAttribute('aria-pressed',state.type===t);});
     chips.innerHTML='';
     list.forEach(function(x,i){
       var b=document.createElement('button'); b.type='button'; b.className='chip'; b.style.setProperty('--c',x.c);
@@ -540,7 +568,7 @@
     });
     [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d); b.querySelector('.pr').textContent=money(DOSES[i].price[state.type]);});
     var sum=$('sum'); sum.innerHTML='<b style="color:var(--cream)"></b><br><span></span>';
-    sum.querySelector('b').textContent=f.name+' '+(state.type==='drink'?'drink':'gummies')+' · '+d.mg+' mg · '+money(price);
+    sum.querySelector('b').textContent=title(state.type,f)+' · '+d.mg+' mg · '+money(price);
     sum.querySelector('span').textContent=d[state.type];
     $('q-n').textContent=state.q;
     $('add').textContent='Add to order · '+money(price*state.q);
@@ -552,28 +580,28 @@
     [].forEach.call(b.querySelectorAll('.lvl i'),function(x,k){if(k<d.lvl)x.className='on';});
     b.addEventListener('click',function(){state.d=i; render();}); doses.appendChild(b);
   });
-  $('t-drink').addEventListener('click',function(){if(state.type!=='drink'){state.type='drink';state.i=0;render();}});
-  $('t-gummy').addEventListener('click',function(){if(state.type!=='gummy'){state.type='gummy';state.i=0;render();}});
+  ['drink','gummy','sauce'].forEach(function(t){$('t-'+t).addEventListener('click',function(){if(state.type!==t){state.type=t;state.i=0;render();}});});
   $('q-minus').addEventListener('click',function(){if(state.q>1){state.q--;render();}});
   $('q-plus').addEventListener('click',function(){if(state.q<24){state.q++;render();}});
 
   /* ---------- lineup ---------- */
-  ['drink','gummy'].forEach(function(type){
+  ['drink','gummy','sauce'].forEach(function(type){
     var g=$('g-'+type);
     LINE[type].forEach(function(f,i){
       var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.c); c.style.setProperty('--glow',hexA(f.c,.38));
       c.innerHTML='<span class="ph"><span class="art"></span></span><span class="nm"><i></i><b></b></span><span class="nt"></span><span class="from"></span>';
       draw(c.querySelector('.art'),type,f,0);
       c.querySelector('.nm b').textContent=f.name; c.querySelector('.nt').textContent=f.note;
+      if(f.heat){var h=document.createElement('span'); h.className='heat'; h.setAttribute('aria-label','Heat '+f.heat+' of 4'); h.innerHTML='<i></i><i></i><i></i><i></i>'; [].forEach.call(h.children,function(x,k){if(k<f.heat)x.className='on';}); c.querySelector('.nt').appendChild(h);}
       c.querySelector('.from').textContent='From '+money(DOSES[0].price[type]);
-      c.setAttribute('aria-label','Build '+f.name+(type==='drink'?' drink':' gummies'));
+      c.setAttribute('aria-label','Build '+title(type,f));
       c.addEventListener('click',function(){state.type=type; state.i=i; state.q=1; render(); hero.scrollIntoView({behavior:'smooth'});});
       g.appendChild(c);
     });
   });
   DOSES.forEach(function(d){
     var t=document.createElement('div'); t.className='tier';
-    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span></div><p></p>';
+    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span><span>Sauce <b>'+money(d.price.sauce)+'</b></span></div><p></p>';
     t.querySelector('b').textContent=d.name; t.querySelector('p').textContent=d.vibe;
     $('tiers').appendChild(t);
   });
@@ -581,6 +609,7 @@
   /* ---------- bag ---------- */
   var bag=[];
   try{bag=JSON.parse(localStorage.getItem('tgbag')||'[]')||[];}catch(e){bag=[];}
+  bag=bag.filter(function(it){return it&&LINE[it.type]&&LINE[it.type][it.i]&&DOSES[it.d];});
   function save(){try{localStorage.setItem('tgbag',JSON.stringify(bag));}catch(e){}}
   function unit(it){return DOSES[it.d].price[it.type];}
   function totals(){
@@ -613,7 +642,7 @@
       var row=document.createElement('div'); row.className='line';
       row.innerHTML='<span class="th"><span class="art"></span></span><span><b></b><small></small><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
       draw(row.querySelector('.art'),it.type,f,d.mg);
-      row.querySelector('b').textContent=f.name+(it.type==='drink'?' drink':' gummies');
+      row.querySelector('b').textContent=title(it.type,f);
       row.querySelector('small').textContent=d.name+' · '+d.mg+' mg · '+money(unit(it))+' each';
       row.querySelector('.qty span').textContent=it.q;
       row.querySelector('.r').textContent=money(unit(it)*it.q);
@@ -639,7 +668,7 @@
     syncForm(t);
   }
   function syncForm(t){
-    var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+f.name+' '+(it.type==='drink'?'drink':'gummies')+' · '+d.name+' '+d.mg+'mg · '+money(unit(it)*it.q);});
+    var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+title(it.type,f)+' · '+d.name+' '+d.mg+'mg · '+money(unit(it)*it.q);});
     lines.push('Subtotal '+money(t.sub)+(t.save?' · Savings -'+money(t.save):'')+' · Delivery '+(t.del?money(t.del):'FREE'));
     $('o-order').value=lines.join('\n'); $('o-total').value=money(t.total);
     $('o-send').textContent=t.qty?'Place order · '+money(t.total):'Place order';
