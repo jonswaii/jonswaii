@@ -4,180 +4,181 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Underbite Supply Co.</title>
-<meta name="description" content="Gear for bulldogs, Frenchies, pugs and bullies. Cooling, harnesses, wrinkle care and more. For underbites and fat bellies.">
-<meta name="theme-color" content="#2b1d14">
+<meta name="description" content="Full-grain leather, solid brass and orthopedic comfort for bulldogs, Frenchies, pugs and bullies. For underbites and fat bellies.">
+<meta name="theme-color" content="#1e1612">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Layout: warm paper ground, brindle ink, fawn + tongue-pink accents. Chunky display type, friendly body. */
+  /* Layout: leather-goods boutique. Cream paper, espresso ink, saddle leather, oxblood, brass. Serif display, quiet sans body. The dog is the one loud thing. */
   :root{
-    --paper:#f6efe4; --paper2:#efe3d0; --brindle:#2b1d14; --brindle2:#3b2a1f; --fawn:#d9a86c; --fawn2:#c48c4e; --tongue:#ef7f8f; --ice:#8fd0e8; --muted:#7a6656;
-    --display:"Bowlby One", "Arial Black", Impact, sans-serif;
-    --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --cream:#f4ede2; --cream2:#ebe1d1; --ink:#1e1612; --ink2:#3a2c24; --leather:#8a5a36; --leather2:#6e4426; --oxblood:#6b1f24; --brass:#b8924a; --brass2:#d8b874; --fawn:#d9a86c; --muted:#7d6a5c; --tongue:#e98a96;
+    --serif:"DM Serif Display", "Didot", Georgia, serif;
+    --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
     color-scheme: light;
   }
   *{box-sizing:border-box}
   [hidden]{display:none!important}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--paper);color:var(--brindle);font:17px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit}
-  .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
-  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
-  h2{font-size:clamp(2.3rem,6.4vw,4.4rem)}
+  .wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.02;letter-spacing:-.005em;text-wrap:balance}
+  h1 em,h2 em{color:var(--leather)}
+  h2{font-size:clamp(2.4rem,6vw,4.2rem)}
   p{margin:0 0 1em}
-  .caps{font-weight:800;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase}
-  :focus-visible{outline:3px solid var(--tongue);outline-offset:3px}
-  .btn{display:inline-flex;align-items:center;gap:8px;font:800 1rem var(--body);padding:14px 24px;border-radius:999px;border:2.5px solid var(--brindle);background:var(--brindle);color:var(--paper);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 0 var(--fawn2)}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--fawn2)}
-  .btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--fawn2)}
-  .btn.light{background:var(--paper);color:var(--brindle)}
-  .btn.pink{background:var(--tongue);border-color:var(--tongue);color:var(--brindle);box-shadow:0 4px 0 #b9505f}
+  .caps{font-weight:600;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase}
+  .rule{display:flex;align-items:center;gap:14px;color:var(--brass)}
+  .rule::before,.rule::after{content:"";height:1px;background:currentColor;flex:1;opacity:.6}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem var(--sans);letter-spacing:.04em;padding:15px 26px;border-radius:2px;border:1px solid var(--ink);background:var(--ink);color:var(--cream);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .15s}
+  .btn:hover{background:var(--leather2);border-color:var(--leather2)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+  .btn.brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+  .btn.brass:hover{background:var(--brass2);border-color:var(--brass2)}
 
   /* header */
-  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:41}
-  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(246,239,228,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2.5px solid var(--brindle)}
-  .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
-  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .logo svg{width:40px;height:40px;flex:0 0 40px}
-  .logo b{font-family:var(--display);font-size:1.3rem;line-height:.9;display:block}
-  .logo small{display:block;font-weight:800;font-size:.6rem;letter-spacing:.32em;color:var(--fawn2)}
-  .bar nav{display:flex;align-items:center;gap:22px;font-weight:700;font-size:.92rem}
-  .bar nav a{text-decoration:none}
-  .bar nav a:hover{color:var(--fawn2)}
-  .bagbtn{display:inline-flex;align-items:center;gap:8px;background:var(--brindle);color:var(--paper)!important;padding:8px 14px;border-radius:999px}
-  .bagbtn i{font-style:normal;background:var(--tongue);color:var(--brindle);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.78rem;padding:0 5px}
-  @media (max-width:760px){.bar nav .opt{display:none}}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--cream);z-index:41}
+  .announce{background:var(--ink);color:var(--brass2);text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(244,237,226,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,22,18,.14)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:66px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo svg{width:38px;height:38px;flex:0 0 38px}
+  .logo b{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:.9;display:block}
+  .logo small{display:block;font-weight:600;font-size:.56rem;letter-spacing:.42em;color:var(--leather);margin-top:3px}
+  .bar nav{display:flex;align-items:center;gap:26px;font-size:.9rem;font-weight:500}
+  .bar nav a{text-decoration:none} .bar nav a:hover{color:var(--leather)}
+  .bagbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);padding:7px 14px;border-radius:2px}
+  .bagbtn i{font-style:normal;background:var(--ink);color:var(--cream);border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:.72rem;padding:0 5px}
+  @media (max-width:820px){.bar nav .opt{display:none}}
 
   /* hero */
-  .hero{position:relative;overflow:hidden;border-bottom:2.5px solid var(--brindle)}
-  .hero::before{content:"";position:absolute;right:-12%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:var(--fawn);opacity:.32}
-  .hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(16px,4vw,48px);align-items:center;padding-block:clamp(30px,6vw,72px)}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,5vw,72px);align-items:center;padding-block:clamp(36px,6vw,80px)}
   @media (max-width:860px){.hero-in{grid-template-columns:1fr}}
   .hero-in>*{min-width:0}
-  .hero h1{font-size:clamp(3rem,9.6vw,6.4rem)}
-  .hero h1 span{color:var(--fawn2)}
-  .hero .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:40ch;margin-top:18px;color:var(--brindle2)}
-  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-  .dogbox{position:relative;display:grid;place-items:center}
-  #dog{width:min(100%,460px);height:auto;cursor:pointer;touch-action:manipulation;transform-origin:50% 80%}
+  .hero h1{font-size:clamp(3rem,8.6vw,6.2rem)}
+  .hero .lede{font-size:clamp(1.05rem,2vw,1.2rem);max-width:42ch;margin-top:20px;color:var(--ink2)}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .mats{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:.85rem}
+  .mats span::before{content:"◆";color:var(--brass);margin-right:8px;font-size:.6rem;vertical-align:2px}
+  .portrait{position:relative;width:min(100%,440px);margin-inline:auto;aspect-ratio:4/5}
+  .frame{position:absolute;inset:0;border-radius:50% / 46%;padding:14px;background:conic-gradient(from 210deg,#8c6a2c,#e7cf8f,#a9843f,#f0dca6,#8c6a2c,#d9bb72,#8c6a2c);box-shadow:0 30px 60px rgba(30,22,18,.28),inset 0 0 0 1px rgba(0,0,0,.25)}
+  .frame::before{content:"";position:absolute;inset:14px;border-radius:50% / 46%;background:radial-gradient(70% 60% at 50% 40%,#7a2a2e,#4a1418 80%);box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),inset 0 0 40px rgba(0,0,0,.45)}
+  #dog{position:absolute;left:8%;right:8%;bottom:6%;width:84%;height:auto;cursor:pointer;touch-action:manipulation;transform-origin:50% 85%}
   #dog.snort{animation:snort .55s cubic-bezier(.3,1.6,.5,1)}
-  @keyframes snort{0%{transform:scale(1,1)}30%{transform:scale(1.06,.9)}60%{transform:scale(.97,1.05)}100%{transform:scale(1,1)}}
-  .bubble{position:absolute;top:6%;right:4%;background:var(--paper);border:2.5px solid var(--brindle);border-radius:18px;padding:8px 14px;font-family:var(--display);font-size:1.3rem;transform:rotate(6deg) scale(.6);opacity:0;transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
-  .bubble.on{opacity:1;transform:rotate(6deg) scale(1)}
-  .hint{position:absolute;bottom:2%;left:50%;transform:translateX(-50%);font-weight:800;font-size:.8rem;color:var(--muted);white-space:nowrap}
+  @keyframes snort{0%{transform:scale(1,1)}30%{transform:scale(1.05,.92)}60%{transform:scale(.98,1.04)}100%{transform:scale(1,1)}}
+  .plaque{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);background:linear-gradient(180deg,#e7cf8f,#b8924a);color:var(--ink);font-family:var(--serif);font-size:1rem;padding:6px 18px;border-radius:3px;box-shadow:0 6px 14px rgba(0,0,0,.25);white-space:nowrap}
+  .bubble{position:absolute;top:2%;right:-2%;background:var(--cream);border:1px solid var(--ink);border-radius:16px;padding:8px 14px;font-family:var(--serif);font-style:italic;font-size:1.2rem;transform:rotate(5deg) scale(.6);opacity:0;transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1);pointer-events:none;z-index:2}
+  .bubble.on{opacity:1;transform:rotate(5deg) scale(1)}
+  .hint{text-align:center;margin-top:34px;font-size:.8rem;color:var(--muted);letter-spacing:.06em}
 
-  /* breed ticker */
-  .ticker{background:var(--brindle);color:var(--paper);overflow:hidden;white-space:nowrap;border-bottom:2.5px solid var(--brindle)}
-  .ticker div{display:inline-block;padding-block:12px;animation:tick 34s linear infinite;font-family:var(--display);font-size:1.15rem}
-  .ticker b{color:var(--tongue);margin-inline:16px;font-weight:400}
-  @keyframes tick{to{transform:translateX(-50%)}}
+  section{padding-block:clamp(64px,10vw,120px)}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+  .head p{max-width:42ch;color:var(--ink2);margin:0}
 
-  section{padding-block:clamp(60px,9vw,110px)}
-  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
-  .head .caps{color:var(--muted)}
+  /* signature grid */
+  .sig{background:var(--ink);color:var(--cream)}
+  .sig h2 em{color:var(--brass2)}
+  .sig .head p{color:#cdbfae}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px)}
+  @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{display:flex;flex-direction:column;min-width:0}
+  .card .art{position:relative;aspect-ratio:1/1;display:grid;place-items:center;background:radial-gradient(70% 70% at 50% 45%,var(--bg1),var(--bg2));border-radius:3px;overflow:hidden;max-width:100%}
+  .card .art svg{width:66%;height:auto;transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))}
+  .card:hover .art svg{transform:translateY(-6px) rotate(-2deg)}
+  .card .tag{position:absolute;top:14px;left:14px;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;background:rgba(244,237,226,.92);color:var(--ink);border-radius:2px}
+  .card .bd{padding-top:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card .cat{color:var(--brass2)}
+  .card h3{font-size:1.7rem}
+  .card p{margin:0;font-size:.95rem;color:#cdbfae}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;flex-wrap:wrap}
+  .card .pr{font-family:var(--serif);font-size:1.6rem}
+  .card .pr s{font-family:var(--sans);font-size:.85rem;color:#9d8f80;margin-left:6px}
+  .card select,.card input{font:500 .9rem var(--sans);border:1px solid rgba(244,237,226,.35);border-radius:2px;padding:9px 10px;background:transparent;color:var(--cream)}
+  .card select option{color:var(--ink)}
+  .card .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .card .add{padding:11px 18px}
+  .card.light p{color:var(--ink2)} .card.light .cat{color:var(--leather)}
+  .card.light select,.card.light input{border-color:rgba(30,22,18,.3);color:var(--ink)}
+  .card.light .pr s{color:var(--muted)}
 
-  /* problems */
-  .probs{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px)}
-  @media (max-width:900px){.probs{grid-template-columns:repeat(2,1fr)}}
-  .prob{background:var(--paper2);border:2.5px solid var(--brindle);border-radius:22px;padding:20px 18px 22px;text-decoration:none;display:flex;flex-direction:column;gap:6px;transition:transform .2s,background .2s;min-width:0}
-  .prob:hover{transform:translateY(-4px) rotate(-1deg);background:#fff8ee}
-  .prob .k{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);line-height:1}
-  .prob .f{font-weight:700;color:var(--fawn2)}
-  .prob .f::before{content:"→ "}
-  .prob svg{width:44px;height:44px;margin-bottom:6px}
+  /* engraving */
+  .engrave{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+  @media (max-width:860px){.engrave{grid-template-columns:1fr}}
+  .engrave>*{min-width:0}
+  .tagstage{display:grid;place-items:center;aspect-ratio:1/1;max-width:440px;width:100%;margin-inline:auto;background:radial-gradient(60% 60% at 50% 45%,#efe3cf,#d8c6a9);border-radius:50%}
+  .tagstage svg{width:70%;height:auto;filter:drop-shadow(0 20px 22px rgba(30,22,18,.35));transform:rotate(-8deg)}
+  .eng-form{display:grid;gap:14px;margin-top:24px;max-width:420px}
+  .eng-form label{display:grid;gap:6px;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+  .eng-form input{font:500 17px var(--sans);border:1px solid var(--ink);border-radius:2px;padding:13px 14px;background:transparent;color:var(--ink)}
 
-  /* shop */
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-  .filters button{font:800 .85rem var(--body);border:2.5px solid var(--brindle);background:transparent;color:var(--brindle);border-radius:999px;padding:8px 16px;cursor:pointer}
-  .filters button[aria-pressed="true"]{background:var(--brindle);color:var(--paper)}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,26px)}
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:520px){.grid{grid-template-columns:1fr}}
-  .card{background:#fffaf2;border:2.5px solid var(--brindle);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:0 6px 0 var(--brindle)}
-  .card .art{aspect-ratio:4/3;display:grid;place-items:center;background:var(--bg);border-bottom:2.5px solid var(--brindle);max-width:100%;position:relative}
-  .card .art svg{width:62%;height:auto;transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
-  .card:hover .art svg{transform:rotate(-4deg) scale(1.05)}
-  .card .tag{position:absolute;top:12px;left:12px;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:2px solid var(--brindle);border-radius:999px;padding:3px 10px}
-  .card .tag.sub{background:var(--tongue)}
-  .card .bd{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .card h3{font-size:1.35rem;line-height:1.02}
-  .card p{margin:0;color:var(--brindle2);font-size:.95rem}
-  .card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
-  .card .pr{font-family:var(--display);font-size:1.6rem}
-  .card .pr s{font-family:var(--body);font-size:.9rem;color:var(--muted);margin-left:6px;font-weight:500}
-  .card select{font:700 .9rem var(--body);border:2px solid var(--brindle);border-radius:10px;padding:7px 8px;background:var(--paper);color:var(--brindle)}
-  .card .add{padding:10px 16px;font-size:.92rem}
-  .fit{font-size:.8rem;color:var(--muted);font-weight:700}
-
-  /* fold club */
-  .club{background:var(--brindle);color:var(--paper);position:relative;overflow:hidden}
-  .club::after{content:"";position:absolute;left:-10%;bottom:-40%;width:55%;aspect-ratio:1;border-radius:50%;background:var(--fawn);opacity:.14}
-  .club .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,72px);align-items:center}
-  @media (max-width:860px){.club .wrap{grid-template-columns:1fr}}
-  .club .wrap>*{min-width:0}
-  .club h2 span{color:var(--tongue)}
-  .club p{color:#e6d9c6;max-width:46ch}
-  .box{background:var(--paper);color:var(--brindle);border-radius:26px;padding:24px;border:2.5px solid var(--paper);box-shadow:0 8px 0 var(--fawn2)}
-  .box ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}
-  .box li{display:flex;justify-content:space-between;gap:10px;font-weight:700;border-bottom:2px dashed rgba(43,29,20,.18);padding-bottom:8px}
-  .box li span:last-child{color:var(--muted);text-decoration:line-through;font-weight:500}
-  .box .price{display:flex;align-items:baseline;gap:10px;margin:6px 0 16px}
-  .box .price b{font-family:var(--display);font-size:3rem;line-height:1}
-  .box .price span{font-weight:700;color:#2f7a3d}
-  .perks{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-  .perks span{border:2px solid rgba(246,239,228,.35);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.85rem}
+  /* refills */
+  .refills{background:var(--cream2)}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+  @media (max-width:860px){.rgrid{grid-template-columns:1fr}}
+  .club{margin-top:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;background:var(--oxblood);color:var(--cream);padding:clamp(24px,4vw,44px);border-radius:3px}
+  @media (max-width:860px){.club{grid-template-columns:1fr}}
+  .club>*{min-width:0}
+  .club h3{font-size:clamp(2rem,4.6vw,3rem)}
+  .club h3 em{color:var(--brass2)}
+  .club p{color:#ead9cf;margin:12px 0 0;max-width:46ch}
+  .club .px{text-align:right}
+  @media (max-width:860px){.club .px{text-align:left}}
+  .club .px b{font-family:var(--serif);font-weight:400;font-size:3.2rem;line-height:1;display:block}
+  .club .px span{display:block;color:var(--brass2);font-weight:600;margin:4px 0 16px}
 
   /* sizing */
-  .size{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+  .size{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,64px);align-items:start}
   @media (max-width:860px){.size{grid-template-columns:1fr}}
   .size>*{min-width:0}
-  .tablewrap{overflow-x:auto;border:2.5px solid var(--brindle);border-radius:20px;background:#fffaf2}
+  .tablewrap{overflow-x:auto;border-top:1px solid var(--ink)}
   table{width:100%;border-collapse:collapse;min-width:420px}
-  th,td{text-align:left;padding:13px 16px;border-bottom:2px solid var(--paper2);font-variant-numeric:tabular-nums}
-  th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  tr:last-child td{border-bottom:0}
-  td b{font-family:var(--display);font-weight:400}
+  th,td{text-align:left;padding:14px 10px;border-bottom:1px solid rgba(30,22,18,.14);font-variant-numeric:tabular-nums}
+  th{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  td b{font-family:var(--serif);font-weight:400;font-size:1.2rem}
 
   /* bag */
-  .bag{background:var(--fawn)}
+  .bag{background:var(--cream2);border-top:1px solid rgba(30,22,18,.14)}
   .bag .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:start}
   @media (max-width:860px){.bag .wrap{grid-template-columns:1fr}}
   .bag .wrap>*{min-width:0}
-  .sheet{background:var(--paper);border:2.5px solid var(--brindle);border-radius:24px;padding:18px 20px;box-shadow:0 6px 0 var(--brindle)}
-  .line{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:2px dashed rgba(43,29,20,.16)}
+  .sheet{background:var(--cream);border:1px solid rgba(30,22,18,.16);padding:20px 22px;border-radius:3px}
+  .line{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(30,22,18,.1)}
   .line:last-of-type{border-bottom:0}
-  .line .th{width:52px;height:52px;border-radius:14px;background:var(--bg);display:grid;place-items:center;border:2px solid var(--brindle)}
-  .line .th svg{width:70%;height:auto}
-  .line b{display:block;font-weight:800;line-height:1.15}
-  .line small{color:var(--muted);font-weight:500}
-  .line .r{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
-  .qty{display:inline-flex;align-items:center;border:2px solid var(--brindle);border-radius:999px;margin-top:6px}
-  .qty button{width:32px;height:30px;border:0;background:transparent;font:800 1rem var(--body);color:var(--brindle);cursor:pointer}
-  .qty span{min-width:22px;text-align:center;font-weight:800}
-  .empty{text-align:center;padding:24px 8px;color:var(--brindle2)}
-  .empty b{display:block;font-family:var(--display);font-size:1.5rem;margin-bottom:6px;color:var(--brindle)}
+  .line .th{width:56px;height:56px;border-radius:3px;background:radial-gradient(70% 70% at 50% 45%,var(--bg1),var(--bg2));display:grid;place-items:center}
+  .line .th svg{width:72%;height:auto}
+  .line b{display:block;font-weight:600;line-height:1.2}
+  .line small{display:block;color:var(--muted)}
+  .line .r{text-align:right;font-family:var(--serif);font-size:1.15rem;font-variant-numeric:tabular-nums}
+  .qty{display:inline-flex;align-items:center;border:1px solid rgba(30,22,18,.3);border-radius:2px;margin-top:6px}
+  .qty button{width:30px;height:28px;border:0;background:transparent;font:600 1rem var(--sans);color:var(--ink);cursor:pointer}
+  .qty span{min-width:20px;text-align:center;font-weight:600}
+  .empty{text-align:center;padding:26px 8px;color:var(--ink2)}
+  .empty b{display:block;font-family:var(--serif);font-weight:400;font-size:1.6rem;margin-bottom:6px;color:var(--ink)}
   .tot{display:grid;gap:6px;margin-top:12px;font-variant-numeric:tabular-nums}
-  .tot div{display:flex;justify-content:space-between;font-weight:700}
-  .tot .g{border-top:2.5px solid var(--brindle);padding-top:10px;font-family:var(--display);font-size:1.5rem;font-weight:400}
-  .ship{font-weight:800;font-size:.9rem;margin:10px 0 6px}
-  .bar2{height:10px;border-radius:10px;background:var(--paper2);border:2px solid var(--brindle);overflow:hidden}
-  .bar2 i{display:block;height:100%;background:var(--tongue);transition:width .4s}
-  form{display:grid;gap:12px}
-  label{display:grid;gap:6px;font-weight:800;font-size:.85rem}
-  input{width:100%;font:500 16px var(--body);color:var(--brindle);background:var(--paper);border:2.5px solid var(--brindle);border-radius:14px;padding:12px 14px}
+  .tot div{display:flex;justify-content:space-between}
+  .tot .g{border-top:1px solid var(--ink);padding-top:10px;font-family:var(--serif);font-size:1.6rem}
+  .ship{font-weight:600;font-size:.88rem;margin:12px 0 6px}
+  .bar2{height:3px;background:rgba(30,22,18,.12)}
+  .bar2 i{display:block;height:100%;background:var(--brass);transition:width .4s}
+  form.list{display:grid;gap:12px;margin-top:16px}
+  form.list label{display:grid;gap:6px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  form.list input{font:500 16px var(--sans);color:var(--ink);background:transparent;border:1px solid var(--ink);border-radius:2px;padding:13px 14px}
   .hp{position:absolute;left:-9999px}
-  #c-status{font-weight:800}
+  #c-status{font-weight:600}
 
-  footer{background:var(--brindle);color:#e6d9c6;padding-block:40px;font-size:.9rem}
+  footer{background:var(--ink);color:#cdbfae;padding-block:44px;font-size:.88rem}
   footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-  footer .logo b{color:var(--paper)}
+  footer .logo b{color:var(--cream)} footer .logo small{color:var(--brass2)}
 
-  .pill{position:fixed;z-index:39;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--tongue);color:var(--brindle);border:2.5px solid var(--brindle);text-decoration:none;font-weight:800;padding:10px 16px;border-radius:999px;box-shadow:0 5px 0 var(--brindle);transition:transform .25s}
-  .pill .c{background:var(--brindle);color:var(--paper);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
-  .pill.bump{transform:scale(1.1)}
+  .pill{position:fixed;z-index:39;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);text-decoration:none;font-weight:600;font-size:.9rem;padding:11px 16px;border-radius:2px;box-shadow:0 10px 30px rgba(30,22,18,.35);transition:transform .25s}
+  .pill .c{background:var(--brass);color:var(--ink);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.75rem;padding:0 6px}
+  .pill.bump{transform:scale(1.08)}
 
-  .rv{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rv{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
   .js .rv.pre{opacity:0;transform:translateY(24px)}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .rv.pre{opacity:1;transform:none}}
 </style>
@@ -185,16 +186,17 @@
 </head>
 <body>
 
+<div class="announce">Free shipping over $75 · Engraving included on every brass tag</div>
 <header>
   <div class="wrap bar">
     <a class="logo" href="./" aria-label="Underbite Supply Co. home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#d9a86c" stroke="#2b1d14" stroke-width="2.5"/><path d="M9 25c4 6 18 6 22 0" fill="#f6efe4" stroke="#2b1d14" stroke-width="2.5"/><path d="M14 25.5l1.5-4 1.5 4M23 25.5l1.5-4 1.5 4" fill="#fff" stroke="#2b1d14" stroke-width="1.6" stroke-linejoin="round"/><circle cx="14" cy="16" r="2.4" fill="#2b1d14"/><circle cx="26" cy="16" r="2.4" fill="#2b1d14"/><ellipse cx="20" cy="20" rx="4" ry="2.6" fill="#2b1d14"/></svg>
-      <span><b>UNDERBITE</b><small>SUPPLY CO.</small></span>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#b8924a" stroke-width="1.5"/><circle cx="20" cy="20" r="15" fill="#1e1612"/><path d="M11 24c3.5 5 14.5 5 18 0" fill="#f4ede2"/><path d="M15 24.8l1.4-3.6 1.4 3.6M22.2 24.8l1.4-3.6 1.4 3.6" fill="#f4ede2" stroke="#1e1612" stroke-width="1"/><circle cx="15" cy="16.5" r="2" fill="#f4ede2"/><circle cx="25" cy="16.5" r="2" fill="#f4ede2"/></svg>
+      <span><b>Underbite</b><small>SUPPLY CO.</small></span>
     </a>
     <nav>
-      <a class="opt" href="#shop">Shop</a>
-      <a class="opt" href="#club">Fold Club</a>
-      <a class="opt" href="#sizing">Sizing</a>
+      <a class="opt" href="#signature">Signature</a>
+      <a class="opt" href="#engrave">Engraving</a>
+      <a class="opt" href="#refills">Fold Club</a>
       <a class="bagbtn" href="#bag">Bag <i id="nav-n">0</i></a>
     </nav>
   </div>
@@ -204,109 +206,113 @@
   <div class="hero">
     <div class="wrap hero-in">
       <div>
-        <div class="caps" style="color:var(--fawn2)">Bulldogs · Frenchies · Pugs · Bullies</div>
-        <h1 style="margin-top:14px">For underbites <span>and fat bellies.</span></h1>
-        <p class="lede">Gear built for flat faces. They run hot, can't do collars, and their folds get funky. We fix all of it.</p>
+        <div class="caps" style="color:var(--leather)">For bulldogs, Frenchies, pugs &amp; bullies</div>
+        <h1 style="margin-top:16px">For underbites <em>and fat bellies.</em></h1>
+        <p class="lede">Full-grain leather, solid brass and real orthopedic comfort, cut for flat faces and barrel chests. Built to outlast the chewing phase.</p>
         <div class="ctas">
-          <a class="btn" href="#shop">Shop the gear</a>
-          <a class="btn light" href="#club">Join the Fold Club</a>
+          <a class="btn" href="#signature">Shop the Signature line</a>
+          <a class="btn ghost" href="#refills">The Fold Club</a>
         </div>
+        <div class="mats"><span>Full-grain leather</span><span>Solid brass</span><span>Memory foam</span><span>Stoneware</span></div>
       </div>
-      <div class="dogbox">
-        <div class="bubble" id="bubble" aria-hidden="true">*SNORT*</div>
-        <svg id="dog" viewBox="0 0 400 380" role="img" aria-label="Cartoon English bulldog with an underbite. Tap him.">
-          <!-- ears -->
-          <path d="M70 92 C40 70 38 130 62 150 C80 130 92 110 98 100 Z" fill="#c48c4e" stroke="#2b1d14" stroke-width="5" stroke-linejoin="round"/>
-          <path d="M330 92 C360 70 362 130 338 150 C320 130 308 110 302 100 Z" fill="#c48c4e" stroke="#2b1d14" stroke-width="5" stroke-linejoin="round"/>
-          <!-- head -->
-          <path d="M200 52 C300 50 352 110 352 190 C352 262 300 300 200 300 C100 300 48 262 48 190 C48 110 100 54 200 52 Z" fill="#d9a86c" stroke="#2b1d14" stroke-width="6"/>
-          <!-- blaze -->
-          <path d="M184 60 C190 100 186 140 170 170 L230 170 C214 140 210 100 216 60 Z" fill="#f6efe4"/>
-          <!-- wrinkles -->
-          <g fill="none" stroke="#2b1d14" stroke-width="5" stroke-linecap="round">
-            <path d="M128 110 C150 98 166 100 176 108"/><path d="M224 108 C234 100 250 98 272 110"/>
-            <path d="M140 128 C156 120 168 122 176 128"/><path d="M224 128 C232 122 244 120 260 128"/>
-            <path d="M186 92 C196 88 204 88 214 92"/>
-          </g>
-          <!-- eyes -->
-          <g id="eyes">
-            <ellipse cx="138" cy="168" rx="28" ry="24" fill="#fff" stroke="#2b1d14" stroke-width="5"/>
-            <ellipse cx="262" cy="168" rx="28" ry="24" fill="#fff" stroke="#2b1d14" stroke-width="5"/>
-            <g id="pupils">
-              <circle cx="138" cy="170" r="14" fill="#2b1d14"/><circle cx="133" cy="165" r="4.5" fill="#fff"/>
-              <circle cx="262" cy="170" r="14" fill="#2b1d14"/><circle cx="257" cy="165" r="4.5" fill="#fff"/>
+      <div>
+        <div class="portrait">
+          <div class="frame"></div>
+          <div class="bubble" id="bubble" aria-hidden="true">*snort*</div>
+          <svg id="dog" viewBox="0 0 400 380" role="img" aria-label="Portrait of an English bulldog with an underbite, wearing a leather harness and brass tag. Tap him.">
+            <!-- body + harness -->
+            <path d="M70 380 C70 320 120 292 200 292 C280 292 330 320 330 380 Z" fill="#d9a86c" stroke="#1e1612" stroke-width="5"/>
+            <path d="M92 352 C140 330 260 330 308 352 L304 378 C256 358 144 358 96 378 Z" fill="#8a5a36" stroke="#1e1612" stroke-width="4"/>
+            <path d="M100 360 C146 342 254 342 300 360" fill="none" stroke="#e7cf8f" stroke-width="1.6" stroke-dasharray="5 5"/>
+            <rect x="186" y="336" width="28" height="22" rx="4" fill="#d8b874" stroke="#1e1612" stroke-width="3"/>
+            <circle cx="200" cy="370" r="12" fill="#d8b874" stroke="#1e1612" stroke-width="3"/>
+            <!-- ears -->
+            <path d="M70 92 C40 70 38 130 62 150 C80 130 92 110 98 100 Z" fill="#b8854e" stroke="#1e1612" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M330 92 C360 70 362 130 338 150 C320 130 308 110 302 100 Z" fill="#b8854e" stroke="#1e1612" stroke-width="5" stroke-linejoin="round"/>
+            <!-- head -->
+            <path d="M200 52 C300 50 352 110 352 190 C352 262 300 300 200 300 C100 300 48 262 48 190 C48 110 100 54 200 52 Z" fill="#d9a86c" stroke="#1e1612" stroke-width="6"/>
+            <path d="M184 60 C190 100 186 140 170 170 L230 170 C214 140 210 100 216 60 Z" fill="#f4ede2"/>
+            <g fill="none" stroke="#1e1612" stroke-width="5" stroke-linecap="round">
+              <path d="M128 110 C150 98 166 100 176 108"/><path d="M224 108 C234 100 250 98 272 110"/>
+              <path d="M140 128 C156 120 168 122 176 128"/><path d="M224 128 C232 122 244 120 260 128"/>
+              <path d="M186 92 C196 88 204 88 214 92"/>
             </g>
-            <path id="lidL" d="M108 160 C120 140 156 140 168 160" fill="#d9a86c" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/>
-            <path id="lidR" d="M232 160 C244 140 280 140 292 160" fill="#d9a86c" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/>
-          </g>
-          <!-- jowls -->
-          <path d="M200 196 C150 196 96 214 92 258 C90 292 140 312 200 300 Z" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
-          <path d="M200 196 C250 196 304 214 308 258 C310 292 260 312 200 300 Z" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
-          <!-- lower jaw (the underbite) -->
-          <path d="M138 290 C150 336 250 336 262 290 C240 302 160 302 138 290 Z" fill="#ef7f8f" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
-          <path d="M132 286 C150 312 250 312 268 286" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linecap="round"/>
-          <!-- teeth -->
-          <g fill="#fff" stroke="#2b1d14" stroke-width="4" stroke-linejoin="round">
-            <path d="M150 292 L160 262 L170 296 Z"/><path d="M230 296 L240 262 L250 292 Z"/>
-            <path d="M178 298 L184 284 L190 299 Z"/><path d="M194 299 L200 285 L206 299 Z"/><path d="M210 299 L216 284 L222 298 Z"/>
-          </g>
-          <!-- nose -->
-          <path d="M168 196 C168 178 232 178 232 196 C232 214 214 222 200 222 C186 222 168 214 168 196 Z" fill="#2b1d14"/>
-          <ellipse cx="186" cy="200" rx="6" ry="4" fill="#5a4334"/><ellipse cx="214" cy="200" rx="6" ry="4" fill="#5a4334"/>
-          <ellipse cx="192" cy="186" rx="8" ry="4" fill="#fff" opacity=".35"/>
-          <!-- whisker dots -->
-          <g fill="#2b1d14"><circle cx="150" cy="232" r="3"/><circle cx="162" cy="244" r="3"/><circle cx="146" cy="250" r="3"/><circle cx="250" cy="232" r="3"/><circle cx="238" cy="244" r="3"/><circle cx="254" cy="250" r="3"/></g>
-          <!-- belly hint -->
-          <path d="M120 312 C140 360 260 360 280 312" fill="none" stroke="#2b1d14" stroke-width="6" stroke-linecap="round" opacity=".0"/>
-        </svg>
-        <span class="hint" id="hint">Tap him.</span>
+            <ellipse cx="138" cy="168" rx="28" ry="24" fill="#fff" stroke="#1e1612" stroke-width="5"/>
+            <ellipse cx="262" cy="168" rx="28" ry="24" fill="#fff" stroke="#1e1612" stroke-width="5"/>
+            <g id="pupils">
+              <circle cx="138" cy="170" r="14" fill="#1e1612"/><circle cx="133" cy="165" r="4.5" fill="#fff"/>
+              <circle cx="262" cy="170" r="14" fill="#1e1612"/><circle cx="257" cy="165" r="4.5" fill="#fff"/>
+            </g>
+            <path id="lidL" d="M108 160 C120 140 156 140 168 160" fill="#d9a86c" stroke="#1e1612" stroke-width="5" stroke-linecap="round"/>
+            <path id="lidR" d="M232 160 C244 140 280 140 292 160" fill="#d9a86c" stroke="#1e1612" stroke-width="5" stroke-linecap="round"/>
+            <path d="M200 196 C150 196 96 214 92 258 C90 292 140 312 200 300 Z" fill="#f4ede2" stroke="#1e1612" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M200 196 C250 196 304 214 308 258 C310 292 260 312 200 300 Z" fill="#f4ede2" stroke="#1e1612" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M138 290 C150 336 250 336 262 290 C240 302 160 302 138 290 Z" fill="#e98a96" stroke="#1e1612" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M132 286 C150 312 250 312 268 286" fill="#f4ede2" stroke="#1e1612" stroke-width="6" stroke-linecap="round"/>
+            <g fill="#fff" stroke="#1e1612" stroke-width="4" stroke-linejoin="round">
+              <path d="M150 292 L160 262 L170 296 Z"/><path d="M230 296 L240 262 L250 292 Z"/>
+              <path d="M178 298 L184 284 L190 299 Z"/><path d="M194 299 L200 285 L206 299 Z"/><path d="M210 299 L216 284 L222 298 Z"/>
+            </g>
+            <path d="M168 196 C168 178 232 178 232 196 C232 214 214 222 200 222 C186 222 168 214 168 196 Z" fill="#1e1612"/>
+            <ellipse cx="186" cy="200" rx="6" ry="4" fill="#5a4334"/><ellipse cx="214" cy="200" rx="6" ry="4" fill="#5a4334"/>
+            <ellipse cx="192" cy="186" rx="8" ry="4" fill="#fff" opacity=".35"/>
+            <g fill="#1e1612"><circle cx="150" cy="232" r="3"/><circle cx="162" cy="244" r="3"/><circle cx="146" cy="250" r="3"/><circle cx="250" cy="232" r="3"/><circle cx="238" cy="244" r="3"/><circle cx="254" cy="250" r="3"/></g>
+          </svg>
+          <div class="plaque">The Founder</div>
+        </div>
+        <p class="hint" id="hint">Tap the portrait.</p>
       </div>
     </div>
   </div>
 
-  <div class="ticker" aria-hidden="true"><div>
-    English Bulldog <b>●</b> French Bulldog <b>●</b> American Bully <b>●</b> Pug <b>●</b> Boston Terrier <b>●</b> Boxer <b>●</b> Shih Tzu <b>●</b>
-    English Bulldog <b>●</b> French Bulldog <b>●</b> American Bully <b>●</b> Pug <b>●</b> Boston Terrier <b>●</b> Boxer <b>●</b> Shih Tzu <b>●</b>
-  </div></div>
+  <div class="wrap"><div class="rule caps" style="font-size:.66rem">English Bulldog · French Bulldog · American Bully · Pug · Boston Terrier</div></div>
 
-  <section id="why">
+  <section class="sig" id="signature" style="margin-top:clamp(40px,6vw,72px)">
     <div class="wrap">
-      <div class="head rv"><h2>Built for the flat-face problems.</h2><span class="caps">Tap a problem, get the fix</span></div>
-      <div class="probs rv">
-        <a class="prob" href="#shop" data-go="cool"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round"><path d="M24 6v24"/><circle cx="24" cy="36" r="7" fill="#ef7f8f"/><path d="M30 12h6M30 18h4M30 24h6"/></svg><span class="k">Runs hot</span><span class="f">Cooling vest + mat</span></a>
-        <a class="prob" href="#shop" data-go="walk"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14c8 10 20 10 28 0"/><path d="M14 18v18h20V18"/><circle cx="24" cy="30" r="3" fill="#d9a86c"/></svg><span class="k">Chokes on collars</span><span class="f">No-pull harness</span></a>
-        <a class="prob" href="#shop" data-go="clean"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round"><path d="M8 18c6-6 26-6 32 0M10 26c6-5 22-5 28 0M12 34c6-4 18-4 24 0"/></svg><span class="k">Funky folds</span><span class="f">Wrinkle wipes</span></a>
-        <a class="prob" href="#shop" data-go="clean"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linejoin="round"><path d="M14 20c0-8 20-8 20 0 0 9-6 14-10 14s-10-5-10-14z" fill="#2b1d14"/><path d="M8 40l6-4M40 40l-6-4"/></svg><span class="k">Crusty nose</span><span class="f">Nose + paw balm</span></a>
-      </div>
+      <div class="head rv"><h2>The Signature <em>line.</em></h2><p>Built for barrel chests and flat faces. Leather that softens with every walk, hardware that won't rust, beds that hold their shape.</p></div>
+      <div class="grid rv" id="g-sig"></div>
     </div>
   </section>
 
-  <section id="shop" style="padding-top:0">
-    <div class="wrap">
-      <div class="head rv"><h2>The gear.</h2><span class="caps">Free shipping over $50</span></div>
-      <div class="filters" id="filters" role="group" aria-label="Filter products">
-        <button type="button" data-f="all" aria-pressed="true">All</button>
-        <button type="button" data-f="cool" aria-pressed="false">Cool down</button>
-        <button type="button" data-f="walk" aria-pressed="false">Walk</button>
-        <button type="button" data-f="clean" aria-pressed="false">Clean</button>
-        <button type="button" data-f="eat" aria-pressed="false">Eat</button>
+  <section id="engrave">
+    <div class="wrap engrave">
+      <div class="tagstage rv" aria-hidden="true">
+        <svg viewBox="0 0 220 260">
+          <defs>
+            <linearGradient id="brassG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0dca6"/><stop offset=".45" stop-color="#c9a458"/><stop offset=".7" stop-color="#e7cf8f"/><stop offset="1" stop-color="#9c7a36"/></linearGradient>
+          </defs>
+          <circle cx="110" cy="30" r="22" fill="none" stroke="#9c7a36" stroke-width="7"/>
+          <path d="M110 52 C176 52 196 100 196 150 C196 210 156 246 110 246 C64 246 24 210 24 150 C24 100 44 52 110 52 Z" fill="url(#brassG)" stroke="#7a5d27" stroke-width="3"/>
+          <circle cx="110" cy="70" r="7" fill="#efe3cf" stroke="#7a5d27" stroke-width="2"/>
+          <path d="M44 150 C44 110 64 84 110 84" fill="none" stroke="#fff" stroke-width="3" opacity=".45"/>
+          <text id="tg-name" x="110" y="160" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="34" fill="#3a2a12">TANK</text>
+          <text id="tg-phone" x="110" y="196" text-anchor="middle" font-family="Figtree, sans-serif" font-size="15" letter-spacing="2" fill="#3a2a12">804 · 555 · 0123</text>
+        </svg>
       </div>
-      <div class="grid rv" id="grid"></div>
-    </div>
-  </section>
-
-  <section class="club" id="club">
-    <div class="wrap">
       <div class="rv">
-        <div class="caps" style="color:var(--tongue)">Subscription</div>
-        <h2 style="margin-top:14px">The Fold <span>Club.</span></h2>
-        <p style="margin-top:18px">Wrinkle wipes, tear stain wipes and nose balm, at your door every month before you run out. Skip a month or cancel anytime.</p>
-        <div class="perks"><span>Ships monthly</span><span>Skip anytime</span><span>Cancel anytime</span><span>Free shipping</span></div>
+        <div class="caps" style="color:var(--leather)">Custom, on us</div>
+        <h2 style="margin-top:14px">Solid brass. <em>Their name.</em></h2>
+        <p style="margin-top:18px;max-width:44ch;color:var(--ink2)">Deep-engraved solid brass ID tag. Type it in and see it before you order. Pairs with every harness.</p>
+        <div class="eng-form">
+          <label>Dog's name<input id="e-name" maxlength="12" value="Tank" autocomplete="off"></label>
+          <label>Phone on the back<input id="e-phone" maxlength="16" value="804 555 0123" inputmode="tel" autocomplete="off"></label>
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><button class="btn" type="button" id="e-add">Add engraved tag · $24</button><span id="e-msg" role="status" style="font-weight:600"></span></div>
+        </div>
       </div>
-      <div class="box rv">
-        <ul id="club-list"></ul>
-        <div class="price"><b id="club-price">$39</b><span id="club-save"></span></div>
-        <button class="btn pink" type="button" id="club-add" style="width:100%;justify-content:center">Join the Fold Club</button>
+    </div>
+  </section>
+
+  <section class="refills" id="refills">
+    <div class="wrap">
+      <div class="head rv"><h2>The daily <em>refills.</em></h2><p>Gentle, everyday care for folds, faces and noses. Small things you'll actually use up.</p></div>
+      <div class="rgrid rv" id="g-ref"></div>
+      <div class="club rv">
+        <div>
+          <div class="caps" style="color:var(--brass2)">Subscription</div>
+          <h3 style="margin-top:10px">The Fold <em>Club.</em></h3>
+          <p>All three refills at your door every month, before you run out. Free shipping. Skip or cancel anytime.</p>
+        </div>
+        <div class="px"><b id="club-price">$39</b><span id="club-save"></span><button class="btn brass" type="button" id="club-add">Join the Fold Club</button></div>
       </div>
     </div>
   </section>
@@ -314,9 +320,9 @@
   <section id="sizing">
     <div class="wrap size">
       <div class="rv">
-        <div class="caps" style="color:var(--fawn2)">Harness + vest sizing</div>
-        <h2 style="margin-top:14px">Measure the barrel.</h2>
-        <p style="margin-top:18px;max-width:42ch">Wrap a tape measure around the widest part of the chest, right behind the front legs. Between sizes? Go up. Bullies are built like fire hydrants.</p>
+        <div class="caps" style="color:var(--leather)">Harness, vest &amp; bed sizing</div>
+        <h2 style="margin-top:14px">Measure <em>the barrel.</em></h2>
+        <p style="margin-top:18px;max-width:42ch;color:var(--ink2)">Wrap a tape around the widest part of the chest, right behind the front legs. Between sizes? Go up. Bullies are built like fire hydrants.</p>
       </div>
       <div class="tablewrap rv">
         <table>
@@ -336,22 +342,22 @@
   <section class="bag" id="bag">
     <div class="wrap">
       <div class="rv">
-        <div class="caps">Your bag</div>
-        <h2 style="margin-top:14px">Ready when you are.</h2>
-        <div class="sheet" id="sheet" style="margin-top:22px"></div>
+        <div class="caps" style="color:var(--leather)">Your bag</div>
+        <h2 style="margin-top:14px">Ready when <em>you are.</em></h2>
+        <div class="sheet" id="sheet" style="margin-top:24px"></div>
       </div>
       <div class="rv">
         <div class="sheet">
-          <h3 style="font-size:1.6rem">We open soon.</h3>
-          <p style="margin-top:10px">Checkout goes live at launch. Drop your email and we'll send your bag with <b>15% off your first order</b>.</p>
-          <!-- EDIT: replace YOUR_FORM_ID with your Formspree code. When Shopify is live, this becomes the checkout. -->
-          <form id="cform" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+          <h3 style="font-size:1.9rem">Opening soon.</h3>
+          <p style="margin-top:10px;color:var(--ink2)">Checkout opens at launch. Leave your email and we'll hold your bag with <b>15% off your first order</b>.</p>
+          <!-- EDIT: replace YOUR_FORM_ID with your Formspree code. When Shopify is live this becomes checkout. -->
+          <form id="cform" class="list" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
             <input type="hidden" name="_subject" value="Underbite launch list">
             <input type="hidden" name="bag" id="c-bag">
             <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
-            <label>Your email<input id="c-email" name="email" type="email" required autocomplete="email"></label>
+            <label>Email<input id="c-email" name="email" type="email" required autocomplete="email"></label>
             <label>Your dog's name + breed<input id="c-dog" name="dog" placeholder="Tank, English Bulldog"></label>
-            <button class="btn" type="submit" id="c-send" style="justify-content:center">Save my bag + 15% off</button>
+            <button class="btn" type="submit" id="c-send">Hold my bag + 15% off</button>
             <p id="c-status" role="status"></p>
           </form>
         </div>
@@ -364,7 +370,7 @@
 
 <footer>
   <div class="wrap row">
-    <a class="logo" href="./"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#d9a86c" stroke="#f6efe4" stroke-width="2.5"/><path d="M9 25c4 6 18 6 22 0" fill="#f6efe4" stroke="#2b1d14" stroke-width="2.5"/><circle cx="14" cy="16" r="2.4" fill="#2b1d14"/><circle cx="26" cy="16" r="2.4" fill="#2b1d14"/><ellipse cx="20" cy="20" rx="4" ry="2.6" fill="#2b1d14"/></svg><span><b>UNDERBITE</b><small>SUPPLY CO.</small></span></a>
+    <a class="logo" href="./"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#b8924a" stroke-width="1.5"/><circle cx="20" cy="20" r="15" fill="#f4ede2"/><path d="M11 24c3.5 5 14.5 5 18 0" fill="#1e1612"/><circle cx="15" cy="16.5" r="2" fill="#1e1612"/><circle cx="25" cy="16.5" r="2" fill="#1e1612"/></svg><span><b>Underbite</b><small>SUPPLY CO.</small></span></a>
     <span>For underbites and fat bellies. © <span id="yr">2026</span> Underbite Supply Co.</span>
   </div>
 </footer>
@@ -372,47 +378,53 @@
 <script>
 (function(){
   /* ============ EDIT PRODUCTS + PRICES HERE ============ */
+  var SIZES=['S','M','L','XL','XXL'];
   var PRODUCTS=[
-    {id:'vest', name:'Cooling Vest', cat:'cool', price:44, was:49, bg:'#cfeaf3', note:'Soak it, wring it, strap it on. Keeps a hot bully cool on walks.', sizes:true, fit:'Sizes S–XXL', art:'vest'},
-    {id:'mat',  name:'Cooling Mat', cat:'cool', price:36, bg:'#dff1f7', note:'Pressure-activated gel mat. No fridge, no plug. Just flop.', sizes:false, fit:'Fits up to XXL', art:'mat'},
-    {id:'harness', name:'No-Pull Chest Harness', cat:'walk', price:34, was:44, bg:'#f3dcc0', note:'Wide chest plate, nothing on the throat. Front and back clips.', sizes:true, fit:'Sizes S–XXL', art:'harness'},
-    {id:'wipes', name:'Wrinkle Wipes', cat:'clean', price:16, bg:'#fbe1e5', note:'100 thick wipes for folds, tail pockets and paws. Gentle, no harsh scent.', sizes:false, fit:'100 count', art:'wipes', club:true},
-    {id:'tear', name:'Tear Stain Wipes', cat:'clean', price:14, bg:'#f1e6f7', note:'Gentle eye-area wipes for the brown streaks under the eyes.', sizes:false, fit:'80 count', art:'tear', club:true},
-    {id:'balm', name:'Nose + Paw Balm', cat:'clean', price:16, bg:'#f6ead6', note:'Lick-safe balm for crusty noses and cracked pads.', sizes:false, fit:'2 oz tin', art:'balm', club:true},
-    {id:'bowl', name:'Tilted Flat-Face Bowl', cat:'eat', price:22, bg:'#e6efd9', note:'15° tilt so smushed faces can actually reach the food.', sizes:false, fit:'Raised + tilted', art:'bowl'}
+    // Signature line
+    {id:'harness',line:'sig',cat:'Walk',name:'The Barrel Harness',note:'Full-grain leather chest plate, nothing on the throat. Solid brass hardware, front and back rings.',price:98,sizes:SIZES,def:'XL',art:'harness',bg:['#9a6a43','#4a2e1a']},
+    {id:'leash',line:'sig',cat:'Walk',name:'The Lead',note:'Five-foot full-grain leather leash with a padded handle and solid brass clip. Matches the harness.',price:68,art:'leash',bg:['#7c2a2e','#3e1114']},
+    {id:'set',line:'sig',cat:'Set',name:'The Walk Set',note:'Harness, leash and an engraved brass tag in a gift box. The full kit.',price:169,was:190,sizes:SIZES,def:'XL',art:'set',bg:['#b8924a','#5a4320'],tag:'Best value'},
+    {id:'bed',line:'sig',cat:'Rest',name:'The Flop Bed',note:'Orthopedic memory foam with a bolster for flat-face chin rests. Washable, water-resistant cover.',price:189,sizes:['M','L','XL'],def:'L',art:'bed',bg:['#5b6b5a','#232b23']},
+    {id:'bowl',line:'sig',cat:'Eat',name:'Stoneware Tilt Bowl',note:'Heavy glazed stoneware on a 15° tilt so smushed faces reach every bite. Won’t slide, won’t chip easy.',price:42,art:'bowl',bg:['#c9b79c','#6d5c45']},
+    {id:'vest',line:'sig',cat:'Cool',name:'The Cool Down Vest',note:'Technical evaporative fabric. Soak, wring, strap. Keeps a hot bully cool on summer walks.',price:64,sizes:SIZES,def:'XL',art:'vest',bg:['#3e6b78','#17313a']},
+    // Refills
+    {id:'wipes',line:'ref',cat:'Folds',name:'Wrinkle Wipes',note:'100 thick, unscented wipes for folds, tail pockets and paws.',price:16,art:'wipes',bg:['#efe3cf','#d6c3a3'],club:true},
+    {id:'tear',line:'ref',cat:'Eyes',name:'Tear Stain Wipes',note:'80 gentle eye-area wipes for the brown streaks.',price:14,art:'tear',bg:['#efe3cf','#d6c3a3'],club:true},
+    {id:'balm',line:'ref',cat:'Nose + paws',name:'Nose & Paw Balm',note:'Lick-safe balm for crusty noses and cracked pads. 2 oz tin.',price:16,art:'balm',bg:['#efe3cf','#d6c3a3'],club:true}
   ];
-  var CLUB_PRICE=39, FREE_SHIP=50, SHIPPING=6;
+  var TAG_PRICE=24, CLUB_PRICE=39, FREE_SHIP=75, SHIPPING=8;
   /* ===================================================== */
 
   var $=function(id){return document.getElementById(id);};
   var money=function(n){return '$'+n.toFixed(n%1?2:0);};
   $('yr').textContent=new Date().getFullYear();
 
+  var stitch='stroke="#e7cf8f" stroke-width="1.6" stroke-dasharray="4 4" fill="none"';
   var ART={
-    vest:'<svg viewBox="0 0 120 100"><path d="M30 18 L50 10 Q60 22 70 10 L90 18 L100 50 L92 88 L28 88 L20 50 Z" fill="#8fd0e8" stroke="#2b1d14" stroke-width="4" stroke-linejoin="round"/><path d="M30 40h60M28 60h64" stroke="#2b1d14" stroke-width="3" stroke-dasharray="6 5"/><rect x="50" y="64" width="20" height="10" rx="3" fill="#f6efe4" stroke="#2b1d14" stroke-width="3"/></svg>',
-    mat:'<svg viewBox="0 0 120 100"><rect x="10" y="26" width="100" height="56" rx="12" fill="#8fd0e8" stroke="#2b1d14" stroke-width="4"/><path d="M10 45h100M10 64h100M43 26v56M77 26v56" stroke="#2b1d14" stroke-width="2.5" opacity=".45"/><path d="M60 14v8M54 18l6 4 6-4" stroke="#2b1d14" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
-    harness:'<svg viewBox="0 0 120 100"><path d="M24 30 Q60 4 96 30" fill="none" stroke="#2b1d14" stroke-width="10" stroke-linecap="round"/><path d="M24 30 Q60 4 96 30" fill="none" stroke="#d9a86c" stroke-width="5" stroke-linecap="round"/><rect x="36" y="32" width="48" height="50" rx="16" fill="#d9a86c" stroke="#2b1d14" stroke-width="4"/><path d="M22 60h76" stroke="#2b1d14" stroke-width="9" stroke-linecap="round"/><path d="M22 60h76" stroke="#ef7f8f" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="48" r="6" fill="#f6efe4" stroke="#2b1d14" stroke-width="3"/></svg>',
-    wipes:'<svg viewBox="0 0 120 100"><rect x="14" y="22" width="92" height="62" rx="18" fill="#ef7f8f" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="42" rx="26" ry="10" fill="#f6efe4" stroke="#2b1d14" stroke-width="3.5"/><path d="M50 40 Q60 26 70 40" fill="#fff" stroke="#2b1d14" stroke-width="3"/><path d="M30 66c8-5 20-5 28 0M62 66c8-5 20-5 28 0" fill="none" stroke="#2b1d14" stroke-width="3" stroke-linecap="round"/></svg>',
-    tear:'<svg viewBox="0 0 120 100"><rect x="14" y="22" width="92" height="62" rx="18" fill="#c9b2e4" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="42" rx="26" ry="10" fill="#f6efe4" stroke="#2b1d14" stroke-width="3.5"/><path d="M50 40 Q60 26 70 40" fill="#fff" stroke="#2b1d14" stroke-width="3"/><path d="M60 58c-5 8-5 14 0 16 5-2 5-8 0-16z" fill="#8fd0e8" stroke="#2b1d14" stroke-width="3"/></svg>',
-    balm:'<svg viewBox="0 0 120 100"><ellipse cx="60" cy="74" rx="40" ry="12" fill="#c48c4e" stroke="#2b1d14" stroke-width="4"/><rect x="20" y="44" width="80" height="30" fill="#c48c4e"/><path d="M20 44v30M100 44v30" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="44" rx="40" ry="12" fill="#f6efe4" stroke="#2b1d14" stroke-width="4"/><path d="M50 42c0-6 20-6 20 0 0 5-4 8-10 8s-10-3-10-8z" fill="#2b1d14"/></svg>',
-    bowl:'<svg viewBox="0 0 120 100"><path d="M30 86 L40 50 M90 86 L80 50" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/><g transform="rotate(-12 60 48)"><ellipse cx="60" cy="40" rx="40" ry="12" fill="#f6efe4" stroke="#2b1d14" stroke-width="4"/><path d="M20 40 Q24 68 60 70 Q96 68 100 40" fill="#9cc47a" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="40" rx="28" ry="7" fill="#c48c4e"/></g></svg>'
+    harness:'<svg viewBox="0 0 140 120"><defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8703f"/><stop offset="1" stop-color="#6e4426"/></linearGradient></defs><path d="M22 34 Q70 0 118 34" fill="none" stroke="#3a2416" stroke-width="16" stroke-linecap="round"/><path d="M22 34 Q70 0 118 34" fill="none" stroke="url(#lg1)" stroke-width="12" stroke-linecap="round"/><path d="M24 34 Q70 4 116 34" '+stitch+'/><rect x="42" y="36" width="56" height="64" rx="20" fill="url(#lg1)" stroke="#3a2416" stroke-width="3"/><rect x="48" y="42" width="44" height="52" rx="15" '+stitch+'/><path d="M18 74h104" stroke="#3a2416" stroke-width="14" stroke-linecap="round"/><path d="M18 74h104" stroke="url(#lg1)" stroke-width="10" stroke-linecap="round"/><rect x="60" y="64" width="20" height="20" rx="3" fill="none" stroke="#d8b874" stroke-width="4"/><circle cx="70" cy="50" r="7" fill="none" stroke="#d8b874" stroke-width="4"/></svg>',
+    leash:'<svg viewBox="0 0 140 120"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a8703f"/><stop offset="1" stop-color="#6e4426"/></linearGradient></defs><ellipse cx="62" cy="64" rx="40" ry="30" fill="none" stroke="#3a2416" stroke-width="12"/><ellipse cx="62" cy="64" rx="40" ry="30" fill="none" stroke="url(#lg2)" stroke-width="8"/><ellipse cx="62" cy="64" rx="28" ry="20" fill="none" stroke="#3a2416" stroke-width="12"/><ellipse cx="62" cy="64" rx="28" ry="20" fill="none" stroke="url(#lg2)" stroke-width="8"/><path d="M100 70 Q116 80 116 96" fill="none" stroke="url(#lg2)" stroke-width="8" stroke-linecap="round"/><path d="M110 96h12v14a6 6 0 0 1-12 0z" fill="#d8b874" stroke="#3a2416" stroke-width="2.5"/><circle cx="116" cy="92" r="5" fill="none" stroke="#d8b874" stroke-width="3"/></svg>',
+    set:'<svg viewBox="0 0 140 120"><rect x="14" y="40" width="112" height="66" rx="4" fill="#1e1612" stroke="#d8b874" stroke-width="2"/><path d="M14 58h112" stroke="#d8b874" stroke-width="1.5"/><path d="M70 40v66" stroke="#b8924a" stroke-width="10"/><path d="M50 30c-14-16 16-18 20 6 4-24 34-22 20-6" fill="none" stroke="#b8924a" stroke-width="7" stroke-linecap="round"/><text x="70" y="88" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="13" fill="#e7cf8f">UNDERBITE</text></svg>',
+    bed:'<svg viewBox="0 0 140 120"><path d="M14 64 Q14 40 40 40 L100 40 Q126 40 126 64 L126 92 Q126 102 116 102 L24 102 Q14 102 14 92 Z" fill="#7d8f7b" stroke="#232b23" stroke-width="3"/><path d="M30 64 Q30 56 40 56 L100 56 Q110 56 110 64 L110 84 Q110 90 104 90 L36 90 Q30 90 30 84 Z" fill="#c9d3c4" stroke="#232b23" stroke-width="2.5"/><path d="M38 72h64" stroke="#232b23" stroke-width="1.5" opacity=".35"/><path d="M18 50 Q20 44 28 44" stroke="#fff" stroke-width="2" opacity=".4" fill="none"/></svg>',
+    bowl:'<svg viewBox="0 0 140 120"><path d="M38 104 L48 64 M102 104 L92 64" stroke="#3a2c24" stroke-width="6" stroke-linecap="round"/><g transform="rotate(-14 70 56)"><ellipse cx="70" cy="46" rx="46" ry="13" fill="#efe6d7" stroke="#3a2c24" stroke-width="3"/><path d="M24 46 Q28 80 70 82 Q112 80 116 46" fill="#4f6b74" stroke="#3a2c24" stroke-width="3"/><path d="M30 56 Q36 74 70 76" stroke="#fff" stroke-width="2" opacity=".35" fill="none"/><ellipse cx="70" cy="46" rx="34" ry="8" fill="#c48c4e"/></g></svg>',
+    vest:'<svg viewBox="0 0 140 120"><path d="M34 20 L56 10 Q70 26 84 10 L106 20 L118 58 L108 108 L32 108 L22 58 Z" fill="#5d97a6" stroke="#17313a" stroke-width="3" stroke-linejoin="round"/><path d="M30 46h80M28 70h84M30 92h80" stroke="#17313a" stroke-width="1.5" opacity=".4"/><rect x="58" y="74" width="24" height="14" rx="2" fill="#f4ede2" stroke="#17313a" stroke-width="2"/><path d="M36 26 L56 16" '+stitch.replace('#e7cf8f','#cfe6ec')+'/></svg>',
+    wipes:'<svg viewBox="0 0 140 120"><rect x="18" y="30" width="104" height="70" rx="18" fill="#f4ede2" stroke="#1e1612" stroke-width="3"/><ellipse cx="70" cy="52" rx="28" ry="10" fill="#1e1612"/><path d="M58 50 Q70 36 82 50" fill="#fff" stroke="#1e1612" stroke-width="2"/><text x="70" y="86" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="12" fill="#1e1612">Wrinkle</text></svg>',
+    tear:'<svg viewBox="0 0 140 120"><rect x="18" y="30" width="104" height="70" rx="18" fill="#f4ede2" stroke="#1e1612" stroke-width="3"/><ellipse cx="70" cy="52" rx="28" ry="10" fill="#6b1f24"/><path d="M58 50 Q70 36 82 50" fill="#fff" stroke="#1e1612" stroke-width="2"/><text x="70" y="86" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="12" fill="#1e1612">Tear Stain</text></svg>',
+    balm:'<svg viewBox="0 0 140 120"><ellipse cx="70" cy="88" rx="44" ry="13" fill="#9c7a36" stroke="#3a2a12" stroke-width="3"/><rect x="26" y="58" width="88" height="30" fill="#c9a458"/><path d="M26 58v30M114 58v30" stroke="#3a2a12" stroke-width="3"/><ellipse cx="70" cy="58" rx="44" ry="13" fill="#e7cf8f" stroke="#3a2a12" stroke-width="3"/><text x="70" y="62" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="11" fill="#3a2a12">BALM</text></svg>',
+    tag:'<svg viewBox="0 0 140 120"><circle cx="70" cy="18" r="10" fill="none" stroke="#9c7a36" stroke-width="4"/><path d="M70 28 C104 28 114 54 114 78 C114 104 94 116 70 116 C46 116 26 104 26 78 C26 54 36 28 70 28 Z" fill="#d8b874" stroke="#7a5d27" stroke-width="2.5"/><text x="70" y="84" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="16" fill="#3a2a12">NAME</text></svg>',
+    club:'<svg viewBox="0 0 140 120"><rect x="20" y="34" width="100" height="70" rx="4" fill="#6b1f24" stroke="#1e1612" stroke-width="3"/><path d="M20 52h100" stroke="#d8b874" stroke-width="2"/><text x="70" y="84" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="14" fill="#e7cf8f">FOLD CLUB</text></svg>'
   };
 
-  /* ---- interactive dog ---- */
+  /* ---- portrait dog ---- */
   var dog=$('dog'), pupils=$('pupils'), bubble=$('bubble');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function look(x,y){
-    var r=dog.getBoundingClientRect(); var cx=r.left+r.width/2, cy=r.top+r.height*.44;
-    var dx=x-cx, dy=y-cy, d=Math.hypot(dx,dy)||1, m=Math.min(9,d/30);
-    pupils.setAttribute('transform','translate('+(dx/d*m).toFixed(1)+','+(dy/d*m*0.8).toFixed(1)+')');
-  }
   if(!reduce){
-    addEventListener('pointermove',function(e){look(e.clientX,e.clientY);},{passive:true});
-    setInterval(function(){ // blink
-      ['lidL','lidR'].forEach(function(id){var l=$(id); l.setAttribute('transform','translate(0,16) scale(1,1)'); setTimeout(function(){l.removeAttribute('transform');},140);});
-    },4200);
+    addEventListener('pointermove',function(e){
+      var r=dog.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height*.44, dx=e.clientX-cx, dy=e.clientY-cy, d=Math.hypot(dx,dy)||1, m=Math.min(9,d/30);
+      pupils.setAttribute('transform','translate('+(dx/d*m).toFixed(1)+','+(dy/d*m*.8).toFixed(1)+')');
+    },{passive:true});
+    setInterval(function(){['lidL','lidR'].forEach(function(id){var l=$(id); l.setAttribute('transform','translate(0,16)'); setTimeout(function(){l.removeAttribute('transform');},140);});},4400);
   }
-  var lines=['*SNORT*','*grumble*','*SNORT*','Feed me.','*wheeze*','Treat?'], li=0;
+  var lines=['*snort*','*grumble*','Treat?','*wheeze*','Not now.','*snort*'], li=0;
   dog.addEventListener('click',function(){
     dog.classList.remove('snort'); void dog.getBoundingClientRect(); dog.classList.add('snort');
     bubble.textContent=lines[li++%lines.length]; bubble.classList.add('on');
@@ -420,74 +432,76 @@
     $('hint').hidden=true;
   });
 
-  /* ---- shop ---- */
-  var grid=$('grid');
-  PRODUCTS.forEach(function(p){
-    var c=document.createElement('article'); c.className='card'; c.dataset.cat=p.cat; c.style.setProperty('--bg',p.bg);
-    c.innerHTML='<div class="art">'+ART[p.art]+(p.club?'<span class="tag sub">In the Fold Club</span>':(p.was?'<span class="tag">Sale</span>':''))+'</div>'+
-      '<div class="bd"><h3></h3><p></p><span class="fit"></span><div class="row"><span class="pr">'+money(p.price)+(p.was?'<s>'+money(p.was)+'</s>':'')+'</span>'+
-      (p.sizes?'<select aria-label="Size"><option>S</option><option>M</option><option>L</option><option selected>XL</option><option>XXL</option></select>':'')+
-      '<button class="btn add" type="button">Add</button></div></div>';
-    c.querySelector('h3').textContent=p.name; c.querySelector('p').textContent=p.note; c.querySelector('.fit').textContent=p.fit;
+  /* ---- product cards ---- */
+  function card(p,light){
+    var c=document.createElement('article'); c.className='card'+(light?' light':'');
+    c.style.setProperty('--bg1',p.bg[0]); c.style.setProperty('--bg2',p.bg[1]);
+    c.innerHTML='<div class="art">'+ART[p.art]+(p.tag?'<span class="tag"></span>':(p.club?'<span class="tag">In the Fold Club</span>':''))+'</div>'+
+      '<div class="bd"><span class="caps cat"></span><h3></h3><p></p><div class="row"><span class="pr">'+money(p.price)+(p.was?'<s>'+money(p.was)+'</s>':'')+'</span><span class="opts"></span><button class="btn '+(light?'':'brass ')+'add" type="button">Add to bag</button></div></div>';
+    c.querySelector('.cat').textContent=p.cat; c.querySelector('h3').textContent=p.name; c.querySelector('p').textContent=p.note;
+    if(p.tag) c.querySelector('.tag').textContent=p.tag;
     c.querySelector('svg').setAttribute('aria-hidden','true');
-    c.querySelector('.add').addEventListener('click',function(e){
-      var s=c.querySelector('select'); add(p.id, s?s.value:'');
-      e.target.textContent='Added ✓'; setTimeout(function(){e.target.textContent='Add';},1000);
-    });
-    grid.appendChild(c);
-  });
-  var fbs=[].slice.call(document.querySelectorAll('#filters button'));
-  function filter(k){
-    fbs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===k);});
-    [].forEach.call(grid.children,function(c){c.hidden=!(k==='all'||c.dataset.cat===k);});
+    if(p.sizes){var s=document.createElement('select'); s.setAttribute('aria-label','Size for '+p.name); p.sizes.forEach(function(z){var o=document.createElement('option'); o.textContent=z; if(z===p.def)o.selected=true; s.appendChild(o);}); c.querySelector('.opts').appendChild(s);}
+    var btn=c.querySelector('.add');
+    btn.addEventListener('click',function(){var s=c.querySelector('select'); add(p.id, s?s.value:'', ''); btn.textContent='Added'; setTimeout(function(){btn.textContent='Add to bag';},1000);});
+    return c;
   }
-  fbs.forEach(function(b){b.addEventListener('click',function(){filter(b.dataset.f);});});
-  [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(){filter(a.dataset.go);});});
+  PRODUCTS.forEach(function(p){ (p.line==='sig'?$('g-sig'):$('g-ref')).appendChild(card(p,p.line!=='sig')); });
+
+  /* ---- engraving ---- */
+  var en=$('e-name'), ep=$('e-phone');
+  function eng(){ $('tg-name').textContent=(en.value.trim()||'NAME').toUpperCase(); $('tg-phone').textContent=(ep.value.trim()||'PHONE').replace(/\s+/g,' · '); }
+  en.addEventListener('input',eng); ep.addEventListener('input',eng); eng();
+  $('e-add').addEventListener('click',function(){
+    if(!en.value.trim()){ $('e-msg').textContent='Add a name first.'; en.focus(); return; }
+    add('tag','', en.value.trim().toUpperCase()+' / '+ep.value.trim()); $('e-msg').textContent='Added to your bag.';
+    setTimeout(function(){$('e-msg').textContent='';},1600);
+  });
 
   /* ---- fold club ---- */
-  var clubItems=PRODUCTS.filter(function(p){return p.club;}), clubRetail=clubItems.reduce(function(a,p){return a+p.price;},0);
-  clubItems.forEach(function(p){var li=document.createElement('li'); li.innerHTML='<span></span><span>'+money(p.price)+'</span>'; li.firstChild.textContent=p.name; $('club-list').appendChild(li);});
-  $('club-price').textContent=money(CLUB_PRICE)+'/mo';
-  $('club-save').textContent='Save '+money(clubRetail-CLUB_PRICE)+' a month';
-  $('club-add').addEventListener('click',function(){add('club','');});
+  var retail=PRODUCTS.filter(function(p){return p.club;}).reduce(function(a,p){return a+p.price;},0);
+  $('club-price').textContent=money(CLUB_PRICE)+'/mo'; $('club-save').textContent='Save '+money(retail-CLUB_PRICE)+' every month';
+  $('club-add').addEventListener('click',function(){add('club','','');});
 
   /* ---- bag ---- */
   var bag=[];
-  try{bag=JSON.parse(localStorage.getItem('ubbag')||'[]')||[];}catch(e){bag=[];}
-  bag=bag.filter(function(it){return it&&(it.id==='club'||PRODUCTS.some(function(p){return p.id===it.id;}));});
-  function save(){try{localStorage.setItem('ubbag',JSON.stringify(bag));}catch(e){}}
+  try{bag=JSON.parse(localStorage.getItem('ubbag2')||'[]')||[];}catch(e){bag=[];}
+  function find(id){return PRODUCTS.filter(function(p){return p.id===id;})[0];}
+  bag=bag.filter(function(it){return it&&(it.id==='club'||it.id==='tag'||find(it.id));});
+  function save(){try{localStorage.setItem('ubbag2',JSON.stringify(bag));}catch(e){}}
   function info(it){
-    if(it.id==='club') return {name:'Fold Club (monthly)',price:CLUB_PRICE,bg:'#ef7f8f',art:'wipes'};
-    var p=PRODUCTS.filter(function(x){return x.id===it.id;})[0]; return {name:p.name+(it.size?' · '+it.size:''),price:p.price,bg:p.bg,art:p.art};
+    if(it.id==='club') return {name:'The Fold Club (monthly)',sub:'Wipes, tear wipes + balm',price:CLUB_PRICE,art:'club',bg:['#7c2a2e','#3e1114']};
+    if(it.id==='tag') return {name:'Engraved Brass Tag',sub:it.eng,price:TAG_PRICE,art:'tag',bg:['#efe3cf','#d6c3a3']};
+    var p=find(it.id); return {name:p.name,sub:it.size?'Size '+it.size:p.cat,price:p.price,art:p.art,bg:p.bg};
   }
-  function add(id,size){
-    var hit=bag.filter(function(it){return it.id===id&&it.size===size;})[0];
-    if(hit){ if(id!=='club') hit.q++; } else bag.push({id:id,size:size,q:1});
+  function add(id,size,eng){
+    var hit=bag.filter(function(it){return it.id===id&&it.size===size&&(it.eng||'')===eng;})[0];
+    if(hit){ if(id!=='club') hit.q++; } else bag.push({id:id,size:size,eng:eng,q:1});
     save(); renderBag();
     var pill=$('pill'); pill.classList.add('bump'); setTimeout(function(){pill.classList.remove('bump');},250);
   }
   function renderBag(){
     var sheet=$('sheet'), qty=0, sub=0;
-    bag.forEach(function(it){var f=info(it); qty+=it.q; sub+=f.price*it.q;});
-    var ship = qty===0||sub>=FREE_SHIP||bag.some(function(it){return it.id==='club';}) ? 0 : SHIPPING;
+    bag.forEach(function(it){qty+=it.q; sub+=info(it).price*it.q;});
+    var ship= qty===0||sub>=FREE_SHIP||bag.some(function(it){return it.id==='club';}) ? 0 : SHIPPING;
     $('pill').hidden=qty===0; $('pill-n').textContent=qty; $('pill-t').textContent=money(sub+ship); $('nav-n').textContent=qty;
-    if(!qty){sheet.innerHTML='<div class="empty"><b>Bag’s empty.</b>Your dog is disappointed in you.</div>'; $('c-bag').value=''; return;}
+    if(!qty){ sheet.innerHTML='<div class="empty"><b>Your bag is empty.</b>The Founder is unimpressed.</div>'; $('c-bag').value=''; return; }
     sheet.innerHTML='';
     bag.forEach(function(it,idx){
       var f=info(it), row=document.createElement('div'); row.className='line';
-      row.innerHTML='<span class="th" style="--bg:'+f.bg+'">'+ART[f.art]+'</span><span><b></b><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
-      row.querySelector('b').textContent=f.name; row.querySelector('.qty span').textContent=it.q; row.querySelector('.r').textContent=money(f.price*it.q);
+      row.innerHTML='<span class="th">'+ART[f.art]+'</span><span><b></b><small></small><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
+      row.querySelector('.th').style.setProperty('--bg1',f.bg[0]); row.querySelector('.th').style.setProperty('--bg2',f.bg[1]);
+      row.querySelector('b').textContent=f.name; row.querySelector('small').textContent=f.sub; row.querySelector('.qty span').textContent=it.q; row.querySelector('.r').textContent=money(f.price*it.q);
       var bs=row.querySelectorAll('.qty button');
       bs[0].addEventListener('click',function(){it.q--; if(it.q<1)bag.splice(idx,1); save(); renderBag();});
       bs[1].addEventListener('click',function(){if(it.id!=='club'){it.q++; save(); renderBag();}});
       sheet.appendChild(row);
     });
-    var left=FREE_SHIP-sub, ex=document.createElement('div');
-    ex.innerHTML='<div class="ship"></div><div class="bar2"><i style="width:'+Math.min(100,sub/FREE_SHIP*100)+'%"></i></div>'+
-      '<div class="tot"><div><span>Subtotal</span><span>'+money(sub)+'</span></div><div><span>Shipping</span><span>'+(ship?money(ship):'FREE')+'</span></div><div class="g"><span>Total</span><span>'+money(sub+ship)+'</span></div></div>';
-    ex.querySelector('.ship').textContent= ship===0 ? 'Free shipping unlocked.' : money(left)+' more for free shipping.';
+    var ex=document.createElement('div');
+    ex.innerHTML='<div class="ship"></div><div class="bar2"><i style="width:'+Math.min(100,sub/FREE_SHIP*100)+'%"></i></div><div class="tot"><div><span>Subtotal</span><span>'+money(sub)+'</span></div><div><span>Shipping</span><span>'+(ship?money(ship):'Free')+'</span></div><div class="g"><span>Total</span><span>'+money(sub+ship)+'</span></div></div>';
+    ex.querySelector('.ship').textContent= ship===0?'Free shipping unlocked.':money(FREE_SHIP-sub)+' away from free shipping.';
     sheet.appendChild(ex);
-    $('c-bag').value=bag.map(function(it){var f=info(it); return it.q+'x '+f.name+' '+money(f.price*it.q);}).join('\n')+'\nTotal '+money(sub+ship);
+    $('c-bag').value=bag.map(function(it){var f=info(it); return it.q+'x '+f.name+' ('+f.sub+') '+money(f.price*it.q);}).join('\n')+'\nTotal '+money(sub+ship);
   }
   renderBag();
 
@@ -498,11 +512,10 @@
     var bad=f.querySelector(':invalid'); if(bad){st.textContent='Add a real email.'; bad.focus(); return;}
     b.disabled=true; b.textContent='Saving...'; st.textContent='';
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok)throw 0; b.textContent='Saved ✓'; st.textContent='You’re in. 15% off is coming at launch.';})
-      .catch(function(){b.disabled=false; b.textContent='Save my bag + 15% off'; st.textContent='That didn’t go through. Try again in a minute.';});
+      .then(function(r){if(!r.ok)throw 0; b.textContent='Saved'; st.textContent='You’re on the list. 15% off is yours at launch.';})
+      .catch(function(){b.disabled=false; b.textContent='Hold my bag + 15% off'; st.textContent='That didn’t go through. Try again in a minute.';});
   });
 
-  /* ---- reveal ---- */
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     [].forEach.call(document.querySelectorAll('.rv'),function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
