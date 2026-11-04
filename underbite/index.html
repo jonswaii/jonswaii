@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Underbite Supply Co.</title>
+<meta name="description" content="Gear for bulldogs, Frenchies, pugs and bullies. Cooling, harnesses, wrinkle care and more. For underbites and fat bellies.">
+<meta name="theme-color" content="#2b1d14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Layout: warm paper ground, brindle ink, fawn + tongue-pink accents. Chunky display type, friendly body. */
+  :root{
+    --paper:#f6efe4; --paper2:#efe3d0; --brindle:#2b1d14; --brindle2:#3b2a1f; --fawn:#d9a86c; --fawn2:#c48c4e; --tongue:#ef7f8f; --ice:#8fd0e8; --muted:#7a6656;
+    --display:"Bowlby One", "Arial Black", Impact, sans-serif;
+    --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--brindle);font:17px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
+  h2{font-size:clamp(2.3rem,6.4vw,4.4rem)}
+  p{margin:0 0 1em}
+  .caps{font-weight:800;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase}
+  :focus-visible{outline:3px solid var(--tongue);outline-offset:3px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font:800 1rem var(--body);padding:14px 24px;border-radius:999px;border:2.5px solid var(--brindle);background:var(--brindle);color:var(--paper);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 0 var(--fawn2)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--fawn2)}
+  .btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--fawn2)}
+  .btn.light{background:var(--paper);color:var(--brindle)}
+  .btn.pink{background:var(--tongue);border-color:var(--tongue);color:var(--brindle);box-shadow:0 4px 0 #b9505f}
+
+  /* header */
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:41}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(246,239,228,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2.5px solid var(--brindle)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo svg{width:40px;height:40px;flex:0 0 40px}
+  .logo b{font-family:var(--display);font-size:1.3rem;line-height:.9;display:block}
+  .logo small{display:block;font-weight:800;font-size:.6rem;letter-spacing:.32em;color:var(--fawn2)}
+  .bar nav{display:flex;align-items:center;gap:22px;font-weight:700;font-size:.92rem}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--fawn2)}
+  .bagbtn{display:inline-flex;align-items:center;gap:8px;background:var(--brindle);color:var(--paper)!important;padding:8px 14px;border-radius:999px}
+  .bagbtn i{font-style:normal;background:var(--tongue);color:var(--brindle);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.78rem;padding:0 5px}
+  @media (max-width:760px){.bar nav .opt{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;border-bottom:2.5px solid var(--brindle)}
+  .hero::before{content:"";position:absolute;right:-12%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:var(--fawn);opacity:.32}
+  .hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(16px,4vw,48px);align-items:center;padding-block:clamp(30px,6vw,72px)}
+  @media (max-width:860px){.hero-in{grid-template-columns:1fr}}
+  .hero-in>*{min-width:0}
+  .hero h1{font-size:clamp(3rem,9.6vw,6.4rem)}
+  .hero h1 span{color:var(--fawn2)}
+  .hero .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:40ch;margin-top:18px;color:var(--brindle2)}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .dogbox{position:relative;display:grid;place-items:center}
+  #dog{width:min(100%,460px);height:auto;cursor:pointer;touch-action:manipulation;transform-origin:50% 80%}
+  #dog.snort{animation:snort .55s cubic-bezier(.3,1.6,.5,1)}
+  @keyframes snort{0%{transform:scale(1,1)}30%{transform:scale(1.06,.9)}60%{transform:scale(.97,1.05)}100%{transform:scale(1,1)}}
+  .bubble{position:absolute;top:6%;right:4%;background:var(--paper);border:2.5px solid var(--brindle);border-radius:18px;padding:8px 14px;font-family:var(--display);font-size:1.3rem;transform:rotate(6deg) scale(.6);opacity:0;transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+  .bubble.on{opacity:1;transform:rotate(6deg) scale(1)}
+  .hint{position:absolute;bottom:2%;left:50%;transform:translateX(-50%);font-weight:800;font-size:.8rem;color:var(--muted);white-space:nowrap}
+
+  /* breed ticker */
+  .ticker{background:var(--brindle);color:var(--paper);overflow:hidden;white-space:nowrap;border-bottom:2.5px solid var(--brindle)}
+  .ticker div{display:inline-block;padding-block:12px;animation:tick 34s linear infinite;font-family:var(--display);font-size:1.15rem}
+  .ticker b{color:var(--tongue);margin-inline:16px;font-weight:400}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  section{padding-block:clamp(60px,9vw,110px)}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+  .head .caps{color:var(--muted)}
+
+  /* problems */
+  .probs{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px)}
+  @media (max-width:900px){.probs{grid-template-columns:repeat(2,1fr)}}
+  .prob{background:var(--paper2);border:2.5px solid var(--brindle);border-radius:22px;padding:20px 18px 22px;text-decoration:none;display:flex;flex-direction:column;gap:6px;transition:transform .2s,background .2s;min-width:0}
+  .prob:hover{transform:translateY(-4px) rotate(-1deg);background:#fff8ee}
+  .prob .k{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);line-height:1}
+  .prob .f{font-weight:700;color:var(--fawn2)}
+  .prob .f::before{content:"→ "}
+  .prob svg{width:44px;height:44px;margin-bottom:6px}
+
+  /* shop */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+  .filters button{font:800 .85rem var(--body);border:2.5px solid var(--brindle);background:transparent;color:var(--brindle);border-radius:999px;padding:8px 16px;cursor:pointer}
+  .filters button[aria-pressed="true"]{background:var(--brindle);color:var(--paper)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,26px)}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.grid{grid-template-columns:1fr}}
+  .card{background:#fffaf2;border:2.5px solid var(--brindle);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:0 6px 0 var(--brindle)}
+  .card .art{aspect-ratio:4/3;display:grid;place-items:center;background:var(--bg);border-bottom:2.5px solid var(--brindle);max-width:100%;position:relative}
+  .card .art svg{width:62%;height:auto;transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+  .card:hover .art svg{transform:rotate(-4deg) scale(1.05)}
+  .card .tag{position:absolute;top:12px;left:12px;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:2px solid var(--brindle);border-radius:999px;padding:3px 10px}
+  .card .tag.sub{background:var(--tongue)}
+  .card .bd{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3{font-size:1.35rem;line-height:1.02}
+  .card p{margin:0;color:var(--brindle2);font-size:.95rem}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+  .card .pr{font-family:var(--display);font-size:1.6rem}
+  .card .pr s{font-family:var(--body);font-size:.9rem;color:var(--muted);margin-left:6px;font-weight:500}
+  .card select{font:700 .9rem var(--body);border:2px solid var(--brindle);border-radius:10px;padding:7px 8px;background:var(--paper);color:var(--brindle)}
+  .card .add{padding:10px 16px;font-size:.92rem}
+  .fit{font-size:.8rem;color:var(--muted);font-weight:700}
+
+  /* fold club */
+  .club{background:var(--brindle);color:var(--paper);position:relative;overflow:hidden}
+  .club::after{content:"";position:absolute;left:-10%;bottom:-40%;width:55%;aspect-ratio:1;border-radius:50%;background:var(--fawn);opacity:.14}
+  .club .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,72px);align-items:center}
+  @media (max-width:860px){.club .wrap{grid-template-columns:1fr}}
+  .club .wrap>*{min-width:0}
+  .club h2 span{color:var(--tongue)}
+  .club p{color:#e6d9c6;max-width:46ch}
+  .box{background:var(--paper);color:var(--brindle);border-radius:26px;padding:24px;border:2.5px solid var(--paper);box-shadow:0 8px 0 var(--fawn2)}
+  .box ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}
+  .box li{display:flex;justify-content:space-between;gap:10px;font-weight:700;border-bottom:2px dashed rgba(43,29,20,.18);padding-bottom:8px}
+  .box li span:last-child{color:var(--muted);text-decoration:line-through;font-weight:500}
+  .box .price{display:flex;align-items:baseline;gap:10px;margin:6px 0 16px}
+  .box .price b{font-family:var(--display);font-size:3rem;line-height:1}
+  .box .price span{font-weight:700;color:#2f7a3d}
+  .perks{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .perks span{border:2px solid rgba(246,239,228,.35);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.85rem}
+
+  /* sizing */
+  .size{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+  @media (max-width:860px){.size{grid-template-columns:1fr}}
+  .size>*{min-width:0}
+  .tablewrap{overflow-x:auto;border:2.5px solid var(--brindle);border-radius:20px;background:#fffaf2}
+  table{width:100%;border-collapse:collapse;min-width:420px}
+  th,td{text-align:left;padding:13px 16px;border-bottom:2px solid var(--paper2);font-variant-numeric:tabular-nums}
+  th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  td b{font-family:var(--display);font-weight:400}
+
+  /* bag */
+  .bag{background:var(--fawn)}
+  .bag .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:start}
+  @media (max-width:860px){.bag .wrap{grid-template-columns:1fr}}
+  .bag .wrap>*{min-width:0}
+  .sheet{background:var(--paper);border:2.5px solid var(--brindle);border-radius:24px;padding:18px 20px;box-shadow:0 6px 0 var(--brindle)}
+  .line{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:2px dashed rgba(43,29,20,.16)}
+  .line:last-of-type{border-bottom:0}
+  .line .th{width:52px;height:52px;border-radius:14px;background:var(--bg);display:grid;place-items:center;border:2px solid var(--brindle)}
+  .line .th svg{width:70%;height:auto}
+  .line b{display:block;font-weight:800;line-height:1.15}
+  .line small{color:var(--muted);font-weight:500}
+  .line .r{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+  .qty{display:inline-flex;align-items:center;border:2px solid var(--brindle);border-radius:999px;margin-top:6px}
+  .qty button{width:32px;height:30px;border:0;background:transparent;font:800 1rem var(--body);color:var(--brindle);cursor:pointer}
+  .qty span{min-width:22px;text-align:center;font-weight:800}
+  .empty{text-align:center;padding:24px 8px;color:var(--brindle2)}
+  .empty b{display:block;font-family:var(--display);font-size:1.5rem;margin-bottom:6px;color:var(--brindle)}
+  .tot{display:grid;gap:6px;margin-top:12px;font-variant-numeric:tabular-nums}
+  .tot div{display:flex;justify-content:space-between;font-weight:700}
+  .tot .g{border-top:2.5px solid var(--brindle);padding-top:10px;font-family:var(--display);font-size:1.5rem;font-weight:400}
+  .ship{font-weight:800;font-size:.9rem;margin:10px 0 6px}
+  .bar2{height:10px;border-radius:10px;background:var(--paper2);border:2px solid var(--brindle);overflow:hidden}
+  .bar2 i{display:block;height:100%;background:var(--tongue);transition:width .4s}
+  form{display:grid;gap:12px}
+  label{display:grid;gap:6px;font-weight:800;font-size:.85rem}
+  input{width:100%;font:500 16px var(--body);color:var(--brindle);background:var(--paper);border:2.5px solid var(--brindle);border-radius:14px;padding:12px 14px}
+  .hp{position:absolute;left:-9999px}
+  #c-status{font-weight:800}
+
+  footer{background:var(--brindle);color:#e6d9c6;padding-block:40px;font-size:.9rem}
+  footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  footer .logo b{color:var(--paper)}
+
+  .pill{position:fixed;z-index:39;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--tongue);color:var(--brindle);border:2.5px solid var(--brindle);text-decoration:none;font-weight:800;padding:10px 16px;border-radius:999px;box-shadow:0 5px 0 var(--brindle);transition:transform .25s}
+  .pill .c{background:var(--brindle);color:var(--paper);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+  .pill.bump{transform:scale(1.1)}
+
+  .rv{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.pre{opacity:0;transform:translateY(24px)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .rv.pre{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="./" aria-label="Underbite Supply Co. home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#d9a86c" stroke="#2b1d14" stroke-width="2.5"/><path d="M9 25c4 6 18 6 22 0" fill="#f6efe4" stroke="#2b1d14" stroke-width="2.5"/><path d="M14 25.5l1.5-4 1.5 4M23 25.5l1.5-4 1.5 4" fill="#fff" stroke="#2b1d14" stroke-width="1.6" stroke-linejoin="round"/><circle cx="14" cy="16" r="2.4" fill="#2b1d14"/><circle cx="26" cy="16" r="2.4" fill="#2b1d14"/><ellipse cx="20" cy="20" rx="4" ry="2.6" fill="#2b1d14"/></svg>
+      <span><b>UNDERBITE</b><small>SUPPLY CO.</small></span>
+    </a>
+    <nav>
+      <a class="opt" href="#shop">Shop</a>
+      <a class="opt" href="#club">Fold Club</a>
+      <a class="opt" href="#sizing">Sizing</a>
+      <a class="bagbtn" href="#bag">Bag <i id="nav-n">0</i></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <div class="caps" style="color:var(--fawn2)">Bulldogs · Frenchies · Pugs · Bullies</div>
+        <h1 style="margin-top:14px">For underbites <span>and fat bellies.</span></h1>
+        <p class="lede">Gear built for flat faces. They run hot, can't do collars, and their folds get funky. We fix all of it.</p>
+        <div class="ctas">
+          <a class="btn" href="#shop">Shop the gear</a>
+          <a class="btn light" href="#club">Join the Fold Club</a>
+        </div>
+      </div>
+      <div class="dogbox">
+        <div class="bubble" id="bubble" aria-hidden="true">*SNORT*</div>
+        <svg id="dog" viewBox="0 0 400 380" role="img" aria-label="Cartoon English bulldog with an underbite. Tap him.">
+          <!-- ears -->
+          <path d="M70 92 C40 70 38 130 62 150 C80 130 92 110 98 100 Z" fill="#c48c4e" stroke="#2b1d14" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M330 92 C360 70 362 130 338 150 C320 130 308 110 302 100 Z" fill="#c48c4e" stroke="#2b1d14" stroke-width="5" stroke-linejoin="round"/>
+          <!-- head -->
+          <path d="M200 52 C300 50 352 110 352 190 C352 262 300 300 200 300 C100 300 48 262 48 190 C48 110 100 54 200 52 Z" fill="#d9a86c" stroke="#2b1d14" stroke-width="6"/>
+          <!-- blaze -->
+          <path d="M184 60 C190 100 186 140 170 170 L230 170 C214 140 210 100 216 60 Z" fill="#f6efe4"/>
+          <!-- wrinkles -->
+          <g fill="none" stroke="#2b1d14" stroke-width="5" stroke-linecap="round">
+            <path d="M128 110 C150 98 166 100 176 108"/><path d="M224 108 C234 100 250 98 272 110"/>
+            <path d="M140 128 C156 120 168 122 176 128"/><path d="M224 128 C232 122 244 120 260 128"/>
+            <path d="M186 92 C196 88 204 88 214 92"/>
+          </g>
+          <!-- eyes -->
+          <g id="eyes">
+            <ellipse cx="138" cy="168" rx="28" ry="24" fill="#fff" stroke="#2b1d14" stroke-width="5"/>
+            <ellipse cx="262" cy="168" rx="28" ry="24" fill="#fff" stroke="#2b1d14" stroke-width="5"/>
+            <g id="pupils">
+              <circle cx="138" cy="170" r="14" fill="#2b1d14"/><circle cx="133" cy="165" r="4.5" fill="#fff"/>
+              <circle cx="262" cy="170" r="14" fill="#2b1d14"/><circle cx="257" cy="165" r="4.5" fill="#fff"/>
+            </g>
+            <path id="lidL" d="M108 160 C120 140 156 140 168 160" fill="#d9a86c" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/>
+            <path id="lidR" d="M232 160 C244 140 280 140 292 160" fill="#d9a86c" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <!-- jowls -->
+          <path d="M200 196 C150 196 96 214 92 258 C90 292 140 312 200 300 Z" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M200 196 C250 196 304 214 308 258 C310 292 260 312 200 300 Z" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
+          <!-- lower jaw (the underbite) -->
+          <path d="M138 290 C150 336 250 336 262 290 C240 302 160 302 138 290 Z" fill="#ef7f8f" stroke="#2b1d14" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M132 286 C150 312 250 312 268 286" fill="#f6efe4" stroke="#2b1d14" stroke-width="6" stroke-linecap="round"/>
+          <!-- teeth -->
+          <g fill="#fff" stroke="#2b1d14" stroke-width="4" stroke-linejoin="round">
+            <path d="M150 292 L160 262 L170 296 Z"/><path d="M230 296 L240 262 L250 292 Z"/>
+            <path d="M178 298 L184 284 L190 299 Z"/><path d="M194 299 L200 285 L206 299 Z"/><path d="M210 299 L216 284 L222 298 Z"/>
+          </g>
+          <!-- nose -->
+          <path d="M168 196 C168 178 232 178 232 196 C232 214 214 222 200 222 C186 222 168 214 168 196 Z" fill="#2b1d14"/>
+          <ellipse cx="186" cy="200" rx="6" ry="4" fill="#5a4334"/><ellipse cx="214" cy="200" rx="6" ry="4" fill="#5a4334"/>
+          <ellipse cx="192" cy="186" rx="8" ry="4" fill="#fff" opacity=".35"/>
+          <!-- whisker dots -->
+          <g fill="#2b1d14"><circle cx="150" cy="232" r="3"/><circle cx="162" cy="244" r="3"/><circle cx="146" cy="250" r="3"/><circle cx="250" cy="232" r="3"/><circle cx="238" cy="244" r="3"/><circle cx="254" cy="250" r="3"/></g>
+          <!-- belly hint -->
+          <path d="M120 312 C140 360 260 360 280 312" fill="none" stroke="#2b1d14" stroke-width="6" stroke-linecap="round" opacity=".0"/>
+        </svg>
+        <span class="hint" id="hint">Tap him.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div>
+    English Bulldog <b>●</b> French Bulldog <b>●</b> American Bully <b>●</b> Pug <b>●</b> Boston Terrier <b>●</b> Boxer <b>●</b> Shih Tzu <b>●</b>
+    English Bulldog <b>●</b> French Bulldog <b>●</b> American Bully <b>●</b> Pug <b>●</b> Boston Terrier <b>●</b> Boxer <b>●</b> Shih Tzu <b>●</b>
+  </div></div>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="head rv"><h2>Built for the flat-face problems.</h2><span class="caps">Tap a problem, get the fix</span></div>
+      <div class="probs rv">
+        <a class="prob" href="#shop" data-go="cool"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round"><path d="M24 6v24"/><circle cx="24" cy="36" r="7" fill="#ef7f8f"/><path d="M30 12h6M30 18h4M30 24h6"/></svg><span class="k">Runs hot</span><span class="f">Cooling vest + mat</span></a>
+        <a class="prob" href="#shop" data-go="walk"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14c8 10 20 10 28 0"/><path d="M14 18v18h20V18"/><circle cx="24" cy="30" r="3" fill="#d9a86c"/></svg><span class="k">Chokes on collars</span><span class="f">No-pull harness</span></a>
+        <a class="prob" href="#shop" data-go="clean"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linecap="round"><path d="M8 18c6-6 26-6 32 0M10 26c6-5 22-5 28 0M12 34c6-4 18-4 24 0"/></svg><span class="k">Funky folds</span><span class="f">Wrinkle wipes</span></a>
+        <a class="prob" href="#shop" data-go="clean"><svg viewBox="0 0 48 48" fill="none" stroke="#2b1d14" stroke-width="3.5" stroke-linejoin="round"><path d="M14 20c0-8 20-8 20 0 0 9-6 14-10 14s-10-5-10-14z" fill="#2b1d14"/><path d="M8 40l6-4M40 40l-6-4"/></svg><span class="k">Crusty nose</span><span class="f">Nose + paw balm</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv"><h2>The gear.</h2><span class="caps">Free shipping over $50</span></div>
+      <div class="filters" id="filters" role="group" aria-label="Filter products">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="cool" aria-pressed="false">Cool down</button>
+        <button type="button" data-f="walk" aria-pressed="false">Walk</button>
+        <button type="button" data-f="clean" aria-pressed="false">Clean</button>
+        <button type="button" data-f="eat" aria-pressed="false">Eat</button>
+      </div>
+      <div class="grid rv" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="club" id="club">
+    <div class="wrap">
+      <div class="rv">
+        <div class="caps" style="color:var(--tongue)">Subscription</div>
+        <h2 style="margin-top:14px">The Fold <span>Club.</span></h2>
+        <p style="margin-top:18px">Wrinkle wipes, tear stain wipes and nose balm, at your door every month before you run out. Skip a month or cancel anytime.</p>
+        <div class="perks"><span>Ships monthly</span><span>Skip anytime</span><span>Cancel anytime</span><span>Free shipping</span></div>
+      </div>
+      <div class="box rv">
+        <ul id="club-list"></ul>
+        <div class="price"><b id="club-price">$39</b><span id="club-save"></span></div>
+        <button class="btn pink" type="button" id="club-add" style="width:100%;justify-content:center">Join the Fold Club</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="sizing">
+    <div class="wrap size">
+      <div class="rv">
+        <div class="caps" style="color:var(--fawn2)">Harness + vest sizing</div>
+        <h2 style="margin-top:14px">Measure the barrel.</h2>
+        <p style="margin-top:18px;max-width:42ch">Wrap a tape measure around the widest part of the chest, right behind the front legs. Between sizes? Go up. Bullies are built like fire hydrants.</p>
+      </div>
+      <div class="tablewrap rv">
+        <table>
+          <thead><tr><th>Size</th><th>Chest</th><th>Usually fits</th></tr></thead>
+          <tbody>
+            <tr><td><b>S</b></td><td>14–18 in</td><td>Pugs, small Frenchies</td></tr>
+            <tr><td><b>M</b></td><td>18–22 in</td><td>Frenchies, Boston Terriers</td></tr>
+            <tr><td><b>L</b></td><td>22–27 in</td><td>Big Frenchies, young English Bulldogs</td></tr>
+            <tr><td><b>XL</b></td><td>27–32 in</td><td>English Bulldogs</td></tr>
+            <tr><td><b>XXL</b></td><td>32–38 in</td><td>Big English Bulldogs, American Bullies</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bag" id="bag">
+    <div class="wrap">
+      <div class="rv">
+        <div class="caps">Your bag</div>
+        <h2 style="margin-top:14px">Ready when you are.</h2>
+        <div class="sheet" id="sheet" style="margin-top:22px"></div>
+      </div>
+      <div class="rv">
+        <div class="sheet">
+          <h3 style="font-size:1.6rem">We open soon.</h3>
+          <p style="margin-top:10px">Checkout goes live at launch. Drop your email and we'll send your bag with <b>15% off your first order</b>.</p>
+          <!-- EDIT: replace YOUR_FORM_ID with your Formspree code. When Shopify is live, this becomes the checkout. -->
+          <form id="cform" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+            <input type="hidden" name="_subject" value="Underbite launch list">
+            <input type="hidden" name="bag" id="c-bag">
+            <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+            <label>Your email<input id="c-email" name="email" type="email" required autocomplete="email"></label>
+            <label>Your dog's name + breed<input id="c-dog" name="dog" placeholder="Tank, English Bulldog"></label>
+            <button class="btn" type="submit" id="c-send" style="justify-content:center">Save my bag + 15% off</button>
+            <p id="c-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="pill" id="pill" href="#bag" hidden><span>Bag</span><span class="c" id="pill-n">0</span><span id="pill-t">$0</span></a>
+
+<footer>
+  <div class="wrap row">
+    <a class="logo" href="./"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#d9a86c" stroke="#f6efe4" stroke-width="2.5"/><path d="M9 25c4 6 18 6 22 0" fill="#f6efe4" stroke="#2b1d14" stroke-width="2.5"/><circle cx="14" cy="16" r="2.4" fill="#2b1d14"/><circle cx="26" cy="16" r="2.4" fill="#2b1d14"/><ellipse cx="20" cy="20" rx="4" ry="2.6" fill="#2b1d14"/></svg><span><b>UNDERBITE</b><small>SUPPLY CO.</small></span></a>
+    <span>For underbites and fat bellies. © <span id="yr">2026</span> Underbite Supply Co.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ============ EDIT PRODUCTS + PRICES HERE ============ */
+  var PRODUCTS=[
+    {id:'vest', name:'Cooling Vest', cat:'cool', price:44, was:49, bg:'#cfeaf3', note:'Soak it, wring it, strap it on. Keeps a hot bully cool on walks.', sizes:true, fit:'Sizes S–XXL', art:'vest'},
+    {id:'mat',  name:'Cooling Mat', cat:'cool', price:36, bg:'#dff1f7', note:'Pressure-activated gel mat. No fridge, no plug. Just flop.', sizes:false, fit:'Fits up to XXL', art:'mat'},
+    {id:'harness', name:'No-Pull Chest Harness', cat:'walk', price:34, was:44, bg:'#f3dcc0', note:'Wide chest plate, nothing on the throat. Front and back clips.', sizes:true, fit:'Sizes S–XXL', art:'harness'},
+    {id:'wipes', name:'Wrinkle Wipes', cat:'clean', price:16, bg:'#fbe1e5', note:'100 thick wipes for folds, tail pockets and paws. Gentle, no harsh scent.', sizes:false, fit:'100 count', art:'wipes', club:true},
+    {id:'tear', name:'Tear Stain Wipes', cat:'clean', price:14, bg:'#f1e6f7', note:'Gentle eye-area wipes for the brown streaks under the eyes.', sizes:false, fit:'80 count', art:'tear', club:true},
+    {id:'balm', name:'Nose + Paw Balm', cat:'clean', price:16, bg:'#f6ead6', note:'Lick-safe balm for crusty noses and cracked pads.', sizes:false, fit:'2 oz tin', art:'balm', club:true},
+    {id:'bowl', name:'Tilted Flat-Face Bowl', cat:'eat', price:22, bg:'#e6efd9', note:'15° tilt so smushed faces can actually reach the food.', sizes:false, fit:'Raised + tilted', art:'bowl'}
+  ];
+  var CLUB_PRICE=39, FREE_SHIP=50, SHIPPING=6;
+  /* ===================================================== */
+
+  var $=function(id){return document.getElementById(id);};
+  var money=function(n){return '$'+n.toFixed(n%1?2:0);};
+  $('yr').textContent=new Date().getFullYear();
+
+  var ART={
+    vest:'<svg viewBox="0 0 120 100"><path d="M30 18 L50 10 Q60 22 70 10 L90 18 L100 50 L92 88 L28 88 L20 50 Z" fill="#8fd0e8" stroke="#2b1d14" stroke-width="4" stroke-linejoin="round"/><path d="M30 40h60M28 60h64" stroke="#2b1d14" stroke-width="3" stroke-dasharray="6 5"/><rect x="50" y="64" width="20" height="10" rx="3" fill="#f6efe4" stroke="#2b1d14" stroke-width="3"/></svg>',
+    mat:'<svg viewBox="0 0 120 100"><rect x="10" y="26" width="100" height="56" rx="12" fill="#8fd0e8" stroke="#2b1d14" stroke-width="4"/><path d="M10 45h100M10 64h100M43 26v56M77 26v56" stroke="#2b1d14" stroke-width="2.5" opacity=".45"/><path d="M60 14v8M54 18l6 4 6-4" stroke="#2b1d14" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
+    harness:'<svg viewBox="0 0 120 100"><path d="M24 30 Q60 4 96 30" fill="none" stroke="#2b1d14" stroke-width="10" stroke-linecap="round"/><path d="M24 30 Q60 4 96 30" fill="none" stroke="#d9a86c" stroke-width="5" stroke-linecap="round"/><rect x="36" y="32" width="48" height="50" rx="16" fill="#d9a86c" stroke="#2b1d14" stroke-width="4"/><path d="M22 60h76" stroke="#2b1d14" stroke-width="9" stroke-linecap="round"/><path d="M22 60h76" stroke="#ef7f8f" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="48" r="6" fill="#f6efe4" stroke="#2b1d14" stroke-width="3"/></svg>',
+    wipes:'<svg viewBox="0 0 120 100"><rect x="14" y="22" width="92" height="62" rx="18" fill="#ef7f8f" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="42" rx="26" ry="10" fill="#f6efe4" stroke="#2b1d14" stroke-width="3.5"/><path d="M50 40 Q60 26 70 40" fill="#fff" stroke="#2b1d14" stroke-width="3"/><path d="M30 66c8-5 20-5 28 0M62 66c8-5 20-5 28 0" fill="none" stroke="#2b1d14" stroke-width="3" stroke-linecap="round"/></svg>',
+    tear:'<svg viewBox="0 0 120 100"><rect x="14" y="22" width="92" height="62" rx="18" fill="#c9b2e4" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="42" rx="26" ry="10" fill="#f6efe4" stroke="#2b1d14" stroke-width="3.5"/><path d="M50 40 Q60 26 70 40" fill="#fff" stroke="#2b1d14" stroke-width="3"/><path d="M60 58c-5 8-5 14 0 16 5-2 5-8 0-16z" fill="#8fd0e8" stroke="#2b1d14" stroke-width="3"/></svg>',
+    balm:'<svg viewBox="0 0 120 100"><ellipse cx="60" cy="74" rx="40" ry="12" fill="#c48c4e" stroke="#2b1d14" stroke-width="4"/><rect x="20" y="44" width="80" height="30" fill="#c48c4e"/><path d="M20 44v30M100 44v30" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="44" rx="40" ry="12" fill="#f6efe4" stroke="#2b1d14" stroke-width="4"/><path d="M50 42c0-6 20-6 20 0 0 5-4 8-10 8s-10-3-10-8z" fill="#2b1d14"/></svg>',
+    bowl:'<svg viewBox="0 0 120 100"><path d="M30 86 L40 50 M90 86 L80 50" stroke="#2b1d14" stroke-width="5" stroke-linecap="round"/><g transform="rotate(-12 60 48)"><ellipse cx="60" cy="40" rx="40" ry="12" fill="#f6efe4" stroke="#2b1d14" stroke-width="4"/><path d="M20 40 Q24 68 60 70 Q96 68 100 40" fill="#9cc47a" stroke="#2b1d14" stroke-width="4"/><ellipse cx="60" cy="40" rx="28" ry="7" fill="#c48c4e"/></g></svg>'
+  };
+
+  /* ---- interactive dog ---- */
+  var dog=$('dog'), pupils=$('pupils'), bubble=$('bubble');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function look(x,y){
+    var r=dog.getBoundingClientRect(); var cx=r.left+r.width/2, cy=r.top+r.height*.44;
+    var dx=x-cx, dy=y-cy, d=Math.hypot(dx,dy)||1, m=Math.min(9,d/30);
+    pupils.setAttribute('transform','translate('+(dx/d*m).toFixed(1)+','+(dy/d*m*0.8).toFixed(1)+')');
+  }
+  if(!reduce){
+    addEventListener('pointermove',function(e){look(e.clientX,e.clientY);},{passive:true});
+    setInterval(function(){ // blink
+      ['lidL','lidR'].forEach(function(id){var l=$(id); l.setAttribute('transform','translate(0,16) scale(1,1)'); setTimeout(function(){l.removeAttribute('transform');},140);});
+    },4200);
+  }
+  var lines=['*SNORT*','*grumble*','*SNORT*','Feed me.','*wheeze*','Treat?'], li=0;
+  dog.addEventListener('click',function(){
+    dog.classList.remove('snort'); void dog.getBoundingClientRect(); dog.classList.add('snort');
+    bubble.textContent=lines[li++%lines.length]; bubble.classList.add('on');
+    clearTimeout(dog._t); dog._t=setTimeout(function(){bubble.classList.remove('on');},1100);
+    $('hint').hidden=true;
+  });
+
+  /* ---- shop ---- */
+  var grid=$('grid');
+  PRODUCTS.forEach(function(p){
+    var c=document.createElement('article'); c.className='card'; c.dataset.cat=p.cat; c.style.setProperty('--bg',p.bg);
+    c.innerHTML='<div class="art">'+ART[p.art]+(p.club?'<span class="tag sub">In the Fold Club</span>':(p.was?'<span class="tag">Sale</span>':''))+'</div>'+
+      '<div class="bd"><h3></h3><p></p><span class="fit"></span><div class="row"><span class="pr">'+money(p.price)+(p.was?'<s>'+money(p.was)+'</s>':'')+'</span>'+
+      (p.sizes?'<select aria-label="Size"><option>S</option><option>M</option><option>L</option><option selected>XL</option><option>XXL</option></select>':'')+
+      '<button class="btn add" type="button">Add</button></div></div>';
+    c.querySelector('h3').textContent=p.name; c.querySelector('p').textContent=p.note; c.querySelector('.fit').textContent=p.fit;
+    c.querySelector('svg').setAttribute('aria-hidden','true');
+    c.querySelector('.add').addEventListener('click',function(e){
+      var s=c.querySelector('select'); add(p.id, s?s.value:'');
+      e.target.textContent='Added ✓'; setTimeout(function(){e.target.textContent='Add';},1000);
+    });
+    grid.appendChild(c);
+  });
+  var fbs=[].slice.call(document.querySelectorAll('#filters button'));
+  function filter(k){
+    fbs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===k);});
+    [].forEach.call(grid.children,function(c){c.hidden=!(k==='all'||c.dataset.cat===k);});
+  }
+  fbs.forEach(function(b){b.addEventListener('click',function(){filter(b.dataset.f);});});
+  [].forEach.call(document.querySelectorAll('[data-go]'),function(a){a.addEventListener('click',function(){filter(a.dataset.go);});});
+
+  /* ---- fold club ---- */
+  var clubItems=PRODUCTS.filter(function(p){return p.club;}), clubRetail=clubItems.reduce(function(a,p){return a+p.price;},0);
+  clubItems.forEach(function(p){var li=document.createElement('li'); li.innerHTML='<span></span><span>'+money(p.price)+'</span>'; li.firstChild.textContent=p.name; $('club-list').appendChild(li);});
+  $('club-price').textContent=money(CLUB_PRICE)+'/mo';
+  $('club-save').textContent='Save '+money(clubRetail-CLUB_PRICE)+' a month';
+  $('club-add').addEventListener('click',function(){add('club','');});
+
+  /* ---- bag ---- */
+  var bag=[];
+  try{bag=JSON.parse(localStorage.getItem('ubbag')||'[]')||[];}catch(e){bag=[];}
+  bag=bag.filter(function(it){return it&&(it.id==='club'||PRODUCTS.some(function(p){return p.id===it.id;}));});
+  function save(){try{localStorage.setItem('ubbag',JSON.stringify(bag));}catch(e){}}
+  function info(it){
+    if(it.id==='club') return {name:'Fold Club (monthly)',price:CLUB_PRICE,bg:'#ef7f8f',art:'wipes'};
+    var p=PRODUCTS.filter(function(x){return x.id===it.id;})[0]; return {name:p.name+(it.size?' · '+it.size:''),price:p.price,bg:p.bg,art:p.art};
+  }
+  function add(id,size){
+    var hit=bag.filter(function(it){return it.id===id&&it.size===size;})[0];
+    if(hit){ if(id!=='club') hit.q++; } else bag.push({id:id,size:size,q:1});
+    save(); renderBag();
+    var pill=$('pill'); pill.classList.add('bump'); setTimeout(function(){pill.classList.remove('bump');},250);
+  }
+  function renderBag(){
+    var sheet=$('sheet'), qty=0, sub=0;
+    bag.forEach(function(it){var f=info(it); qty+=it.q; sub+=f.price*it.q;});
+    var ship = qty===0||sub>=FREE_SHIP||bag.some(function(it){return it.id==='club';}) ? 0 : SHIPPING;
+    $('pill').hidden=qty===0; $('pill-n').textContent=qty; $('pill-t').textContent=money(sub+ship); $('nav-n').textContent=qty;
+    if(!qty){sheet.innerHTML='<div class="empty"><b>Bag’s empty.</b>Your dog is disappointed in you.</div>'; $('c-bag').value=''; return;}
+    sheet.innerHTML='';
+    bag.forEach(function(it,idx){
+      var f=info(it), row=document.createElement('div'); row.className='line';
+      row.innerHTML='<span class="th" style="--bg:'+f.bg+'">'+ART[f.art]+'</span><span><b></b><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
+      row.querySelector('b').textContent=f.name; row.querySelector('.qty span').textContent=it.q; row.querySelector('.r').textContent=money(f.price*it.q);
+      var bs=row.querySelectorAll('.qty button');
+      bs[0].addEventListener('click',function(){it.q--; if(it.q<1)bag.splice(idx,1); save(); renderBag();});
+      bs[1].addEventListener('click',function(){if(it.id!=='club'){it.q++; save(); renderBag();}});
+      sheet.appendChild(row);
+    });
+    var left=FREE_SHIP-sub, ex=document.createElement('div');
+    ex.innerHTML='<div class="ship"></div><div class="bar2"><i style="width:'+Math.min(100,sub/FREE_SHIP*100)+'%"></i></div>'+
+      '<div class="tot"><div><span>Subtotal</span><span>'+money(sub)+'</span></div><div><span>Shipping</span><span>'+(ship?money(ship):'FREE')+'</span></div><div class="g"><span>Total</span><span>'+money(sub+ship)+'</span></div></div>';
+    ex.querySelector('.ship').textContent= ship===0 ? 'Free shipping unlocked.' : money(left)+' more for free shipping.';
+    sheet.appendChild(ex);
+    $('c-bag').value=bag.map(function(it){var f=info(it); return it.q+'x '+f.name+' '+money(f.price*it.q);}).join('\n')+'\nTotal '+money(sub+ship);
+  }
+  renderBag();
+
+  /* ---- launch list ---- */
+  var f=$('cform'), b=$('c-send'), st=$('c-status');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=f.querySelector(':invalid'); if(bad){st.textContent='Add a real email.'; bad.focus(); return;}
+    b.disabled=true; b.textContent='Saving...'; st.textContent='';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0; b.textContent='Saved ✓'; st.textContent='You’re in. 15% off is coming at launch.';})
+      .catch(function(){b.disabled=false; b.textContent='Save my bag + 15% off'; st.textContent='That didn’t go through. Try again in a minute.';});
+  });
+
+  /* ---- reveal ---- */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('.rv'),function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
+  }
+})();
+</script>
+</body>
+</html>
