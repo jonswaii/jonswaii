@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>True Gong Elixirs</title>
+<meta name="description" content="True Gong Elixirs. Ital, cold-pressed, 100% natural. Made in Richmond, VA in honor of Leonard P. Howell, The Gong.">
+<meta name="theme-color" content="#14281d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Libre+Franklin:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: label-inspired. Forest green ground, mustard + lavender label colors, cream paper sections. */
+  :root{
+    --forest:#14281d; --forest2:#1d3a29; --mustard:#d9b43c; --lav:#b9a7e2; --cream:#f3ead2; --ink:#10201a; --muted:#5f6b5f;
+    --tint:#e8dc9a;
+    --display:"Fraunces", "Bookman Old Style", Georgia, serif;
+    --body:"Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  h1,h2,h3{font-family:var(--display);font-weight:900;margin:0;line-height:.95;letter-spacing:-.01em;text-wrap:balance}
+  h2{font-size:clamp(2.6rem,7vw,5rem)}
+  p{margin:0 0 1em}
+  .caps{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase}
+  :focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+  .lion{display:inline-block;background:currentColor;-webkit-mask:url(img/lion.png) center/contain no-repeat;mask:url(img/lion.png) center/contain no-repeat;aspect-ratio:887/620}
+
+  /* age gate */
+  .gate{position:fixed;inset:0;z-index:100;background:var(--forest);color:var(--cream);display:grid;place-items:center;text-align:center;padding:24px max(20px,env(safe-area-inset-left))}
+  .gate .lion{width:150px;color:var(--mustard);margin:0 auto 18px}
+  .gate h2{font-size:clamp(2.2rem,8vw,3.4rem)}
+  .gate p{color:#c9c3ad;max-width:34ch;margin:14px auto 26px}
+  .gate .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;font:700 1rem var(--body);padding:14px 26px;border-radius:999px;border:2px solid var(--mustard);background:var(--mustard);color:var(--forest);text-decoration:none;cursor:pointer;transition:transform .15s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--mustard)}
+  .btn.dark{background:var(--forest);border-color:var(--forest);color:var(--cream)}
+  #gate-no{margin-top:18px;color:var(--mustard)}
+
+  /* header */
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--forest);z-index:41}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(20,40,29,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream)}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px}
+  .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .mark .lion{width:46px;color:var(--mustard)}
+  .mark b{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:.01em;line-height:1}
+  .mark small{display:block;font-size:.58rem;letter-spacing:.38em;font-weight:700;color:var(--mustard)}
+  .bar nav{display:flex;gap:24px;font-weight:500;font-size:.92rem}
+  .bar nav a{text-decoration:none;opacity:.8} .bar nav a:hover{opacity:1;color:var(--mustard)}
+  @media (max-width:700px){.bar nav .opt{display:none}}
+
+  /* hero: flavor switcher */
+  .hero{background:var(--forest);color:var(--cream);position:relative;overflow:hidden;transition:background-color .7s ease}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 45%,var(--glow,rgba(217,180,60,.35)),transparent 70%);transition:background .7s ease;pointer-events:none}
+  .hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,56px);align-items:center;padding-block:clamp(36px,6vw,70px) clamp(28px,4vw,48px)}
+  @media (max-width:820px){.hero-in{grid-template-columns:1fr}}
+  .hero-in>*{min-width:0}
+  .hero h1{font-size:clamp(3.2rem,10vw,6.6rem)}
+  .hero h1 em{font-style:normal;color:var(--mustard)}
+  .hero .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:#d6d0b9;max-width:40ch;margin-top:18px}
+  .now{margin-top:30px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .now .caps{color:var(--mustard)}
+  .now .fname{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1}
+  .now .fnote{color:#bdb7a0;font-size:.95rem;width:100%}
+  .bottle{position:relative;aspect-ratio:2/3;max-height:72vh;margin-inline:auto;width:min(100%,460px)}
+  .bottle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.4);transition:opacity .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .bottle img.out{opacity:0;transform:translateY(14px) scale(.98)}
+  .swatches{position:relative;display:flex;gap:10px;flex-wrap:wrap;padding-bottom:clamp(30px,4vw,48px)}
+  .sw{display:flex;align-items:center;gap:8px;border:1.5px solid rgba(243,234,210,.25);background:rgba(0,0,0,.15);color:var(--cream);border-radius:999px;padding:7px 14px 7px 8px;font:500 .85rem var(--body);cursor:pointer;transition:border-color .2s,background .2s}
+  .sw i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+  .sw[aria-pressed="true"]{border-color:var(--mustard);background:rgba(217,180,60,.18)}
+  .sw:hover{border-color:var(--cream)}
+
+  /* mantra */
+  .mantra{background:var(--mustard);color:var(--forest)}
+  .mantra .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media (max-width:700px){.mantra .wrap{grid-template-columns:1fr}}
+  .m{padding:clamp(26px,4vw,40px) clamp(4px,2vw,24px);border-left:2px solid rgba(20,40,29,.25)}
+  .m:first-child{border-left:0}
+  @media (max-width:700px){.m{border-left:0;border-top:2px solid rgba(20,40,29,.25)}.m:first-child{border-top:0}}
+  .m h3{font-size:clamp(2rem,5vw,2.8rem)}
+  .m p{margin:8px 0 0;font-weight:500;max-width:30ch}
+
+  section{padding-block:clamp(64px,10vw,120px)}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+  .head .caps{color:var(--muted)}
+
+  /* elixirs grid */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
+  @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  .card{min-width:0;display:flex;flex-direction:column;cursor:pointer;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit}
+  .card .ph{aspect-ratio:2/3;border-radius:16px;overflow:hidden;background:var(--forest2);max-width:100%}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .ph img{transform:scale(1.05)}
+  .card .nm{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .card .nm i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c)}
+  .card .nm b{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.05}
+  .card .nt{color:var(--muted);font-size:.88rem;margin-top:4px}
+  .label{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-top:8px;align-self:flex-start;background:var(--lbl);color:var(--forest)}
+
+  /* the gong */
+  .gong{background:var(--forest);color:var(--cream);position:relative;overflow:hidden}
+  .gong .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:center}
+  @media (max-width:820px){.gong .wrap{grid-template-columns:1fr}}
+  .gong .wrap>*{min-width:0}
+  .gong .lion{width:100%;max-width:420px;color:var(--mustard)}
+  .gong h2{color:var(--cream)}
+  .gong h2 em{font-style:normal;color:var(--mustard)}
+  .gong p{color:#d6d0b9;max-width:56ch}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;border-top:1px solid rgba(243,234,210,.2);padding-top:22px}
+  @media (max-width:520px){.facts{grid-template-columns:1fr}}
+  .facts b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4vw,2.4rem);color:var(--mustard);line-height:1;font-variant-numeric:tabular-nums}
+  .facts span{font-size:.88rem;color:#bdb7a0}
+
+  /* life strip */
+  .life{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(10px,1.6vw,18px)}
+  @media (max-width:700px){.life{grid-template-columns:1fr 1fr}.life figure:first-child{grid-column:1/-1}}
+  .life figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:2/3;max-width:100%}
+  .life figure:first-child{aspect-ratio:auto}
+  @media (max-width:700px){.life figure:first-child{aspect-ratio:4/3}}
+  .life img{width:100%;height:100%;object-fit:cover}
+
+  /* waitlist */
+  .list{background:var(--lav)}
+  .list .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start}
+  @media (max-width:820px){.list .wrap{grid-template-columns:1fr}}
+  .list .wrap>*{min-width:0}
+  .list h2{color:var(--forest)}
+  .list p{max-width:42ch}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form .full{grid-column:1/-1}
+  @media (max-width:520px){form{grid-template-columns:1fr}}
+  label{display:grid;gap:6px;font-weight:700;font-size:.85rem}
+  input,select,textarea{width:100%;font:500 16px var(--body);color:var(--ink);background:rgba(255,255,255,.55);border:2px solid var(--forest);border-radius:12px;padding:12px 14px}
+  textarea{min-height:96px;resize:vertical}
+  .hidden{display:none}
+  #w-status{font-weight:700;margin-top:10px}
+
+  footer{background:var(--ink);color:#bdb7a0;font-size:.85rem;padding-block:40px}
+  footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:start}
+  footer .mark{color:var(--cream)}
+  footer .legal{max-width:62ch;line-height:1.55}
+  footer .legal b{color:var(--cream)}
+
+  .rv{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.pre{opacity:0;transform:translateY(26px)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.js .rv.pre{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<!-- AGE GATE -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
+  <div>
+    <span class="lion" aria-hidden="true"></span>
+    <div class="caps" style="color:var(--mustard)">True Gong Elixirs</div>
+    <h2 id="gate-h" style="margin-top:12px">Are you 21 or older?</h2>
+    <p>This site is about cannabis products. You must be 21+ to enter.</p>
+    <div class="row">
+      <button class="btn" id="gate-yes" type="button">Yes, I'm 21+</button>
+      <button class="btn ghost" id="gate-no-btn" type="button">No</button>
+    </div>
+    <p id="gate-no" hidden>Come back when you're 21. Respect.</p>
+  </div>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
+    <nav>
+      <a class="opt" href="#elixirs">Elixirs</a>
+      <a class="opt" href="#gong">The Gong</a>
+      <a href="#list" style="color:var(--mustard);opacity:1">Join the list</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <div class="wrap hero-in">
+      <div>
+        <div class="caps" style="color:var(--mustard)">Cold pressed · 100% natural · Richmond, VA</div>
+        <h1 style="margin-top:16px">Ital in<br><em>a bottle.</em></h1>
+        <p class="lede">Clean juice from the earth, pressed cold and made to slow you down. Nothing processed. Nothing you can't pronounce.</p>
+        <div class="now" aria-live="polite">
+          <span class="caps">Now pouring</span>
+          <span class="fname" id="fname">Brazilian Lemonade</span>
+          <span class="fnote" id="fnote">Bright, creamy citrus.</span>
+        </div>
+      </div>
+      <div class="bottle"><img id="fimg" src="img/brazilian-lemonade.jpg" alt="True Gong Brazilian Lemonade bottle"></div>
+    </div>
+    <div class="wrap swatches" id="swatches" role="group" aria-label="Pick a flavor"></div>
+  </div>
+
+  <!-- MANTRA -->
+  <div class="mantra">
+    <div class="wrap">
+      <div class="m"><h3>Clean.</h3><p>Cold pressed fruit, herbs and greens. 100% natural, start to finish.</p></div>
+      <div class="m"><h3>Ital.</h3><p>Food that comes from the earth, the way the elders ate it. Vital, not processed.</p></div>
+      <div class="m"><h3>Easy.</h3><p>Made for the slow part of the day. Sip, sit back, breathe out.</p></div>
+    </div>
+  </div>
+
+  <!-- ELIXIRS -->
+  <section id="elixirs">
+    <div class="wrap">
+      <div class="head rv"><h2>The elixirs</h2><span class="caps">Tap one to pour it up top</span></div>
+      <div class="grid rv" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- THE GONG -->
+  <section class="gong" id="gong">
+    <div class="wrap">
+      <span class="lion rv" aria-hidden="true"></span>
+      <div class="rv">
+        <div class="caps" style="color:var(--mustard)">Why "Gong"</div>
+        <h2 style="margin-top:14px">Named for <em>The Gong.</em></h2>
+        <p style="margin-top:22px">Leonard Percival Howell, known as The Gong, was one of the first preachers of Rastafari. In 1940 he founded Pinnacle in Sligoville, St. Catherine, the first Rastafarian village in Jamaica. It was a self-sufficient community that lived off the land it worked.</p>
+        <p>True Gong is made by his grandson, in that same spirit: grown from the earth, pressed by hand, shared with the people.</p>
+        <div class="facts">
+          <div><b>1898</b><span>Born in Clarendon, Jamaica</span></div>
+          <div><b>1940</b><span>Founded Pinnacle</span></div>
+          <div><b>"The Gong"</b><span>Also known as G.G. Maragh</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE -->
+  <section style="padding-bottom:0">
+    <div class="wrap">
+      <div class="head rv"><h2>Slow down.</h2><span class="caps">Studio sessions · Long nights · Easy mornings</span></div>
+      <div class="life rv">
+        <figure><img src="img/mango-hand.jpg" alt="Hand holding a True Gong Mango Basil bottle in a music studio" loading="lazy"></figure>
+        <figure><img src="img/matcha-hand.jpg" alt="Hand holding a True Gong Matcha Gong bottle with a lavender label" loading="lazy"></figure>
+        <figure><img src="img/farmers-hand.jpg" alt="Hand holding a True Gong Farmers Gatorade bottle in a garden" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="list" id="list" style="margin-top:clamp(64px,10vw,120px)">
+    <div class="wrap">
+      <div class="rv">
+        <div class="caps" style="color:var(--forest)">First pour</div>
+        <h2 style="margin-top:14px">Get on the list.</h2>
+        <p style="margin-top:18px">Be first when the elixirs drop. Shops, restaurants and events: tell us what you need and we'll reach out.</p>
+        <span class="lion" aria-hidden="true" style="width:120px;color:var(--forest);margin-top:18px"></span>
+      </div>
+      <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
+      <form id="wform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+        <input type="hidden" name="_subject" value="New True Gong list signup">
+        <p class="hidden"><label>Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <label>Name<input id="w-name" name="name" required autocomplete="name"></label>
+        <label>Email<input id="w-email" name="email" type="email" required autocomplete="email"></label>
+        <label>Phone<input id="w-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label>I'm interested in
+          <select id="w-type" name="interest"><option>Drinking it</option><option>Stocking it (shop / restaurant)</option><option>Events / catering</option><option>Something else</option></select>
+        </label>
+        <label class="full">Favorite flavor
+          <select id="w-flavor" name="flavor"></select>
+        </label>
+        <label class="full">Anything else?<textarea id="w-msg" name="message"></textarea></label>
+        <div class="full"><button class="btn dark" id="w-send" type="submit">Join the list</button><p id="w-status" role="status"></p></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div>
+      <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
+      <p style="margin-top:14px">Richmond, VA · © <span id="yr">2026</span> True Gong Elixirs</p>
+    </div>
+    <p class="legal"><b>21+ only.</b> Keep out of reach of children and pets. Do not drive or operate machinery after use. Do not use if pregnant or breastfeeding. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var FLAVORS=[
+    {id:'brazilian-lemonade',name:'Brazilian Lemonade',note:'Bright, creamy citrus.',juice:'#efe3a6',label:'#d9b43c',bg:'#1e3a22',glow:'rgba(239,227,166,.40)'},
+    {id:'farmers-gatorade',name:"Farmer's Gatorade",note:'Fresh watermelon. Built to rehydrate.',juice:'#e2453a',label:'#d9b43c',bg:'#2a1a15',glow:'rgba(226,69,58,.38)'},
+    {id:'matcha-gong',name:'Matcha Gong',note:'Smooth green matcha.',juice:'#8fb53a',label:'#d9c94a',bg:'#1b3218',glow:'rgba(143,181,58,.42)'},
+    {id:'mango-basil',name:'Mango Basil',note:'Ripe mango, a little basil.',juice:'#efbf24',label:'#e5c534',bg:'#26240f',glow:'rgba(239,191,36,.40)'},
+    {id:'matcha-blueberry',name:'Matcha Blueberry',note:'Matcha with blueberry.',juice:'#a9bb63',label:'#b9a7e2',bg:'#1f2a24',glow:'rgba(185,167,226,.38)'},
+    {id:'blackberry-sage',name:'Blackberry Sage',note:'Dark blackberry, earthy sage.',juice:'#5a2f4a',label:'#c9a93a',bg:'#1e1520',glow:'rgba(150,80,130,.42)'},
+    {id:'pineapple-ether',name:'Pineapple Ether',note:'Golden pineapple, light as air.',juice:'#f0d660',label:'#e0bf4a',bg:'#22270f',glow:'rgba(240,214,96,.40)'},
+    {id:'hibiscus-pomegranate',name:'Hibiscus Pomegranate',note:'Tart hibiscus, deep pomegranate.',juice:'#8e1a24',label:'#b9a7e2',bg:'#241216',glow:'rgba(180,40,60,.42)'}
+  ];
+  var $=function(id){return document.getElementById(id);};
+  $('yr').textContent=new Date().getFullYear();
+
+  // age gate
+  var gate=$('gate'), ok=false;
+  try{ok=localStorage.getItem('tg21')==='1';}catch(e){}
+  if(ok){gate.hidden=true;} else {document.body.style.overflow='hidden'; $('gate-yes').focus();}
+  $('gate-yes').addEventListener('click',function(){try{localStorage.setItem('tg21','1');}catch(e){} gate.hidden=true; document.body.style.overflow='';});
+  $('gate-no-btn').addEventListener('click',function(){$('gate-no').hidden=false;});
+
+  // flavor switcher
+  var hero=$('hero'), img=$('fimg'), sws=$('swatches'), grid=$('grid'), cur=0, btns=[];
+  function pour(i,scroll){
+    var f=FLAVORS[i]; cur=i;
+    hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',f.glow);
+    $('fname').textContent=f.name; $('fnote').textContent=f.note;
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false');});
+    img.classList.add('out');
+    var n=new Image(); n.onload=function(){setTimeout(function(){img.src=n.src; img.alt='True Gong '+f.name+' bottle'; img.classList.remove('out');},180);}; n.src='img/'+f.id+'.jpg';
+    if(scroll) hero.scrollIntoView({behavior:'smooth'});
+  }
+  FLAVORS.forEach(function(f,i){
+    var b=document.createElement('button'); b.type='button'; b.className='sw'; b.style.setProperty('--c',f.juice);
+    b.innerHTML='<i></i><span></span>'; b.querySelector('span').textContent=f.name;
+    b.addEventListener('click',function(){pour(i);}); sws.appendChild(b); btns.push(b);
+
+    var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.juice); c.style.setProperty('--lbl',f.label);
+    c.innerHTML='<span class="ph"><img loading="lazy" alt=""></span><span class="nm"><i></i><b></b></span><span class="nt"></span><span class="label">100% natural</span>';
+    c.querySelector('img').src='img/'+f.id+'.jpg'; c.querySelector('img').alt='True Gong '+f.name;
+    c.querySelector('b').textContent=f.name; c.querySelector('.nt').textContent=f.note;
+    c.addEventListener('click',function(){pour(i,true);}); grid.appendChild(c);
+
+    var o=document.createElement('option'); o.textContent=f.name; $('w-flavor').appendChild(o);
+  });
+  btns[0].setAttribute('aria-pressed','true');
+  // auto-rotate until someone touches it
+  var auto=!matchMedia('(prefers-reduced-motion: reduce)').matches, timer=null;
+  function startAuto(){ if(!auto) return; timer=setInterval(function(){pour((cur+1)%FLAVORS.length);},4200); }
+  function stopAuto(){ auto=false; clearInterval(timer); }
+  sws.addEventListener('click',stopAuto); grid.addEventListener('click',stopAuto);
+  startAuto();
+
+  // reveal
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('.rv'),function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
+  }
+
+  // waitlist
+  var f=$('wform'), b=$('w-send'), st=$('w-status');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=f.querySelector(':invalid'); if(bad){st.textContent='Add your name and a real email.'; bad.focus(); return;}
+    b.disabled=true; b.textContent='Sending...'; st.textContent='';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0; f.reset(); b.textContent="You're on the list"; st.textContent='We will hit you first when it drops.';})
+      .catch(function(){b.disabled=false; b.textContent='Join the list'; st.textContent="That didn't go through. Try again in a minute.";});
+  });
+})();
+</script>
+</body>
+</html>
