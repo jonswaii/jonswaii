@@ -117,10 +117,7 @@
   .dose .lvl i.on{background:var(--mustard)}
   .dose[aria-pressed="true"]{border-color:var(--mustard);background:rgba(217,180,60,.18)}
   .pick{margin-top:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .pick .sum{color:#d6d0b9;font-size:.95rem;flex:1;min-width:0}
-  .mini{display:none;width:64px;height:84px;flex:0 0 64px;place-items:end center}
-  .mini .art{--s:2.4px}
-  @media (max-width:860px){.mini{display:grid}.pick .btn{order:3;width:100%;text-align:center}}
+
   .pick .sum b{color:var(--cream)}
   .stage{display:grid;place-items:center}
   .stage .art{--s:clamp(8px,2.2vw,13px);animation:float 6s ease-in-out infinite}
@@ -189,6 +186,90 @@
   .hp{position:absolute;left:-9999px}
   #w-status{font-weight:700;margin-top:10px}
 
+
+  /* price on dose cards + add-to-order */
+  .dose .pr{display:block;font-size:.85rem;color:var(--mustard);font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums}
+  .buy{margin-top:22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .qty{display:inline-flex;align-items:center;border:1.5px solid rgba(243,234,210,.3);border-radius:999px;overflow:hidden}
+  .qty button{width:44px;height:48px;background:transparent;border:0;color:var(--cream);font:700 1.3rem var(--body);cursor:pointer}
+  .qty span{min-width:28px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+  .buy .sum{flex:1 1 100%;color:#d6d0b9;font-size:.95rem;min-width:0;display:flex;gap:12px;align-items:center}
+  .mini{display:none;width:64px;height:84px;flex:0 0 64px;place-items:end center}
+  .mini .art{--s:2.4px}
+  @media (max-width:860px){.mini{display:grid}}
+
+  /* how it works */
+  .how{background:var(--cream)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px);counter-reset:s}
+  @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+  .stp{position:relative;background:var(--forest);color:var(--cream);border-radius:20px;padding:24px 22px 26px;min-width:0;overflow:hidden}
+  .stp::before{counter-increment:s;content:counter(s);position:absolute;right:16px;top:4px;font-family:var(--display);font-weight:900;font-size:5rem;line-height:1;color:rgba(217,180,60,.18)}
+  .stp svg{width:46px;height:46px;display:block;margin-bottom:16px}
+  .stp h3{font-size:1.5rem;color:var(--mustard)}
+  .stp p{color:#d6d0b9;margin:8px 0 0;font-size:.95rem}
+  .area{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;align-items:center}
+  .area span{border:1.5px solid var(--forest);border-radius:999px;padding:6px 14px;font-weight:500;font-size:.9rem}
+  .area .caps{border:0;padding:0;color:var(--muted)}
+
+  /* prices in lineup + tiers */
+  .card .from{font-weight:700;font-size:.85rem;margin-top:6px;font-variant-numeric:tabular-nums}
+  .tier .prs{display:flex;gap:18px;margin-top:8px;font-variant-numeric:tabular-nums}
+  .tier .prs span{font-size:.85rem;color:var(--muted)} .tier .prs b{font-family:var(--body);font-size:1.25rem;display:inline;font-weight:700;color:var(--ink)}
+
+  /* deals */
+  .deals{background:var(--forest);color:var(--cream);position:relative;overflow:hidden}
+  .deals::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 10%,rgba(217,180,60,.22),transparent 70%)}
+  .deals .wrap{position:relative}
+  .deals .head .caps{color:#bdb7a0}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,22px)}
+  @media (max-width:860px){.dgrid{grid-template-columns:1fr}}
+  .deal{border-radius:22px;padding:26px 24px;background:rgba(243,234,210,.06);border:1.5px solid rgba(243,234,210,.16);display:flex;flex-direction:column;min-width:0}
+  .deal.hot{background:var(--mustard);color:var(--forest);border-color:var(--mustard)}
+  .deal .tag{align-self:flex-start;font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(217,180,60,.2);color:var(--mustard)}
+  .deal.hot .tag{background:var(--forest);color:var(--mustard)}
+  .deal h3{font-size:clamp(2rem,4.6vw,2.8rem);margin-top:16px}
+  .deal .math{font-weight:700;font-size:1.05rem;margin-top:8px}
+  .deal p{margin:10px 0 0;opacity:.85;font-size:.95rem}
+  .pips{display:flex;gap:6px;margin-top:auto;padding-top:22px;flex-wrap:wrap}
+  .pips i{width:18px;height:26px;border-radius:5px 5px 4px 4px;background:currentColor;opacity:.9}
+  .pips i.free{background:transparent;border:2px dashed currentColor;opacity:.9}
+  .fine{color:#bdb7a0;font-size:.88rem;margin-top:22px}
+
+  /* order */
+  .order{background:var(--lav)}
+  .order .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+  @media (max-width:900px){.order .wrap{grid-template-columns:1fr}}
+  .order .wrap>*{min-width:0}
+  .order h2{color:var(--forest)}
+  .bag{background:var(--cream);border-radius:22px;padding:20px;margin-top:22px;box-shadow:0 10px 30px rgba(20,40,29,.12)}
+  .line{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(20,40,29,.12)}
+  .line:last-of-type{border-bottom:0}
+  .line .th{width:56px;height:72px;display:grid;place-items:end center;background:var(--forest2);border-radius:10px;overflow:hidden}
+  .line .th .art{--s:2.1px}
+  .line b{display:block;font-family:var(--display);font-weight:800;line-height:1.1}
+  .line small{display:block;color:var(--muted);font-size:.82rem}
+  .line .r{text-align:right;font-variant-numeric:tabular-nums}
+  .line .qty{border-color:rgba(20,40,29,.3);margin-top:6px}
+  .line .qty button{color:var(--forest);width:34px;height:34px;font-size:1.05rem}
+  .empty{text-align:center;padding:26px 10px;color:var(--muted)}
+  .empty b{display:block;font-family:var(--display);font-size:1.4rem;color:var(--forest);margin-bottom:6px}
+  .prog{margin:14px 0 4px;font-weight:700;font-size:.9rem;color:var(--forest)}
+  .bar2{height:8px;border-radius:8px;background:rgba(20,40,29,.12);overflow:hidden}
+  .bar2 i{display:block;height:100%;background:var(--mustard);transition:width .4s}
+  .tot{margin-top:14px;display:grid;gap:6px;font-variant-numeric:tabular-nums}
+  .tot div{display:flex;justify-content:space-between}
+  .tot .save{color:#2f7a3d;font-weight:700}
+  .tot .grand{border-top:2px solid var(--forest);padding-top:10px;margin-top:4px;font-family:var(--display);font-weight:900;font-size:1.6rem}
+  .chk{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.9rem}
+  .chk input{width:22px;height:22px;flex:0 0 22px;margin-top:1px;accent-color:var(--forest)}
+  .warn{color:#8e1a24;font-weight:700}
+
+  /* floating bag pill */
+  .pill{position:fixed;z-index:39;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--mustard);color:var(--forest);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s}
+  .pill .c{background:var(--forest);color:var(--mustard);border-radius:999px;min-width:26px;height:26px;display:grid;place-items:center;font-size:.85rem;padding:0 6px}
+  .pill.bump{transform:scale(1.08)}
+
   footer{background:var(--ink);color:#bdb7a0;font-size:.85rem;padding-block:40px}
   footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:start}
   footer .mark{color:var(--cream)}
@@ -221,9 +302,9 @@
   <div class="wrap bar">
     <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
     <nav>
-      <a class="opt" href="#lineup">Lineup</a>
-      <a class="opt" href="#gong">The Gong</a>
-      <a href="#list" style="color:var(--mustard);opacity:1">Reserve</a>
+      <a class="opt" href="#how">How it works</a><a class="opt" href="#lineup">Lineup</a>
+      <a class="opt" href="#deals">Deals</a>
+      <a href="#order" style="color:var(--mustard);opacity:1">Order</a>
     </nav>
   </div>
 </header>
@@ -234,7 +315,7 @@
       <div>
         <div class="caps" style="color:var(--mustard)">Ital THC · Cold pressed · Richmond, VA</div>
         <h1 style="margin-top:14px">Pick your <em>pour.</em></h1>
-        <p class="lede">Clean, 100% natural drinks and gummies. Choose your flavor, then choose how far you want to float.</p>
+        <p class="lede">Clean, 100% natural drinks and gummies. Pick your flavor and how far you want to float. We bring it to your door.</p>
 
         <div class="step">
           <span class="caps">1 · Drink or gummy</span>
@@ -251,9 +332,10 @@
           <span class="caps">3 · Strength</span>
           <div class="doses" id="doses" role="group" aria-label="Strength"></div>
         </div>
-        <div class="pick">
-          <a class="btn" href="#list" id="reserve">Reserve this</a>
-          <span class="mini" aria-hidden="true"><span class="art" id="mini-art"></span></span><span class="sum" id="sum" aria-live="polite"></span>
+        <div class="buy">
+          <span class="sum"><span class="mini" aria-hidden="true"><span class="art" id="mini-art"></span></span><span id="sum" aria-live="polite"></span></span>
+          <span class="qty" role="group" aria-label="Quantity"><button type="button" id="q-minus" aria-label="Less">−</button><span id="q-n">1</span><button type="button" id="q-plus" aria-label="More">+</button></span>
+          <button class="btn" type="button" id="add">Add to order</button>
         </div>
       </div>
       <div class="stage"><div class="art" id="hero-art" aria-hidden="true"></div></div>
@@ -268,6 +350,31 @@
     </div>
   </div>
 
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head rv"><h2>How it works</h2><span class="caps">Order · Drop your address · We pull up</span></div>
+      <div class="steps rv">
+        <div class="stp">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6h14v6l3 5v23a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V17l3-5z"/><path d="M14 22h20M14 33h20"/></svg>
+          <h3>Build it</h3><p>Pick drinks or gummies, your flavors and your strength. Mix and match anything.</p>
+        </div>
+        <div class="stp">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 43s14-12.5 14-23a14 14 0 0 0-28 0c0 10.5 14 23 14 23z"/><circle cx="24" cy="20" r="5"/></svg>
+          <h3>Drop your address</h3><p>Tell us where and when. Richmond and the surrounding counties.</p>
+        </div>
+        <div class="stp">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="5" width="22" height="38" rx="4"/><path d="M20 36h8M19 16h10M19 22h7"/></svg>
+          <h3>We text you</h3><p>We confirm your order and send you a delivery window.</p>
+        </div>
+        <div class="stp">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h24v20H4zM28 20h9l7 7v7H28z"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg>
+          <h3>We pull up</h3><p>Show a valid 21+ ID at the door, pay, and enjoy. No ID, no drop.</p>
+        </div>
+      </div>
+      <div class="area rv"><span class="caps">We deliver to</span><span>Richmond</span><span>Henrico</span><span>Chesterfield</span><span>Hanover</span></div>
+    </div>
+  </section>
+
   <section id="lineup">
     <div class="wrap">
       <div class="head rv"><h2>The lineup</h2><span class="caps">Tap one to build it up top</span></div>
@@ -276,6 +383,36 @@
       <h3 class="row-h rv">Gummies <span class="caps">Fruit-pressed · vegan</span></h3>
       <div class="grid rv" id="g-gummy"></div>
       <div class="tiers rv" id="tiers"></div>
+    </div>
+  </section>
+
+  <section class="deals" id="deals">
+    <div class="wrap">
+      <div class="head rv"><h2>Stock up.</h2><span class="caps">Mix and match drinks and gummies</span></div>
+      <div class="dgrid rv">
+        <div class="deal">
+          <span class="tag">The Trio</span>
+          <h3>Buy 2, get 1 free</h3>
+          <div class="math">3 items · pay for 2</div>
+          <p>Any three. Your cheapest one is on us.</p>
+          <div class="pips"><i></i><i></i><i class="free"></i></div>
+        </div>
+        <div class="deal hot">
+          <span class="tag">Most popular</span>
+          <h3>The 6-Pack</h3>
+          <div class="math">6 items · 2 free</div>
+          <p>Enough for the week, or the whole session.</p>
+          <div class="pips"><i></i><i></i><i class="free"></i><i></i><i></i><i class="free"></i></div>
+        </div>
+        <div class="deal">
+          <span class="tag">Bulk</span>
+          <h3>The Case</h3>
+          <div class="math">12 items · 4 free + free delivery</div>
+          <p>For parties, events and the people who know.</p>
+          <div class="pips"><i></i><i></i><i class="free"></i><i></i><i></i><i class="free"></i><i></i><i></i><i class="free"></i><i></i><i></i><i class="free"></i></div>
+        </div>
+      </div>
+      <p class="fine rv">Deals add up on their own in your bag. Every 3rd item is free (the cheapest one). Delivery is $5, free on orders of $60+ or 12+ items. $25 minimum. Shops and events: order 24+ and note it below for wholesale pricing.</p>
     </div>
   </section>
 
@@ -296,33 +433,40 @@
     </div>
   </section>
 
-  <section class="list" id="list">
+  <section class="order" id="order">
     <div class="wrap">
       <div class="rv">
-        <div class="caps" style="color:var(--forest)">First pour</div>
-        <h2 style="margin-top:14px">Reserve yours.</h2>
-        <p style="margin-top:18px;max-width:42ch">Lock in your flavor and strength. You'll be first when it drops. Shops, restaurants and events: tell us what you need.</p>
-        <span class="lion" aria-hidden="true" style="width:120px;color:var(--forest);margin-top:12px"></span>
+        <div class="caps" style="color:var(--forest)">Your bag</div>
+        <h2 style="margin-top:14px">Place your order.</h2>
+        <div class="bag" id="bag"></div>
       </div>
       <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
-      <form id="wform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
-        <input type="hidden" name="_subject" value="New True Gong reservation">
+      <form id="oform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+        <input type="hidden" name="_subject" value="New True Gong order">
+        <input type="hidden" name="order" id="o-order">
+        <input type="hidden" name="total" id="o-total">
         <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
-        <label>Name<input id="w-name" name="name" required autocomplete="name"></label>
-        <label>Email<input id="w-email" name="email" type="email" required autocomplete="email"></label>
-        <label>Drink or gummy<select id="w-type" name="product"><option>Drinks</option><option>Gummies</option></select></label>
-        <label>Flavor<select id="w-flavor" name="flavor"></select></label>
-        <label>Strength<select id="w-dose" name="strength"></select></label>
-        <label>Phone<input id="w-phone" name="phone" type="tel" autocomplete="tel"></label>
-        <label class="full">I'm a
-          <select id="w-who" name="who"><option>Customer</option><option>Shop / restaurant</option><option>Event / catering</option></select>
+        <label>Name<input id="o-name" name="name" required autocomplete="name"></label>
+        <label>Phone<input id="o-phone" name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="full">Email<input id="o-email" name="email" type="email" autocomplete="email"></label>
+        <label class="full">Street address<input id="o-addr" name="address" required autocomplete="street-address"></label>
+        <label>Apt / unit<input id="o-apt" name="apt" autocomplete="address-line2"></label>
+        <label>ZIP<input id="o-zip" name="zip" required inputmode="numeric" autocomplete="postal-code"></label>
+        <label>Delivery day<input id="o-day" name="day" type="date" required></label>
+        <label>Time window
+          <select id="o-win" name="window"><option>Afternoon (12–4 PM)</option><option>Evening (4–8 PM)</option><option>Night (8–11 PM)</option></select>
         </label>
-        <label class="full">Anything else?<textarea id="w-msg" name="message"></textarea></label>
-        <div class="full"><button class="btn dark" id="w-send" type="submit">Reserve</button><p id="w-status" role="status"></p></div>
+        <label class="full">Pay at drop-off with
+          <select id="o-pay" name="payment"><option>Cash</option><option>Cash App</option><option>Zelle</option></select>
+        </label>
+        <label class="full">Notes (gate code, bulk / event order, etc.)<textarea id="o-msg" name="notes"></textarea></label>
+        <label class="full chk"><input type="checkbox" id="o-21" name="age_ok" value="yes" required> I'm 21 or older and will show a valid ID at the door.</label>
+        <div class="full"><button class="btn dark" id="o-send" type="submit">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
       </form>
     </div>
   </section>
 </main>
+<a class="pill" id="pill" href="#order" hidden><span>Your bag</span><span class="c" id="pill-n">0</span><span id="pill-t">$0</span></a>
 
 <footer>
   <div class="wrap row">
@@ -336,7 +480,7 @@
 
 <script>
 (function(){
-  /* ======== EDIT FLAVORS + DOSES HERE ======== */
+  /* ======== EDIT FLAVORS, DOSES + PRICES HERE ======== */
   var LINE={
     drink:[
       {name:'Brazilian Lemonade',note:'Bright, creamy citrus.',c:'#efe3a6',lbl:'#d9b43c',bg:'#1e3a22'},
@@ -352,13 +496,15 @@
     ]
   };
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',vibe:'Easy body, clear head.'},
-    {name:'Floating',mg:50,lvl:2,drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',vibe:'Feet up. Music louder.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',vibe:'Clear your schedule.'}
+    {name:'Chill',mg:25,lvl:1,price:{drink:14,gummy:12},drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',vibe:'Easy body, clear head.'},
+    {name:'Floating',mg:50,lvl:2,price:{drink:20,gummy:18},drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',vibe:'Feet up. Music louder.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:30,gummy:26},drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',vibe:'Clear your schedule.'}
   ];
-  /* =========================================== */
+  var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
+  /* ==================================================== */
 
   var $=function(id){return document.getElementById(id);};
+  var money=function(n){return '$'+(Math.round(n*100)/100).toFixed(n%1?2:0);};
   $('yr').textContent=new Date().getFullYear();
 
   // age gate
@@ -369,24 +515,20 @@
   $('gate-no-btn').addEventListener('click',function(){$('gate-no').hidden=false;});
 
   function hexA(h,a){var n=parseInt(h.slice(1),16);return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+a+')';}
-  function label(f,mg){
-    return '<div class="lbl"><span class="tg">TRUE<br>GONG</span><span class="ex">ELIXIRS</span><span class="lion"></span><span class="fl"></span><span class="mg">'+(mg?mg+' MG THC':'100% NATURAL')+'</span></div>';
-  }
+  function label(mg){return '<div class="lbl"><span class="tg">TRUE<br>GONG</span><span class="ex">ELIXIRS</span><span class="lion"></span><span class="fl"></span><span class="mg">'+(mg?mg+' MG THC':'100% NATURAL')+'</span></div>';}
   function draw(el,type,f,mg){
     el.style.setProperty('--liq',f.c); el.style.setProperty('--gum',f.c); el.style.setProperty('--lbl',f.lbl);
-    if(type==='drink'){
-      el.innerHTML='<div class="btl"><div class="cap"></div><div class="neck"></div><div class="body"></div>'+label(f,mg)+'</div>';
-    } else {
-      el.innerHTML='<div class="pch"><div class="body"></div><div class="zip"></div>'+label(f,mg)+'</div><div class="gums"><span class="gum"></span><span class="gum"></span><span class="gum"></span></div>';
-    }
+    el.innerHTML= type==='drink'
+      ? '<div class="btl"><div class="cap"></div><div class="neck"></div><div class="body"></div>'+label(mg)+'</div>'
+      : '<div class="pch"><div class="body"></div><div class="zip"></div>'+label(mg)+'</div><div class="gums"><span class="gum"></span><span class="gum"></span><span class="gum"></span></div>';
     el.querySelector('.fl').textContent=f.name;
   }
 
-  var state={type:'drink',i:0,d:0};
+  /* ---------- builder ---------- */
+  var state={type:'drink',i:0,d:0,q:1};
   var hero=$('hero'), art=$('hero-art'), chips=$('chips'), doses=$('doses');
-
   function render(){
-    var list=LINE[state.type], f=list[state.i], d=DOSES[state.d];
+    var list=LINE[state.type], f=list[state.i], d=DOSES[state.d], price=d.price[state.type];
     hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',hexA(f.c,.42));
     draw(art,state.type,f,d.mg); draw($('mini-art'),state.type,f,d.mg);
     $('t-drink').setAttribute('aria-pressed',state.type==='drink'); $('t-gummy').setAttribute('aria-pressed',state.type==='gummy');
@@ -396,66 +538,136 @@
       b.setAttribute('aria-pressed',i===state.i); b.innerHTML='<i></i><span></span>'; b.querySelector('span').textContent=x.name;
       b.addEventListener('click',function(){state.i=i; render();}); chips.appendChild(b);
     });
-    [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d);});
-    $('sum').innerHTML='<b></b><br><span></span>';
-    $('sum').querySelector('b').textContent=f.name+' '+(state.type==='drink'?'drink':'gummies')+' · '+d.mg+' mg';
-    $('sum').querySelector('span').textContent=d[state.type];
+    [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d); b.querySelector('.pr').textContent=money(DOSES[i].price[state.type]);});
+    var sum=$('sum'); sum.innerHTML='<b style="color:var(--cream)"></b><br><span></span>';
+    sum.querySelector('b').textContent=f.name+' '+(state.type==='drink'?'drink':'gummies')+' · '+d.mg+' mg · '+money(price);
+    sum.querySelector('span').textContent=d[state.type];
+    $('q-n').textContent=state.q;
+    $('add').textContent='Add to order · '+money(price*state.q);
   }
   DOSES.forEach(function(d,i){
     var b=document.createElement('button'); b.type='button'; b.className='dose';
-    b.innerHTML='<b></b><span class="n">'+d.mg+'<small> MG</small></span><span class="lvl"><i></i><i></i><i></i></span>';
+    b.innerHTML='<b></b><span class="n">'+d.mg+'<small> MG</small></span><span class="pr"></span><span class="lvl"><i></i><i></i><i></i></span>';
     b.querySelector('b').textContent=d.name;
     [].forEach.call(b.querySelectorAll('.lvl i'),function(x,k){if(k<d.lvl)x.className='on';});
     b.addEventListener('click',function(){state.d=i; render();}); doses.appendChild(b);
   });
   $('t-drink').addEventListener('click',function(){if(state.type!=='drink'){state.type='drink';state.i=0;render();}});
   $('t-gummy').addEventListener('click',function(){if(state.type!=='gummy'){state.type='gummy';state.i=0;render();}});
+  $('q-minus').addEventListener('click',function(){if(state.q>1){state.q--;render();}});
+  $('q-plus').addEventListener('click',function(){if(state.q<24){state.q++;render();}});
 
-  // lineup cards
+  /* ---------- lineup ---------- */
   ['drink','gummy'].forEach(function(type){
     var g=$('g-'+type);
     LINE[type].forEach(function(f,i){
       var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.c); c.style.setProperty('--glow',hexA(f.c,.38));
-      c.innerHTML='<span class="ph"><span class="art"></span></span><span class="nm"><i></i><b></b></span><span class="nt"></span>';
+      c.innerHTML='<span class="ph"><span class="art"></span></span><span class="nm"><i></i><b></b></span><span class="nt"></span><span class="from"></span>';
       draw(c.querySelector('.art'),type,f,0);
       c.querySelector('.nm b').textContent=f.name; c.querySelector('.nt').textContent=f.note;
+      c.querySelector('.from').textContent='From '+money(DOSES[0].price[type]);
       c.setAttribute('aria-label','Build '+f.name+(type==='drink'?' drink':' gummies'));
-      c.addEventListener('click',function(){state.type=type; state.i=i; render(); hero.scrollIntoView({behavior:'smooth'});});
+      c.addEventListener('click',function(){state.type=type; state.i=i; state.q=1; render(); hero.scrollIntoView({behavior:'smooth'});});
       g.appendChild(c);
     });
   });
   DOSES.forEach(function(d){
     var t=document.createElement('div'); t.className='tier';
-    t.innerHTML='<b></b><div class="n">'+d.mg+' mg per bottle or pack</div><p></p>';
+    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span></div><p></p>';
     t.querySelector('b').textContent=d.name; t.querySelector('p').textContent=d.vibe;
     $('tiers').appendChild(t);
   });
 
-  // form selects follow the builder
-  var wt=$('w-type'), wf=$('w-flavor'), wd=$('w-dose');
-  DOSES.forEach(function(d){var o=document.createElement('option'); o.textContent=d.name+' · '+d.mg+' mg'; wd.appendChild(o);});
-  function fillFlavors(type){wf.innerHTML=''; LINE[type].forEach(function(f){var o=document.createElement('option'); o.textContent=f.name; wf.appendChild(o);});}
-  wt.addEventListener('change',function(){fillFlavors(wt.selectedIndex===0?'drink':'gummy');});
-  function syncForm(){wt.selectedIndex=state.type==='drink'?0:1; fillFlavors(state.type); wf.selectedIndex=state.i; wd.selectedIndex=state.d;}
-  $('reserve').addEventListener('click',syncForm);
-  syncForm(); render();
+  /* ---------- bag ---------- */
+  var bag=[];
+  try{bag=JSON.parse(localStorage.getItem('tgbag')||'[]')||[];}catch(e){bag=[];}
+  function save(){try{localStorage.setItem('tgbag',JSON.stringify(bag));}catch(e){}}
+  function unit(it){return DOSES[it.d].price[it.type];}
+  function totals(){
+    var units=[], qty=0;
+    bag.forEach(function(it){for(var k=0;k<it.q;k++)units.push(unit(it)); qty+=it.q;});
+    units.sort(function(a,b){return a-b;});
+    var nFree=Math.floor(qty/EVERY_NTH_FREE), save=0;
+    for(var k=0;k<nFree;k++) save+=units[k];
+    var sub=units.reduce(function(a,b){return a+b;},0), after=sub-save;
+    var del=qty===0?0:((after>=FREE_DELIVERY_OVER||qty>=FREE_DELIVERY_ITEMS)?0:DELIVERY);
+    return {qty:qty,sub:sub,save:save,nFree:nFree,del:del,total:after+del,after:after};
+  }
+  function addItem(){
+    var key=state.type+'|'+state.i+'|'+state.d, hit=null;
+    bag.forEach(function(it){if(it.type+'|'+it.i+'|'+it.d===key)hit=it;});
+    if(hit) hit.q+=state.q; else bag.push({type:state.type,i:state.i,d:state.d,q:state.q});
+    save(); renderBag();
+    var pill=$('pill'); pill.classList.add('bump'); setTimeout(function(){pill.classList.remove('bump');},250);
+    $('add').textContent='Added ✓'; setTimeout(render,1100);
+  }
+  $('add').addEventListener('click',addItem);
+
+  function renderBag(){
+    var box=$('bag'), t=totals();
+    $('pill').hidden=t.qty===0; $('pill-n').textContent=t.qty; $('pill-t').textContent=money(t.total);
+    if(!bag.length){box.innerHTML='<div class="empty"><b>Your bag is empty</b>Build something up top and hit "Add to order."</div>'; syncForm(t); return;}
+    box.innerHTML='';
+    bag.forEach(function(it,idx){
+      var f=LINE[it.type][it.i], d=DOSES[it.d];
+      var row=document.createElement('div'); row.className='line';
+      row.innerHTML='<span class="th"><span class="art"></span></span><span><b></b><small></small><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
+      draw(row.querySelector('.art'),it.type,f,d.mg);
+      row.querySelector('b').textContent=f.name+(it.type==='drink'?' drink':' gummies');
+      row.querySelector('small').textContent=d.name+' · '+d.mg+' mg · '+money(unit(it))+' each';
+      row.querySelector('.qty span').textContent=it.q;
+      row.querySelector('.r').textContent=money(unit(it)*it.q);
+      var bs=row.querySelectorAll('.qty button');
+      bs[0].addEventListener('click',function(){it.q--; if(it.q<1)bag.splice(idx,1); save(); renderBag();});
+      bs[1].addEventListener('click',function(){it.q++; save(); renderBag();});
+      box.appendChild(row);
+    });
+    var toNext=EVERY_NTH_FREE-(t.qty%EVERY_NTH_FREE);
+    var msg = t.qty>=FREE_DELIVERY_ITEMS ? 'Case unlocked: '+t.nFree+' free + free delivery.'
+            : (toNext===EVERY_NTH_FREE && t.nFree>0 ? t.nFree+' free item'+(t.nFree>1?'s':'')+' unlocked. Add '+EVERY_NTH_FREE+' more for another.'
+            : 'Add '+toNext+' more and '+(toNext===1?'it’s':'one’s')+' free.');
+    var pct = (t.qty>=FREE_DELIVERY_ITEMS||(t.qty>0&&t.qty%EVERY_NTH_FREE===0))?100:((t.qty%EVERY_NTH_FREE)/EVERY_NTH_FREE*100);
+    var extra=document.createElement('div');
+    extra.innerHTML='<div class="prog"></div><div class="bar2"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="tot"><div><span>Subtotal</span><span>'+money(t.sub)+'</span></div>'+
+      (t.save?'<div class="save"><span>Bundle savings ('+t.nFree+' free)</span><span>−'+money(t.save)+'</span></div>':'')+
+      '<div><span>Delivery</span><span>'+(t.del?money(t.del):'FREE')+'</span></div>'+
+      '<div class="grand"><span>Total</span><span>'+money(t.total)+'</span></div></div>'+
+      (t.after<MINIMUM?'<p class="warn" style="margin:10px 0 0">$'+MINIMUM+' minimum. Add '+money(MINIMUM-t.after)+' more.</p>':'');
+    extra.querySelector('.prog').textContent=msg;
+    box.appendChild(extra);
+    syncForm(t);
+  }
+  function syncForm(t){
+    var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+f.name+' '+(it.type==='drink'?'drink':'gummies')+' · '+d.name+' '+d.mg+'mg · '+money(unit(it)*it.q);});
+    lines.push('Subtotal '+money(t.sub)+(t.save?' · Savings -'+money(t.save):'')+' · Delivery '+(t.del?money(t.del):'FREE'));
+    $('o-order').value=lines.join('\n'); $('o-total').value=money(t.total);
+    $('o-send').textContent=t.qty?'Place order · '+money(t.total):'Place order';
+  }
+
+  // delivery day: tomorrow or later
+  var tmr=new Date(); tmr.setDate(tmr.getDate()+1); $('o-day').min=tmr.toISOString().slice(0,10);
+
+  /* ---------- checkout ---------- */
+  var f=$('oform'), b=$('o-send'), st=$('o-status');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var t=totals();
+    if(!t.qty){st.textContent='Your bag is empty. Build something up top first.'; return;}
+    if(t.after<MINIMUM){st.textContent='There’s a $'+MINIMUM+' minimum. Add a little more.'; return;}
+    var bad=f.querySelector(':invalid'); if(bad){st.textContent=bad.type==='checkbox'?'Confirm you’re 21+ to order.':'Fill in your name, phone, address, ZIP and delivery day.'; bad.focus(); return;}
+    b.disabled=true; b.textContent='Sending...'; st.textContent='';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0; bag=[]; save(); renderBag(); f.reset(); b.disabled=false; b.textContent='Order sent ✓'; st.textContent='We got it. We’ll text you to confirm your delivery window.';})
+      .catch(function(){b.disabled=false; syncForm(totals()); st.textContent="That didn't go through. Try again in a minute.";});
+  });
+
+  render(); renderBag();
 
   // reveal
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     [].forEach.call(document.querySelectorAll('.rv'),function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
   }
-
-  // waitlist
-  var f=$('wform'), b=$('w-send'), st=$('w-status');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var bad=f.querySelector(':invalid'); if(bad){st.textContent='Add your name and a real email.'; bad.focus(); return;}
-    b.disabled=true; b.textContent='Sending...'; st.textContent='';
-    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok)throw 0; f.reset(); b.textContent="You're locked in"; st.textContent='We will hit you first when it drops.';})
-      .catch(function(){b.disabled=false; b.textContent='Reserve'; st.textContent="That didn't go through. Try again in a minute.";});
-  });
 })();
 </script>
 </body>
