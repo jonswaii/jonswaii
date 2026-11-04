@@ -4,16 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>True Gong Elixirs</title>
-<meta name="description" content="True Gong Elixirs. Ital, cold-pressed, 100% natural. Made in Richmond, VA in honor of Leonard P. Howell, The Gong.">
+<meta name="description" content="True Gong Elixirs. Ital THC drinks and gummies, cold pressed and 100% natural. Made in Richmond, VA in honor of Leonard P. Howell, The Gong.">
 <meta name="theme-color" content="#14281d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Libre+Franklin:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Layout: label-inspired. Forest green ground, mustard + lavender label colors, cream paper sections. */
+  /* Layout: label-inspired. Forest ground, mustard + lavender label colors, cream paper. Products are drawn, not photographed. */
   :root{
     --forest:#14281d; --forest2:#1d3a29; --mustard:#d9b43c; --lav:#b9a7e2; --cream:#f3ead2; --ink:#10201a; --muted:#5f6b5f;
-    --tint:#e8dc9a;
     --display:"Fraunces", "Bookman Old Style", Georgia, serif;
     --body:"Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
     color-scheme: light;
@@ -23,64 +22,114 @@
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit}
-  img{max-width:100%;display:block}
   .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
   h1,h2,h3{font-family:var(--display);font-weight:900;margin:0;line-height:.95;letter-spacing:-.01em;text-wrap:balance}
   h2{font-size:clamp(2.6rem,7vw,5rem)}
   p{margin:0 0 1em}
-  .caps{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase}
+  .caps{font-family:var(--body);font-weight:700;font-size:.76rem;letter-spacing:.3em;text-transform:uppercase}
   :focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
   .lion{display:inline-block;background:currentColor;-webkit-mask:url(img/lion.png) center/contain no-repeat;mask:url(img/lion.png) center/contain no-repeat;aspect-ratio:887/620}
 
-  /* age gate */
+  /* ===== drawn products (everything in em, so one font-size scales the whole piece) ===== */
+  .art{position:relative;display:grid;place-items:end center;font-size:var(--s,10px);width:26em;height:34em;max-width:100%}
+  /* bottle */
+  .btl{position:relative;width:15em;height:31em;filter:drop-shadow(0 1.4em 1.6em rgba(0,0,0,.35))}
+  .btl .cap{position:absolute;left:3.2em;right:3.2em;top:0;height:3.6em;border-radius:.7em .7em .3em .3em;background:repeating-linear-gradient(90deg,#141414 0 .32em,#2a2a2a .32em .5em)}
+  .btl .neck{position:absolute;left:3.6em;right:3.6em;top:3.4em;height:1.6em;background:linear-gradient(90deg,rgba(0,0,0,.35),var(--liq) 30%,var(--liq) 70%,rgba(0,0,0,.35));opacity:.92}
+  .btl .body{position:absolute;inset:4.6em 0 0 0;border-radius:3.6em 3.6em 2.2em 2.2em;background:
+      linear-gradient(90deg,rgba(0,0,0,.28),transparent 18%,transparent 70%,rgba(0,0,0,.22)),
+      linear-gradient(180deg,rgba(255,255,255,.18),transparent 30%),var(--liq);overflow:hidden;transition:background-color .5s}
+  .btl .body::after{content:"";position:absolute;left:1.4em;top:2.2em;bottom:3em;width:1.3em;border-radius:1em;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.05))}
+  /* pouch */
+  .pch{position:relative;width:19em;height:25em;margin-bottom:5em;filter:drop-shadow(0 1.4em 1.6em rgba(0,0,0,.35))}
+  .pch .body{position:absolute;inset:0;border-radius:1.2em 1.2em 2.4em 2.4em;background:
+      linear-gradient(90deg,rgba(0,0,0,.18),transparent 14%,transparent 80%,rgba(0,0,0,.16)),
+      linear-gradient(180deg,rgba(255,255,255,.22),transparent 25%),var(--lbl);
+      -webkit-mask:radial-gradient(circle at 0 2.6em,transparent .55em,#000 .6em) left/51% 100% no-repeat,radial-gradient(circle at 100% 2.6em,transparent .55em,#000 .6em) right/51% 100% no-repeat;
+              mask:radial-gradient(circle at 0 2.6em,transparent .55em,#000 .6em) left/51% 100% no-repeat,radial-gradient(circle at 100% 2.6em,transparent .55em,#000 .6em) right/51% 100% no-repeat}
+  .pch .zip{position:absolute;left:1em;right:1em;top:3.6em;height:.3em;border-radius:1em;background:rgba(0,0,0,.18)}
+  .pch .lbl{background:transparent;inset:5em 1.6em 1.6em;box-shadow:none}
+  .gums{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;gap:.6em;align-items:end}
+  .gum{width:5.6em;height:5.2em;border-radius:36% 36% 30% 30%;background:
+      radial-gradient(circle at 30% 25%,rgba(255,255,255,.55) 0 .5em,transparent .7em),
+      radial-gradient(rgba(255,255,255,.55) .09em,transparent .12em) 0 0/.7em .7em,
+      linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.18)),var(--gum);
+      box-shadow:inset 0 -.4em .6em rgba(0,0,0,.18),0 .6em .9em rgba(0,0,0,.28);transition:background-color .5s}
+  .gum:nth-child(1){transform:rotate(-10deg) translateY(-.2em)} .gum:nth-child(2){transform:translateY(-.9em);width:6.2em;height:5.8em} .gum:nth-child(3){transform:rotate(9deg)}
+  /* shared label */
+  .lbl{position:absolute;inset:9em 1.5em 3.4em;border-radius:1.1em;background:var(--lbl);color:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.8em;box-shadow:0 .1em .3em rgba(0,0,0,.18);transition:background-color .5s}
+  .lbl .tg{font-family:var(--display);font-weight:900;font-size:2.7em;line-height:.86;letter-spacing:-.01em}
+  .lbl .ex{font-weight:700;font-size:.78em;letter-spacing:.34em;margin:.5em 0 .2em}
+  .lbl .lion{width:7.4em;margin:.4em 0}
+  .lbl .fl{font-family:var(--display);font-weight:800;font-size:1.45em;line-height:1;text-transform:uppercase;margin-top:.2em}
+  .lbl .mg{margin-top:.7em;font-weight:700;font-size:.9em;letter-spacing:.12em;border-top:.12em solid currentColor;padding-top:.45em;width:100%}
+  .pch .lbl .tg{font-size:3.2em} .pch .lbl .lion{width:8.4em} .pch .lbl .fl{font-size:1.7em}
+
+  /* ===== age gate ===== */
   .gate{position:fixed;inset:0;z-index:100;background:var(--forest);color:var(--cream);display:grid;place-items:center;text-align:center;padding:24px max(20px,env(safe-area-inset-left))}
   .gate .lion{width:150px;color:var(--mustard);margin:0 auto 18px}
   .gate h2{font-size:clamp(2.2rem,8vw,3.4rem)}
   .gate p{color:#c9c3ad;max-width:34ch;margin:14px auto 26px}
   .gate .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-block;font:700 1rem var(--body);padding:14px 26px;border-radius:999px;border:2px solid var(--mustard);background:var(--mustard);color:var(--forest);text-decoration:none;cursor:pointer;transition:transform .15s,background .2s,color .2s}
+  .btn{display:inline-block;font:700 1rem var(--body);padding:14px 26px;border-radius:999px;border:2px solid var(--mustard);background:var(--mustard);color:var(--forest);text-decoration:none;cursor:pointer;transition:transform .15s}
   .btn:hover{transform:translateY(-2px)}
   .btn.ghost{background:transparent;color:var(--mustard)}
   .btn.dark{background:var(--forest);border-color:var(--forest);color:var(--cream)}
   #gate-no{margin-top:18px;color:var(--mustard)}
 
-  /* header */
+  /* ===== header ===== */
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--forest);z-index:41}
-  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(20,40,29,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream)}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(20,40,29,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream)}
   .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px}
   .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
   .mark .lion{width:46px;color:var(--mustard)}
-  .mark b{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:.01em;line-height:1}
+  .mark b{font-family:var(--display);font-weight:900;font-size:1.25rem;line-height:1}
   .mark small{display:block;font-size:.58rem;letter-spacing:.38em;font-weight:700;color:var(--mustard)}
   .bar nav{display:flex;gap:24px;font-weight:500;font-size:.92rem}
   .bar nav a{text-decoration:none;opacity:.8} .bar nav a:hover{opacity:1;color:var(--mustard)}
   @media (max-width:700px){.bar nav .opt{display:none}}
 
-  /* hero: flavor switcher */
-  .hero{background:var(--forest);color:var(--cream);position:relative;overflow:hidden;transition:background-color .7s ease}
-  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 45%,var(--glow,rgba(217,180,60,.35)),transparent 70%);transition:background .7s ease;pointer-events:none}
-  .hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,56px);align-items:center;padding-block:clamp(36px,6vw,70px) clamp(28px,4vw,48px)}
-  @media (max-width:820px){.hero-in{grid-template-columns:1fr}}
+  /* ===== hero builder ===== */
+  .hero{background:var(--forest);color:var(--cream);position:relative;overflow:hidden;transition:background-color .6s}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 60% at 74% 48%,var(--glow,rgba(217,180,60,.35)),transparent 72%);transition:background .6s;pointer-events:none}
+  .hero-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center;padding-block:clamp(34px,6vw,64px)}
+  @media (max-width:860px){.hero-in{grid-template-columns:1fr}}
   .hero-in>*{min-width:0}
-  .hero h1{font-size:clamp(3.2rem,10vw,6.6rem)}
+  .hero h1{font-size:clamp(2.8rem,8vw,5.4rem)}
   .hero h1 em{font-style:normal;color:var(--mustard)}
-  .hero .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:#d6d0b9;max-width:40ch;margin-top:18px}
-  .now{margin-top:30px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-  .now .caps{color:var(--mustard)}
-  .now .fname{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1}
-  .now .fnote{color:#bdb7a0;font-size:.95rem;width:100%}
-  .bottle{position:relative;aspect-ratio:2/3;max-height:72vh;margin-inline:auto;width:min(100%,460px)}
-  .bottle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.4);transition:opacity .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
-  .bottle img.out{opacity:0;transform:translateY(14px) scale(.98)}
-  .swatches{position:relative;display:flex;gap:10px;flex-wrap:wrap;padding-bottom:clamp(30px,4vw,48px)}
-  .sw{display:flex;align-items:center;gap:8px;border:1.5px solid rgba(243,234,210,.25);background:rgba(0,0,0,.15);color:var(--cream);border-radius:999px;padding:7px 14px 7px 8px;font:500 .85rem var(--body);cursor:pointer;transition:border-color .2s,background .2s}
-  .sw i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
-  .sw[aria-pressed="true"]{border-color:var(--mustard);background:rgba(217,180,60,.18)}
-  .sw:hover{border-color:var(--cream)}
+  .hero .lede{color:#d6d0b9;max-width:42ch;margin-top:14px}
+  .step{margin-top:22px}
+  .step .caps{color:var(--mustard);display:block;margin-bottom:10px}
+  .seg{display:inline-flex;background:rgba(0,0,0,.25);border-radius:999px;padding:4px}
+  .seg button{font:700 .95rem var(--body);color:var(--cream);background:transparent;border:0;border-radius:999px;padding:10px 22px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--mustard);color:var(--forest)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:flex;align-items:center;gap:8px;border:1.5px solid rgba(243,234,210,.28);background:rgba(0,0,0,.15);color:var(--cream);border-radius:999px;padding:7px 14px 7px 8px;font:500 .88rem var(--body);cursor:pointer}
+  .chip i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+  .chip[aria-pressed="true"]{border-color:var(--mustard);background:rgba(217,180,60,.18)}
+  .doses{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .dose{text-align:left;border:1.5px solid rgba(243,234,210,.28);background:rgba(0,0,0,.15);color:var(--cream);border-radius:14px;padding:12px 12px 10px;cursor:pointer;font:inherit;min-width:0}
+  .dose b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(1rem,2.4vw,1.2rem);line-height:1.05}
+  .dose .n{display:block;font-weight:700;font-size:1.5rem;margin-top:6px;font-variant-numeric:tabular-nums}
+  .dose .n small{font-size:.7rem;letter-spacing:.1em;opacity:.8}
+  .dose .lvl{display:flex;gap:4px;margin-top:6px}
+  .dose .lvl i{height:5px;flex:1;border-radius:3px;background:rgba(243,234,210,.2)}
+  .dose .lvl i.on{background:var(--mustard)}
+  .dose[aria-pressed="true"]{border-color:var(--mustard);background:rgba(217,180,60,.18)}
+  .pick{margin-top:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .pick .sum{color:#d6d0b9;font-size:.95rem;flex:1;min-width:0}
+  .mini{display:none;width:64px;height:84px;flex:0 0 64px;place-items:end center}
+  .mini .art{--s:2.4px}
+  @media (max-width:860px){.mini{display:grid}.pick .btn{order:3;width:100%;text-align:center}}
+  .pick .sum b{color:var(--cream)}
+  .stage{display:grid;place-items:center}
+  .stage .art{--s:clamp(8px,2.2vw,13px);animation:float 6s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-10px)}}
+  @media (max-width:860px){.stage{order:-1}.stage .art{--s:clamp(7px,2.3vw,10px)}}
 
   /* mantra */
   .mantra{background:var(--mustard);color:var(--forest)}
-  .mantra .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .mantra .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
   @media (max-width:700px){.mantra .wrap{grid-template-columns:1fr}}
   .m{padding:clamp(26px,4vw,40px) clamp(4px,2vw,24px);border-left:2px solid rgba(20,40,29,.25)}
   .m:first-child{border-left:0}
@@ -89,30 +138,35 @@
   .m p{margin:8px 0 0;font-weight:500;max-width:30ch}
 
   section{padding-block:clamp(64px,10vw,120px)}
-  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
   .head .caps{color:var(--muted)}
 
-  /* elixirs grid */
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
-  @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  /* lineup */
+  .row-h{font-family:var(--display);font-weight:800;font-size:1.6rem;margin:0 0 16px;display:flex;align-items:baseline;gap:12px}
+  .row-h .caps{color:var(--muted);font-size:.68rem}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,22px);margin-bottom:44px}
+  @media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
   .card{min-width:0;display:flex;flex-direction:column;cursor:pointer;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit}
-  .card .ph{aspect-ratio:2/3;border-radius:16px;overflow:hidden;background:var(--forest2);max-width:100%}
-  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-  .card:hover .ph img{transform:scale(1.05)}
+  .card .ph{display:grid;place-items:center;aspect-ratio:3/4;container-type:inline-size;border-radius:18px;background:var(--forest2);overflow:hidden;max-width:100%;position:relative}
+  .card .ph::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 55%,var(--glow),transparent 75%)}
+  .card .art{--s:calc(100cqw / 31);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .art{transform:translateY(-6px) rotate(-2deg)}
   .card .nm{display:flex;align-items:center;gap:8px;margin-top:12px}
   .card .nm i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c)}
   .card .nm b{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.05}
   .card .nt{color:var(--muted);font-size:.88rem;margin-top:4px}
-  .label{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-top:8px;align-self:flex-start;background:var(--lbl);color:var(--forest)}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,20px);border-top:2px solid var(--forest);padding-top:24px}
+  @media (max-width:700px){.tiers{grid-template-columns:1fr}}
+  .tier b{font-family:var(--display);font-weight:900;font-size:clamp(1.5rem,3.5vw,2rem);display:block;line-height:1}
+  .tier .n{font-weight:700;font-size:1.1rem;margin-top:6px;font-variant-numeric:tabular-nums}
+  .tier p{color:var(--muted);font-size:.92rem;margin:6px 0 0}
 
   /* the gong */
-  .gong{background:var(--forest);color:var(--cream);position:relative;overflow:hidden}
+  .gong{background:var(--forest);color:var(--cream)}
   .gong .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:center}
   @media (max-width:820px){.gong .wrap{grid-template-columns:1fr}}
   .gong .wrap>*{min-width:0}
-  .gong .lion{width:100%;max-width:420px;color:var(--mustard)}
-  .gong h2{color:var(--cream)}
+  .gong .wrap>.lion{width:100%;max-width:420px;color:var(--mustard)}
   .gong h2 em{font-style:normal;color:var(--mustard)}
   .gong p{color:#d6d0b9;max-width:56ch}
   .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;border-top:1px solid rgba(243,234,210,.2);padding-top:22px}
@@ -120,28 +174,19 @@
   .facts b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4vw,2.4rem);color:var(--mustard);line-height:1;font-variant-numeric:tabular-nums}
   .facts span{font-size:.88rem;color:#bdb7a0}
 
-  /* life strip */
-  .life{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(10px,1.6vw,18px)}
-  @media (max-width:700px){.life{grid-template-columns:1fr 1fr}.life figure:first-child{grid-column:1/-1}}
-  .life figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:2/3;max-width:100%}
-  .life figure:first-child{aspect-ratio:auto}
-  @media (max-width:700px){.life figure:first-child{aspect-ratio:4/3}}
-  .life img{width:100%;height:100%;object-fit:cover}
-
   /* waitlist */
   .list{background:var(--lav)}
   .list .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start}
   @media (max-width:820px){.list .wrap{grid-template-columns:1fr}}
   .list .wrap>*{min-width:0}
   .list h2{color:var(--forest)}
-  .list p{max-width:42ch}
   form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   form .full{grid-column:1/-1}
   @media (max-width:520px){form{grid-template-columns:1fr}}
   label{display:grid;gap:6px;font-weight:700;font-size:.85rem}
   input,select,textarea{width:100%;font:500 16px var(--body);color:var(--ink);background:rgba(255,255,255,.55);border:2px solid var(--forest);border-radius:12px;padding:12px 14px}
-  textarea{min-height:96px;resize:vertical}
-  .hidden{display:none}
+  textarea{min-height:90px;resize:vertical}
+  .hp{position:absolute;left:-9999px}
   #w-status{font-weight:700;margin-top:10px}
 
   footer{background:var(--ink);color:#bdb7a0;font-size:.85rem;padding-block:40px}
@@ -152,13 +197,12 @@
 
   .rv{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
   .js .rv.pre{opacity:0;transform:translateY(26px)}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.js .rv.pre{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.js .rv.pre{opacity:1;transform:none}}
 </style>
 <script>document.documentElement.className='js'</script>
 </head>
 <body>
 
-<!-- AGE GATE -->
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
   <div>
     <span class="lion" aria-hidden="true"></span>
@@ -177,33 +221,45 @@
   <div class="wrap bar">
     <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
     <nav>
-      <a class="opt" href="#elixirs">Elixirs</a>
+      <a class="opt" href="#lineup">Lineup</a>
       <a class="opt" href="#gong">The Gong</a>
-      <a href="#list" style="color:var(--mustard);opacity:1">Join the list</a>
+      <a href="#list" style="color:var(--mustard);opacity:1">Reserve</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <!-- HERO -->
   <div class="hero" id="hero">
     <div class="wrap hero-in">
       <div>
-        <div class="caps" style="color:var(--mustard)">Cold pressed · 100% natural · Richmond, VA</div>
-        <h1 style="margin-top:16px">Ital in<br><em>a bottle.</em></h1>
-        <p class="lede">Clean juice from the earth, pressed cold and made to slow you down. Nothing processed. Nothing you can't pronounce.</p>
-        <div class="now" aria-live="polite">
-          <span class="caps">Now pouring</span>
-          <span class="fname" id="fname">Brazilian Lemonade</span>
-          <span class="fnote" id="fnote">Bright, creamy citrus.</span>
+        <div class="caps" style="color:var(--mustard)">Ital THC · Cold pressed · Richmond, VA</div>
+        <h1 style="margin-top:14px">Pick your <em>pour.</em></h1>
+        <p class="lede">Clean, 100% natural drinks and gummies. Choose your flavor, then choose how far you want to float.</p>
+
+        <div class="step">
+          <span class="caps">1 · Drink or gummy</span>
+          <div class="seg" role="group" aria-label="Product type">
+            <button type="button" id="t-drink" aria-pressed="true">Drinks</button>
+            <button type="button" id="t-gummy" aria-pressed="false">Gummies</button>
+          </div>
+        </div>
+        <div class="step">
+          <span class="caps">2 · Flavor</span>
+          <div class="chips" id="chips" role="group" aria-label="Flavor"></div>
+        </div>
+        <div class="step">
+          <span class="caps">3 · Strength</span>
+          <div class="doses" id="doses" role="group" aria-label="Strength"></div>
+        </div>
+        <div class="pick">
+          <a class="btn" href="#list" id="reserve">Reserve this</a>
+          <span class="mini" aria-hidden="true"><span class="art" id="mini-art"></span></span><span class="sum" id="sum" aria-live="polite"></span>
         </div>
       </div>
-      <div class="bottle"><img id="fimg" src="img/brazilian-lemonade.jpg" alt="True Gong Brazilian Lemonade bottle"></div>
+      <div class="stage"><div class="art" id="hero-art" aria-hidden="true"></div></div>
     </div>
-    <div class="wrap swatches" id="swatches" role="group" aria-label="Pick a flavor"></div>
   </div>
 
-  <!-- MANTRA -->
   <div class="mantra">
     <div class="wrap">
       <div class="m"><h3>Clean.</h3><p>Cold pressed fruit, herbs and greens. 100% natural, start to finish.</p></div>
@@ -212,15 +268,17 @@
     </div>
   </div>
 
-  <!-- ELIXIRS -->
-  <section id="elixirs">
+  <section id="lineup">
     <div class="wrap">
-      <div class="head rv"><h2>The elixirs</h2><span class="caps">Tap one to pour it up top</span></div>
-      <div class="grid rv" id="grid"></div>
+      <div class="head rv"><h2>The lineup</h2><span class="caps">Tap one to build it up top</span></div>
+      <h3 class="row-h rv">Drinks <span class="caps">Cold pressed · 12 oz</span></h3>
+      <div class="grid rv" id="g-drink"></div>
+      <h3 class="row-h rv">Gummies <span class="caps">Fruit-pressed · vegan</span></h3>
+      <div class="grid rv" id="g-gummy"></div>
+      <div class="tiers rv" id="tiers"></div>
     </div>
   </section>
 
-  <!-- THE GONG -->
   <section class="gong" id="gong">
     <div class="wrap">
       <span class="lion rv" aria-hidden="true"></span>
@@ -238,42 +296,29 @@
     </div>
   </section>
 
-  <!-- LIFESTYLE -->
-  <section style="padding-bottom:0">
-    <div class="wrap">
-      <div class="head rv"><h2>Slow down.</h2><span class="caps">Studio sessions · Long nights · Easy mornings</span></div>
-      <div class="life rv">
-        <figure><img src="img/mango-hand.jpg" alt="Hand holding a True Gong Mango Basil bottle in a music studio" loading="lazy"></figure>
-        <figure><img src="img/matcha-hand.jpg" alt="Hand holding a True Gong Matcha Gong bottle with a lavender label" loading="lazy"></figure>
-        <figure><img src="img/farmers-hand.jpg" alt="Hand holding a True Gong Farmers Gatorade bottle in a garden" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAITLIST -->
-  <section class="list" id="list" style="margin-top:clamp(64px,10vw,120px)">
+  <section class="list" id="list">
     <div class="wrap">
       <div class="rv">
         <div class="caps" style="color:var(--forest)">First pour</div>
-        <h2 style="margin-top:14px">Get on the list.</h2>
-        <p style="margin-top:18px">Be first when the elixirs drop. Shops, restaurants and events: tell us what you need and we'll reach out.</p>
-        <span class="lion" aria-hidden="true" style="width:120px;color:var(--forest);margin-top:18px"></span>
+        <h2 style="margin-top:14px">Reserve yours.</h2>
+        <p style="margin-top:18px;max-width:42ch">Lock in your flavor and strength. You'll be first when it drops. Shops, restaurants and events: tell us what you need.</p>
+        <span class="lion" aria-hidden="true" style="width:120px;color:var(--forest);margin-top:12px"></span>
       </div>
       <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
       <form id="wform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
-        <input type="hidden" name="_subject" value="New True Gong list signup">
-        <p class="hidden"><label>Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="_subject" value="New True Gong reservation">
+        <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <label>Name<input id="w-name" name="name" required autocomplete="name"></label>
         <label>Email<input id="w-email" name="email" type="email" required autocomplete="email"></label>
+        <label>Drink or gummy<select id="w-type" name="product"><option>Drinks</option><option>Gummies</option></select></label>
+        <label>Flavor<select id="w-flavor" name="flavor"></select></label>
+        <label>Strength<select id="w-dose" name="strength"></select></label>
         <label>Phone<input id="w-phone" name="phone" type="tel" autocomplete="tel"></label>
-        <label>I'm interested in
-          <select id="w-type" name="interest"><option>Drinking it</option><option>Stocking it (shop / restaurant)</option><option>Events / catering</option><option>Something else</option></select>
-        </label>
-        <label class="full">Favorite flavor
-          <select id="w-flavor" name="flavor"></select>
+        <label class="full">I'm a
+          <select id="w-who" name="who"><option>Customer</option><option>Shop / restaurant</option><option>Event / catering</option></select>
         </label>
         <label class="full">Anything else?<textarea id="w-msg" name="message"></textarea></label>
-        <div class="full"><button class="btn dark" id="w-send" type="submit">Join the list</button><p id="w-status" role="status"></p></div>
+        <div class="full"><button class="btn dark" id="w-send" type="submit">Reserve</button><p id="w-status" role="status"></p></div>
       </form>
     </div>
   </section>
@@ -285,63 +330,115 @@
       <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
       <p style="margin-top:14px">Richmond, VA · © <span id="yr">2026</span> True Gong Elixirs</p>
     </div>
-    <p class="legal"><b>21+ only.</b> Keep out of reach of children and pets. Do not drive or operate machinery after use. Do not use if pregnant or breastfeeding. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+    <p class="legal"><b>21+ only. Contains THC.</b> Start low and go slow: effects can take 30 minutes to 2 hours to kick in. Keep out of reach of children and pets. Do not drive or operate machinery after use. Do not use if pregnant or breastfeeding. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
   </div>
 </footer>
 
 <script>
 (function(){
-  var FLAVORS=[
-    {id:'brazilian-lemonade',name:'Brazilian Lemonade',note:'Bright, creamy citrus.',juice:'#efe3a6',label:'#d9b43c',bg:'#1e3a22',glow:'rgba(239,227,166,.40)'},
-    {id:'farmers-gatorade',name:"Farmer's Gatorade",note:'Fresh watermelon. Built to rehydrate.',juice:'#e2453a',label:'#d9b43c',bg:'#2a1a15',glow:'rgba(226,69,58,.38)'},
-    {id:'matcha-gong',name:'Matcha Gong',note:'Smooth green matcha.',juice:'#8fb53a',label:'#d9c94a',bg:'#1b3218',glow:'rgba(143,181,58,.42)'},
-    {id:'mango-basil',name:'Mango Basil',note:'Ripe mango, a little basil.',juice:'#efbf24',label:'#e5c534',bg:'#26240f',glow:'rgba(239,191,36,.40)'},
-    {id:'matcha-blueberry',name:'Matcha Blueberry',note:'Matcha with blueberry.',juice:'#a9bb63',label:'#b9a7e2',bg:'#1f2a24',glow:'rgba(185,167,226,.38)'},
-    {id:'blackberry-sage',name:'Blackberry Sage',note:'Dark blackberry, earthy sage.',juice:'#5a2f4a',label:'#c9a93a',bg:'#1e1520',glow:'rgba(150,80,130,.42)'},
-    {id:'pineapple-ether',name:'Pineapple Ether',note:'Golden pineapple, light as air.',juice:'#f0d660',label:'#e0bf4a',bg:'#22270f',glow:'rgba(240,214,96,.40)'},
-    {id:'hibiscus-pomegranate',name:'Hibiscus Pomegranate',note:'Tart hibiscus, deep pomegranate.',juice:'#8e1a24',label:'#b9a7e2',bg:'#241216',glow:'rgba(180,40,60,.42)'}
+  /* ======== EDIT FLAVORS + DOSES HERE ======== */
+  var LINE={
+    drink:[
+      {name:'Brazilian Lemonade',note:'Bright, creamy citrus.',c:'#efe3a6',lbl:'#d9b43c',bg:'#1e3a22'},
+      {name:'Matcha Gong',note:'Smooth green matcha.',c:'#8fb53a',lbl:'#dccb4c',bg:'#1b3218'},
+      {name:'Blackberry Sage',note:'Dark blackberry, earthy sage.',c:'#5a2f4a',lbl:'#d4b23c',bg:'#1e1520'},
+      {name:'Hibiscus Pomegranate',note:'Tart hibiscus, deep pomegranate.',c:'#8e1a24',lbl:'#b9a7e2',bg:'#241216'}
+    ],
+    gummy:[
+      {name:'Pineapple Ether',note:'Golden pineapple, light as air.',c:'#f2cf3a',lbl:'#d9b43c',bg:'#22270f'},
+      {name:'Mango Basil',note:'Ripe mango, a little basil.',c:'#f29a1c',lbl:'#e5c534',bg:'#2a1f0c'},
+      {name:'Matcha Blueberry',note:'Matcha with wild blueberry.',c:'#5e5bb0',lbl:'#b9a7e2',bg:'#1c1d2e'},
+      {name:'Field Melon',note:'Fresh-cut watermelon.',c:'#e2453a',lbl:'#d9b43c',bg:'#2a1a15'}
+    ]
+  };
+  var DOSES=[
+    {name:'Chill',mg:25,lvl:1,drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',vibe:'Easy body, clear head.'},
+    {name:'Floating',mg:50,lvl:2,drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',vibe:'Feet up. Music louder.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',vibe:'Clear your schedule.'}
   ];
+  /* =========================================== */
+
   var $=function(id){return document.getElementById(id);};
   $('yr').textContent=new Date().getFullYear();
 
   // age gate
   var gate=$('gate'), ok=false;
   try{ok=localStorage.getItem('tg21')==='1';}catch(e){}
-  if(ok){gate.hidden=true;} else {document.body.style.overflow='hidden'; $('gate-yes').focus();}
+  if(ok){gate.hidden=true;} else {document.body.style.overflow='hidden';}
   $('gate-yes').addEventListener('click',function(){try{localStorage.setItem('tg21','1');}catch(e){} gate.hidden=true; document.body.style.overflow='';});
   $('gate-no-btn').addEventListener('click',function(){$('gate-no').hidden=false;});
 
-  // flavor switcher
-  var hero=$('hero'), img=$('fimg'), sws=$('swatches'), grid=$('grid'), cur=0, btns=[];
-  function pour(i,scroll){
-    var f=FLAVORS[i]; cur=i;
-    hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',f.glow);
-    $('fname').textContent=f.name; $('fnote').textContent=f.note;
-    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false');});
-    img.classList.add('out');
-    var n=new Image(); n.onload=function(){setTimeout(function(){img.src=n.src; img.alt='True Gong '+f.name+' bottle'; img.classList.remove('out');},180);}; n.src='img/'+f.id+'.jpg';
-    if(scroll) hero.scrollIntoView({behavior:'smooth'});
+  function hexA(h,a){var n=parseInt(h.slice(1),16);return 'rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+','+a+')';}
+  function label(f,mg){
+    return '<div class="lbl"><span class="tg">TRUE<br>GONG</span><span class="ex">ELIXIRS</span><span class="lion"></span><span class="fl"></span><span class="mg">'+(mg?mg+' MG THC':'100% NATURAL')+'</span></div>';
   }
-  FLAVORS.forEach(function(f,i){
-    var b=document.createElement('button'); b.type='button'; b.className='sw'; b.style.setProperty('--c',f.juice);
-    b.innerHTML='<i></i><span></span>'; b.querySelector('span').textContent=f.name;
-    b.addEventListener('click',function(){pour(i);}); sws.appendChild(b); btns.push(b);
+  function draw(el,type,f,mg){
+    el.style.setProperty('--liq',f.c); el.style.setProperty('--gum',f.c); el.style.setProperty('--lbl',f.lbl);
+    if(type==='drink'){
+      el.innerHTML='<div class="btl"><div class="cap"></div><div class="neck"></div><div class="body"></div>'+label(f,mg)+'</div>';
+    } else {
+      el.innerHTML='<div class="pch"><div class="body"></div><div class="zip"></div>'+label(f,mg)+'</div><div class="gums"><span class="gum"></span><span class="gum"></span><span class="gum"></span></div>';
+    }
+    el.querySelector('.fl').textContent=f.name;
+  }
 
-    var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.juice); c.style.setProperty('--lbl',f.label);
-    c.innerHTML='<span class="ph"><img loading="lazy" alt=""></span><span class="nm"><i></i><b></b></span><span class="nt"></span><span class="label">100% natural</span>';
-    c.querySelector('img').src='img/'+f.id+'.jpg'; c.querySelector('img').alt='True Gong '+f.name;
-    c.querySelector('b').textContent=f.name; c.querySelector('.nt').textContent=f.note;
-    c.addEventListener('click',function(){pour(i,true);}); grid.appendChild(c);
+  var state={type:'drink',i:0,d:0};
+  var hero=$('hero'), art=$('hero-art'), chips=$('chips'), doses=$('doses');
 
-    var o=document.createElement('option'); o.textContent=f.name; $('w-flavor').appendChild(o);
+  function render(){
+    var list=LINE[state.type], f=list[state.i], d=DOSES[state.d];
+    hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',hexA(f.c,.42));
+    draw(art,state.type,f,d.mg); draw($('mini-art'),state.type,f,d.mg);
+    $('t-drink').setAttribute('aria-pressed',state.type==='drink'); $('t-gummy').setAttribute('aria-pressed',state.type==='gummy');
+    chips.innerHTML='';
+    list.forEach(function(x,i){
+      var b=document.createElement('button'); b.type='button'; b.className='chip'; b.style.setProperty('--c',x.c);
+      b.setAttribute('aria-pressed',i===state.i); b.innerHTML='<i></i><span></span>'; b.querySelector('span').textContent=x.name;
+      b.addEventListener('click',function(){state.i=i; render();}); chips.appendChild(b);
+    });
+    [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d);});
+    $('sum').innerHTML='<b></b><br><span></span>';
+    $('sum').querySelector('b').textContent=f.name+' '+(state.type==='drink'?'drink':'gummies')+' · '+d.mg+' mg';
+    $('sum').querySelector('span').textContent=d[state.type];
+  }
+  DOSES.forEach(function(d,i){
+    var b=document.createElement('button'); b.type='button'; b.className='dose';
+    b.innerHTML='<b></b><span class="n">'+d.mg+'<small> MG</small></span><span class="lvl"><i></i><i></i><i></i></span>';
+    b.querySelector('b').textContent=d.name;
+    [].forEach.call(b.querySelectorAll('.lvl i'),function(x,k){if(k<d.lvl)x.className='on';});
+    b.addEventListener('click',function(){state.d=i; render();}); doses.appendChild(b);
   });
-  btns[0].setAttribute('aria-pressed','true');
-  // auto-rotate until someone touches it
-  var auto=!matchMedia('(prefers-reduced-motion: reduce)').matches, timer=null;
-  function startAuto(){ if(!auto) return; timer=setInterval(function(){pour((cur+1)%FLAVORS.length);},4200); }
-  function stopAuto(){ auto=false; clearInterval(timer); }
-  sws.addEventListener('click',stopAuto); grid.addEventListener('click',stopAuto);
-  startAuto();
+  $('t-drink').addEventListener('click',function(){if(state.type!=='drink'){state.type='drink';state.i=0;render();}});
+  $('t-gummy').addEventListener('click',function(){if(state.type!=='gummy'){state.type='gummy';state.i=0;render();}});
+
+  // lineup cards
+  ['drink','gummy'].forEach(function(type){
+    var g=$('g-'+type);
+    LINE[type].forEach(function(f,i){
+      var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.c); c.style.setProperty('--glow',hexA(f.c,.38));
+      c.innerHTML='<span class="ph"><span class="art"></span></span><span class="nm"><i></i><b></b></span><span class="nt"></span>';
+      draw(c.querySelector('.art'),type,f,0);
+      c.querySelector('.nm b').textContent=f.name; c.querySelector('.nt').textContent=f.note;
+      c.setAttribute('aria-label','Build '+f.name+(type==='drink'?' drink':' gummies'));
+      c.addEventListener('click',function(){state.type=type; state.i=i; render(); hero.scrollIntoView({behavior:'smooth'});});
+      g.appendChild(c);
+    });
+  });
+  DOSES.forEach(function(d){
+    var t=document.createElement('div'); t.className='tier';
+    t.innerHTML='<b></b><div class="n">'+d.mg+' mg per bottle or pack</div><p></p>';
+    t.querySelector('b').textContent=d.name; t.querySelector('p').textContent=d.vibe;
+    $('tiers').appendChild(t);
+  });
+
+  // form selects follow the builder
+  var wt=$('w-type'), wf=$('w-flavor'), wd=$('w-dose');
+  DOSES.forEach(function(d){var o=document.createElement('option'); o.textContent=d.name+' · '+d.mg+' mg'; wd.appendChild(o);});
+  function fillFlavors(type){wf.innerHTML=''; LINE[type].forEach(function(f){var o=document.createElement('option'); o.textContent=f.name; wf.appendChild(o);});}
+  wt.addEventListener('change',function(){fillFlavors(wt.selectedIndex===0?'drink':'gummy');});
+  function syncForm(){wt.selectedIndex=state.type==='drink'?0:1; fillFlavors(state.type); wf.selectedIndex=state.i; wd.selectedIndex=state.d;}
+  $('reserve').addEventListener('click',syncForm);
+  syncForm(); render();
 
   // reveal
   if('IntersectionObserver' in window){
@@ -356,8 +453,8 @@
     var bad=f.querySelector(':invalid'); if(bad){st.textContent='Add your name and a real email.'; bad.focus(); return;}
     b.disabled=true; b.textContent='Sending...'; st.textContent='';
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok)throw 0; f.reset(); b.textContent="You're on the list"; st.textContent='We will hit you first when it drops.';})
-      .catch(function(){b.disabled=false; b.textContent='Join the list'; st.textContent="That didn't go through. Try again in a minute.";});
+      .then(function(r){if(!r.ok)throw 0; f.reset(); b.textContent="You're locked in"; st.textContent='We will hit you first when it drops.';})
+      .catch(function(){b.disabled=false; b.textContent='Reserve'; st.textContent="That didn't go through. Try again in a minute.";});
   });
 })();
 </script>
