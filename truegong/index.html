@@ -301,6 +301,53 @@
   .chk input{width:22px;height:22px;flex:0 0 22px;margin-top:1px;accent-color:var(--forest)}
   .warn{color:#8e1a24;font-weight:700}
 
+  /* checkout method */
+  .method{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mopt{position:relative;display:block;cursor:pointer}
+  .mopt input{position:absolute;opacity:0;width:1px;height:1px}
+  .mopt span{display:block;height:100%;border:2px solid var(--forest);border-radius:14px;padding:12px 14px 12px 42px;background:rgba(255,255,255,.4);font-weight:500;position:relative}
+  .mopt span::before{content:"";position:absolute;left:14px;top:15px;width:16px;height:16px;border-radius:50%;border:2px solid var(--forest);background:#fff}
+  .mopt input:checked + span{background:var(--forest);color:var(--cream)}
+  .mopt input:checked + span::before{border-color:var(--mustard);background:var(--mustard);box-shadow:inset 0 0 0 3px var(--forest)}
+  .mopt input:focus-visible + span{outline:3px solid var(--mustard);outline-offset:2px}
+  .mopt b{display:block;font-family:var(--display);font-size:1.15rem;line-height:1.1}
+  .mopt small{display:block;font-size:.8rem;opacity:.85;margin-top:2px}
+  .pickbox{border:2px dashed var(--forest);border-radius:14px;padding:14px 16px;font-size:.92rem}
+  .pickbox b{display:block;font-family:var(--display);font-size:1.1rem}
+  .subgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .subgrid .full{grid-column:1/-1}
+  @media (max-width:520px){.subgrid{grid-template-columns:1fr}}
+  .earn{margin-top:12px;display:flex;align-items:center;gap:10px;background:var(--forest);color:var(--cream);border-radius:12px;padding:10px 14px;font-weight:700;font-size:.92rem}
+  .earn .lion{width:30px;color:var(--mustard);flex:0 0 30px}
+  .earn em{font-style:normal;color:var(--mustard)}
+
+  /* rewards */
+  .rewards{background:var(--cream)}
+  .rgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,48px);align-items:start}
+  @media (max-width:900px){.rgrid{grid-template-columns:1fr}}
+  .rgrid>*{min-width:0}
+  .ladder{display:grid;gap:10px}
+  .tierc{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;background:var(--forest);color:var(--cream);border-radius:18px;padding:16px 18px;position:relative;overflow:hidden}
+  .tierc .lion{color:var(--mustard)}
+  .tierc:nth-child(1) .lion{width:30px;opacity:.55} .tierc:nth-child(2) .lion{width:40px;opacity:.75} .tierc:nth-child(3) .lion{width:50px;opacity:.9} .tierc:nth-child(4) .lion{width:62px}
+  .tierc:nth-child(4){background:linear-gradient(120deg,#1d3a29,#14281d 60%);box-shadow:inset 0 0 0 2px var(--mustard)}
+  .tierc h3{font-size:1.5rem;line-height:1}
+  .tierc p{margin:4px 0 0;font-size:.88rem;color:#d6d0b9}
+  .tierc .rate{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4vw,2.4rem);color:var(--mustard);line-height:1;text-align:right}
+  .tierc .rate small{display:block;font-family:var(--body);font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#bdb7a0}
+  .perks2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+  .bonus{border:2px solid var(--forest);border-radius:16px;padding:14px 16px}
+  .bonus b{display:block;font-family:var(--display);font-weight:900;font-size:2rem;line-height:1;color:var(--forest)}
+  .bonus span{font-size:.88rem;font-weight:500}
+  .howr{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+  .howr li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+  .howr li i{width:28px;height:28px;border-radius:50%;background:var(--mustard);color:var(--forest);display:grid;place-items:center;font-style:normal;font-weight:900;font-size:.85rem}
+  .howr b{display:block}
+  .howr span{color:var(--muted);font-size:.92rem}
+  .join{margin-top:22px;background:var(--lav);border-radius:20px;padding:20px}
+  .join h3{font-size:1.6rem;color:var(--forest)}
+  .join form{margin-top:12px}
+
   /* floating bag pill */
   .pill{position:fixed;z-index:39;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--mustard);color:var(--forest);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s}
   .pill .c{background:var(--forest);color:var(--mustard);border-radius:999px;min-width:26px;height:26px;display:grid;place-items:center;font-size:.85rem;padding:0 6px}
@@ -339,7 +386,7 @@
     <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
     <nav>
       <a class="opt" href="#how">How it works</a><a class="opt" href="#lineup">Lineup</a>
-      <a class="opt" href="#deals">Deals</a>
+      <a class="opt" href="#deals">Deals</a><a class="opt" href="#rewards">Rewards</a>
       <a href="#order" style="color:var(--mustard);opacity:1">Order</a>
     </nav>
   </div>
@@ -462,6 +509,51 @@
     </div>
   </section>
 
+  <section class="rewards" id="rewards">
+    <div class="wrap">
+      <div class="head rv"><h2>Gong <em style="font-style:normal;color:var(--leather,#8a5a36)">Rewards.</em></h2><span class="caps">Cashback on every order · credits never expire</span></div>
+      <!-- EDIT: tier names, rates, thresholds and bonuses below -->
+      <div class="rgrid">
+        <div class="rv">
+          <div class="ladder">
+            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Seed</h3><p>Everyone starts here. $0+ lifetime.</p></div><div class="rate">2%<small>back</small></div></div>
+            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Root</h3><p>$250 lifetime. Early access to new drops.</p></div><div class="rate">3%<small>back</small></div></div>
+            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Lion</h3><p>$750 lifetime. Free delivery on every order.</p></div><div class="rate">4%<small>back</small></div></div>
+            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Pinnacle</h3><p>$1,500 lifetime. Free delivery, first taste of every new flavor and a birthday gift.</p></div><div class="rate">5%<small>back</small></div></div>
+          </div>
+        </div>
+        <div class="rv">
+          <ul class="howr">
+            <li><i>1</i><div><b>Earn on every order</b><span>Cashback lands as store credit once your order is delivered.</span></div></li>
+            <li><i>2</i><div><b>Spend it at checkout</b><span>Use up to $15 in credit on any order.</span></div></li>
+            <li><i>3</i><div><b>Climb the tiers</b><span>The more you spend over time, the more you get back. Up to 5%.</span></div></li>
+            <li><i>4</i><div><b>Keep it forever</b><span>Credits never expire.</span></div></li>
+          </ul>
+          <div class="perks2">
+            <div class="bonus"><b>$10</b><span>for joining</span></div>
+            <div class="bonus"><b>$5</b><span>on your first order</span></div>
+            <div class="bonus"><b>$10</b><span>for every friend you bring (they get $10 too)</span></div>
+            <div class="bonus"><b>$10</b><span>on your birthday</span></div>
+          </div>
+          <div class="join">
+            <h3>Join and get $10.</h3>
+            <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
+            <form id="rform" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+              <input type="hidden" name="_subject" value="New Gong Rewards member">
+              <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+              <label>Name<input id="r-name" name="name" required autocomplete="name"></label>
+              <label>Phone<input id="r-phone" name="phone" type="tel" required autocomplete="tel"></label>
+              <label>Email<input id="r-email" name="email" type="email" autocomplete="email"></label>
+              <label>Birthday<input id="r-bday" name="birthday" type="date" autocomplete="bday"></label>
+              <label class="full">Referred by (their phone or name, optional)<input id="r-ref" name="referred_by"></label>
+              <div class="full"><button class="btn dark" id="r-send" type="submit">Join Gong Rewards</button><p id="r-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="gong" id="gong">
     <div class="wrap">
       <span class="lion rv" aria-hidden="true"></span>
@@ -495,16 +587,25 @@
         <label>Name<input id="o-name" name="name" required autocomplete="name"></label>
         <label>Phone<input id="o-phone" name="phone" type="tel" required autocomplete="tel"></label>
         <label class="full">Email<input id="o-email" name="email" type="email" autocomplete="email"></label>
-        <label class="full">Street address<input id="o-addr" name="address" required autocomplete="street-address"></label>
-        <label>Apt / unit<input id="o-apt" name="apt" autocomplete="address-line2"></label>
-        <label>ZIP<input id="o-zip" name="zip" required inputmode="numeric" autocomplete="postal-code"></label>
-        <label>Delivery day<input id="o-day" name="day" type="date" required></label>
+        <div class="full method" role="radiogroup" aria-label="Pickup or delivery">
+          <label class="mopt"><input type="radio" name="method" value="Pickup" id="m-pick"><span><b>Pickup</b><small>Grab it at our spot. No fee.</small></span></label>
+          <label class="mopt"><input type="radio" name="method" value="Local delivery" id="m-del" checked><span><b>Local delivery</b><small>To your door. $5, free over $60.</small></span></label>
+        </div>
+        <!-- EDIT: pickup location -->
+        <div class="full pickbox" id="pickbox" hidden><b>Pickup location</b>Richmond, VA. We text you the exact spot when your order is ready.</div>
+        <div class="full subgrid" id="delfields">
+          <label class="full">Street address<input id="o-addr" name="address" required autocomplete="street-address"></label>
+          <label>Apt / unit<input id="o-apt" name="apt" autocomplete="address-line2"></label>
+          <label>ZIP<input id="o-zip" name="zip" required inputmode="numeric" autocomplete="postal-code"></label>
+        </div>
+        <label><span id="day-lbl">Delivery day</span><input id="o-day" name="day" type="date" required></label>
         <label>Time window
           <select id="o-win" name="window"><option>Afternoon (12–4 PM)</option><option>Evening (4–8 PM)</option><option>Night (8–11 PM)</option></select>
         </label>
-        <label class="full">Pay at drop-off with
+        <label class="full"><span id="pay-lbl">Pay at drop-off with</span>
           <select id="o-pay" name="payment"><option>Cash</option><option>Cash App</option><option>Zelle</option></select>
         </label>
+        <label class="full chk"><input type="checkbox" id="o-rew" name="gong_rewards" value="yes" checked> Add me to Gong Rewards and give me $10 in credit.</label>
         <label class="full">Notes (gate code, bulk / event order, etc.)<textarea id="o-msg" name="notes"></textarea></label>
         <label class="full chk"><input type="checkbox" id="o-21" name="age_ok" value="yes" required> I'm 21 or older and will show a valid ID at the door.</label>
         <div class="full"><button class="btn dark" id="o-send" type="submit">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
@@ -571,6 +672,7 @@
     {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
   ];
   var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
+  var BASE_CASHBACK=0.02, FIRST_ORDER_BONUS=5, SIGNUP_BONUS=10;
   /* ==================================================== */
 
   var $=function(id){return document.getElementById(id);};
@@ -666,8 +768,9 @@
     var nFree=Math.floor(qty/EVERY_NTH_FREE), save=0;
     for(var k=0;k<nFree;k++) save+=units[k];
     var sub=units.reduce(function(a,b){return a+b;},0), after=sub-save;
-    var del=qty===0?0:((after>=FREE_DELIVERY_OVER||qty>=FREE_DELIVERY_ITEMS)?0:DELIVERY);
-    return {qty:qty,sub:sub,save:save,nFree:nFree,del:del,total:after+del,after:after};
+    var pick=$('m-pick')&&$('m-pick').checked;
+    var del=(qty===0||pick)?0:((after>=FREE_DELIVERY_OVER||qty>=FREE_DELIVERY_ITEMS)?0:DELIVERY);
+    return {qty:qty,sub:sub,save:save,nFree:nFree,del:del,total:after+del,after:after,pick:pick};
   }
   function addItem(){
     var key=state.type+'|'+state.i+'|'+state.d, hit=null;
@@ -707,19 +810,47 @@
     extra.innerHTML='<div class="prog"></div><div class="bar2"><i style="width:'+pct+'%"></i></div>'+
       '<div class="tot"><div><span>Subtotal</span><span>'+money(t.sub)+'</span></div>'+
       (t.save?'<div class="save"><span>Bundle savings ('+t.nFree+' free)</span><span>−'+money(t.save)+'</span></div>':'')+
-      '<div><span>Delivery</span><span>'+(t.del?money(t.del):'FREE')+'</span></div>'+
+      '<div><span>'+(t.pick?'Pickup':'Delivery')+'</span><span>'+(t.del?money(t.del):'FREE')+'</span></div>'+
       '<div class="grand"><span>Total</span><span>'+money(t.total)+'</span></div></div>'+
       (t.after<MINIMUM?'<p class="warn" style="margin:10px 0 0">$'+MINIMUM+' minimum. Add '+money(MINIMUM-t.after)+' more.</p>':'');
     extra.querySelector('.prog').textContent=msg;
+    var earn=Math.round(t.after*BASE_CASHBACK*100)/100;
+    var ev=document.createElement('div'); ev.className='earn';
+    ev.innerHTML='<span class="lion" aria-hidden="true"></span><span>You\u2019ll earn <em>'+money(earn)+'</em> in Gong credit on this order, plus <em>'+money(SIGNUP_BONUS+FIRST_ORDER_BONUS)+'</em> in welcome bonuses.</span>';
+    extra.appendChild(ev);
     box.appendChild(extra);
     syncForm(t);
   }
   function syncForm(t){
     var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+title(it.type,f)+' · '+d.name+' '+d.mg+'mg · '+money(unit(it)*it.q);});
-    lines.push('Subtotal '+money(t.sub)+(t.save?' · Savings -'+money(t.save):'')+' · Delivery '+(t.del?money(t.del):'FREE'));
+    lines.push((t.pick?'PICKUP':'DELIVERY')+' · Subtotal '+money(t.sub)+(t.save?' · Savings -'+money(t.save):'')+' · Delivery '+(t.del?money(t.del):'FREE'));
     $('o-order').value=lines.join('\n'); $('o-total').value=money(t.total);
     $('o-send').textContent=t.qty?'Place order · '+money(t.total):'Place order';
   }
+
+  // pickup vs delivery
+  function setMethod(){
+    var pick=$('m-pick').checked;
+    $('pickbox').hidden=!pick; $('delfields').hidden=pick;
+    ['o-addr','o-zip'].forEach(function(id){$(id).required=!pick;});
+    $('day-lbl').textContent=pick?'Pickup day':'Delivery day';
+    $('pay-lbl').textContent=pick?'Pay at pickup with':'Pay at drop-off with';
+    renderBag();
+  }
+  $('m-pick').addEventListener('change',setMethod); $('m-del').addEventListener('change',setMethod);
+
+  // rewards signup
+  (function(){
+    var rf=$('rform'), rb=$('r-send'), rs=$('r-status');
+    rf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var bad=rf.querySelector(':invalid'); if(bad){rs.textContent='Add your name and phone.'; bad.focus(); return;}
+      rb.disabled=true; rb.textContent='Joining...'; rs.textContent='';
+      fetch(rf.action,{method:'POST',body:new FormData(rf),headers:{'Accept':'application/json'}})
+        .then(function(r){if(!r.ok)throw 0; rf.reset(); rb.textContent='You\u2019re in ✓'; rs.textContent='Your $10 is waiting. We\u2019ll text you your referral code.';})
+        .catch(function(){rb.disabled=false; rb.textContent='Join Gong Rewards'; rs.textContent="That didn't go through. Try again in a minute.";});
+    });
+  })();
 
   // delivery day: tomorrow or later
   var tmr=new Date(); tmr.setDate(tmr.getDate()+1); $('o-day').min=tmr.toISOString().slice(0,10);
@@ -730,10 +861,10 @@
     e.preventDefault(); var t=totals();
     if(!t.qty){st.textContent='Your bag is empty. Build something up top first.'; return;}
     if(t.after<MINIMUM){st.textContent='There’s a $'+MINIMUM+' minimum. Add a little more.'; return;}
-    var bad=f.querySelector(':invalid'); if(bad){st.textContent=bad.type==='checkbox'?'Confirm you’re 21+ to order.':'Fill in your name, phone, address, ZIP and delivery day.'; bad.focus(); return;}
+    var bad=f.querySelector(':invalid'); if(bad){st.textContent=bad.type==='checkbox'?'Confirm you’re 21+ to order.':(t.pick?'Fill in your name, phone and pickup day.':'Fill in your name, phone, address, ZIP and delivery day.'); bad.focus(); return;}
     b.disabled=true; b.textContent='Sending...'; st.textContent='';
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok)throw 0; bag=[]; save(); renderBag(); f.reset(); b.disabled=false; b.textContent='Order sent ✓'; st.textContent='We got it. We’ll text you to confirm your delivery window.';})
+      .then(function(r){if(!r.ok)throw 0; bag=[]; save(); renderBag(); f.reset(); b.disabled=false; b.textContent='Order sent ✓'; st.textContent=t.pick?'We got it. We’ll text you when it’s ready and where to grab it.':'We got it. We’ll text you to confirm your delivery window.';})
       .catch(function(){b.disabled=false; syncForm(totals()); st.textContent="That didn't go through. Try again in a minute.";});
   });
 
