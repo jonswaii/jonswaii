@@ -71,6 +71,25 @@
   .heat i{width:7px;height:12px;border-radius:50%/60% 60% 40% 40%;background:rgba(20,40,29,.18)}
   .heat i.on{background:#c8201a}
 
+  /* honey jar */
+  .jar{position:relative;width:17em;height:24em;filter:drop-shadow(0 1.4em 1.6em rgba(0,0,0,.35))}
+  .jar .lid{position:absolute;left:1.6em;right:1.6em;top:0;height:3.2em;border-radius:.8em .8em .3em .3em;background:repeating-linear-gradient(90deg,#9c7a36 0 .35em,#e7cf8f .35em .6em,#b8924a .6em .9em)}
+  .jar .rim{position:absolute;left:1.2em;right:1.2em;top:2.9em;height:.9em;border-radius:.3em;background:#7a5d27}
+  .jar .body{position:absolute;inset:3.4em 0 0 0;border-radius:2.6em 2.6em 2.2em 2.2em;background:
+      linear-gradient(90deg,rgba(0,0,0,.22),transparent 18%,transparent 74%,rgba(0,0,0,.2)),
+      linear-gradient(180deg,rgba(255,255,255,.22),transparent 25%),var(--liq);overflow:hidden}
+  .jar .body::after{content:"";position:absolute;left:1.2em;top:1.6em;bottom:2em;width:1em;border-radius:1em;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05))}
+  .jar .deco{position:absolute;left:2em;right:2em;top:4.4em;height:5.6em;display:grid;place-items:center}
+  .jar .deco svg{width:100%;height:100%}
+  .jar .lbl{inset:10.6em 1.6em 2em;padding:.5em}
+  .jar .lbl .tg{font-size:2em} .jar .lbl .ex{font-size:.62em;letter-spacing:.28em;margin:.35em 0 .1em} .jar .lbl .lion{width:4.6em;margin:.2em 0} .jar .lbl .fl{font-size:1.1em} .jar .lbl .mg{font-size:.72em;margin-top:.45em;padding-top:.35em}
+  .honey-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,4vw,48px);align-items:end;margin-bottom:22px}
+  @media (max-width:760px){.honey-intro{grid-template-columns:1fr}}
+  .honey-intro>*{min-width:0}
+  .honey-intro p{margin:0;color:var(--muted)}
+  .honey-intro .rules{display:flex;flex-wrap:wrap;gap:8px}
+  .honey-intro .rules span{border:1.5px solid var(--forest);border-radius:999px;padding:5px 12px;font-size:.8rem;font-weight:700;color:var(--forest)}
+
   /* shared label */
   .lbl{position:absolute;inset:9em 1.5em 3.4em;border-radius:1.1em;background:var(--lbl);color:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.8em;box-shadow:0 .1em .3em rgba(0,0,0,.18);transition:background-color .5s}
   .lbl .tg{font-family:var(--display);font-weight:900;font-size:2.7em;line-height:.86;letter-spacing:-.01em}
@@ -115,8 +134,9 @@
   .hero .lede{color:#d6d0b9;max-width:42ch;margin-top:14px}
   .step{margin-top:22px}
   .step .caps{color:var(--mustard);display:block;margin-bottom:10px}
-  .seg{display:inline-flex;background:rgba(0,0,0,.25);border-radius:999px;padding:4px}
-  .seg button{font:700 .95rem var(--body);color:var(--cream);background:transparent;border:0;border-radius:999px;padding:10px 22px;cursor:pointer}
+  .seg{display:inline-flex;flex-wrap:wrap;background:rgba(0,0,0,.25);border-radius:26px;padding:4px}
+  .seg button{font:700 .9rem var(--body);color:var(--cream);background:transparent;border:0;border-radius:999px;padding:10px 14px;cursor:pointer}
+  @media (max-width:420px){.seg button{padding:10px 11px;font-size:.86rem}}
   .seg button[aria-pressed="true"]{background:var(--mustard);color:var(--forest)}
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{display:flex;align-items:center;gap:8px;border:1.5px solid rgba(243,234,210,.28);background:rgba(0,0,0,.15);color:var(--cream);border-radius:999px;padding:7px 14px 7px 8px;font:500 .88rem var(--body);cursor:pointer}
@@ -330,14 +350,15 @@
       <div>
         <div class="caps" style="color:var(--mustard)">Ital THC · Cold pressed · Richmond, VA</div>
         <h1 style="margin-top:14px">Pick your <em>pour.</em></h1>
-        <p class="lede">Clean, 100% natural drinks, gummies and hot sauce. Pick your flavor and how far you want to float. We bring it to your door.</p>
+        <p class="lede">Clean, 100% natural drinks, gummies, hot sauce and raw honey. Pick your flavor and how far you want to float. We bring it to your door.</p>
 
         <div class="step">
-          <span class="caps">1 · Drink, gummy or sauce</span>
+          <span class="caps">1 · Pick your product</span>
           <div class="seg" role="group" aria-label="Product type">
             <button type="button" id="t-drink" aria-pressed="true">Drinks</button>
             <button type="button" id="t-gummy" aria-pressed="false">Gummies</button>
             <button type="button" id="t-sauce" aria-pressed="false">Sauces</button>
+            <button type="button" id="t-honey" aria-pressed="false">Honey</button>
           </div>
         </div>
         <div class="step">
@@ -372,7 +393,7 @@
       <div class="steps rv">
         <div class="stp">
           <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6h14v6l3 5v23a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V17l3-5z"/><path d="M14 22h20M14 33h20"/></svg>
-          <h3>Build it</h3><p>Pick drinks, gummies or hot sauce, your flavors and your strength. Mix and match anything.</p>
+          <h3>Build it</h3><p>Pick drinks, gummies, hot sauce or honey, your flavors and your strength. Mix and match anything.</p>
         </div>
         <div class="stp">
           <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 43s14-12.5 14-23a14 14 0 0 0-28 0c0 10.5 14 23 14 23z"/><circle cx="24" cy="20" r="5"/></svg>
@@ -400,13 +421,19 @@
       <div class="grid rv" id="g-gummy"></div>
       <h3 class="row-h rv">Hot sauce <span class="caps">5 oz · small batch</span></h3>
       <div class="grid rv" id="g-sauce"></div>
+      <h3 class="row-h rv">Raw honey <span class="caps">4 oz jar · raw &amp; unfiltered</span></h3>
+      <div class="honey-intro rv">
+        <p>Raw, unfiltered honey, straight from the farm. Never heated, never processed, so it keeps the natural enzymes and antioxidants store-bought honey loses. Generations have used raw honey to soothe sore throats, calm coughs and settle the body at the end of the day.</p>
+        <div class="rules"><span>Raw &amp; unfiltered</span><span>Never heated past 105°F</span><span>Stir before use</span></div>
+      </div>
+      <div class="grid rv" id="g-honey"></div>
       <div class="tiers rv" id="tiers"></div>
     </div>
   </section>
 
   <section class="deals" id="deals">
     <div class="wrap">
-      <div class="head rv"><h2>Stock up.</h2><span class="caps">Mix and match drinks, gummies and sauce</span></div>
+      <div class="head rv"><h2>Stock up.</h2><span class="caps">Mix and match anything on the menu</span></div>
       <div class="dgrid rv">
         <div class="deal">
           <span class="tag">The Trio</span>
@@ -492,7 +519,7 @@
       <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
       <p style="margin-top:14px">Richmond, VA · © <span id="yr">2026</span> True Gong Elixirs</p>
     </div>
-    <p class="legal"><b>21+ only. Contains THC.</b> Start low and go slow: effects can take 30 minutes to 2 hours to kick in. Keep out of reach of children and pets. Do not drive or operate machinery after use. Do not use if pregnant or breastfeeding. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+    <p class="legal"><b>21+ only. Contains THC.</b> Start low and go slow: effects can take 30 minutes to 2 hours to kick in. Keep out of reach of children and pets. Do not drive or operate machinery after use. Do not use if pregnant or breastfeeding. Do not give honey to children under 1 year old. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
   </div>
 </footer>
 
@@ -517,14 +544,30 @@
       {name:'Mango Hot Pepper',note:'Sweet mango up front, heat behind it.',heat:2,c:'#f0861c',lbl:'#e5c534',bg:'#2a1a0a'},
       {name:'Green Chili Sauce',note:'Bright green chili, lime, garlic.',heat:2,c:'#5f8f2a',lbl:'#b9a7e2',bg:'#17260f'},
       {name:'Fire Sauce',note:'The hottest one. You were warned.',heat:4,c:'#c8201a',lbl:'#d9b43c',bg:'#2a0f0c'}
+    ],
+    honey:[
+      {name:'The Comb',note:'A chunk of real honeycomb in every jar. Chew the comb, spread the honey. The purest thing we make.',deco:'comb',c:'#e2a72e',lbl:'#d9b43c',bg:'#2a2109'},
+      {name:'Fire Honey',note:'Raw honey steeped with scotch bonnet. Sweet first, then the heat creeps in. Wings, pizza, cornbread.',deco:'chili',c:'#d9761c',lbl:'#d9b43c',bg:'#2a150a'},
+      {name:'Lavender',note:'Raw honey with culinary lavender. Soft, floral and calm. Stir it into warm tea at the end of the night.',deco:'lavender',c:'#e6bf6a',lbl:'#b9a7e2',bg:'#1f1a2a'},
+      {name:'Midnight Bloom',note:'Butterfly pea flower and lime zest turn this one deep purple. Light, floral and a little bright.',deco:'bloom',c:'#6a3f8f',lbl:'#b9a7e2',bg:'#1a1226'},
+      {name:'Crimson',note:'A whole dried hibiscus flower blooms in every jar. Tart, fruity and deep red. Sorrel season, all year.',deco:'hibiscus',c:'#9a2430',lbl:'#d9b43c',bg:'#260f13'},
+      {name:'Rosemary',note:'A whole sprig of rosemary in raw honey. Herbal and savory. Made for cheese boards, roasted veggies and warm bread.',deco:'rosemary',c:'#d8a63a',lbl:'#dccb4c',bg:'#1b2414'}
     ]
   };
-  var NOUN={drink:'drink',gummy:'gummies',sauce:'sauce'};
-  function title(type,f){return type==='sauce'?(/sauce/i.test(f.name)?f.name:f.name+' sauce'):f.name+' '+NOUN[type];}
+  var DECO={
+    comb:'<svg viewBox="0 0 100 60"><g fill="#f6d27a" stroke="#9c6a14" stroke-width="2"><path d="M20 10l10-6 10 6v12l-10 6-10-6z"/><path d="M40 10l10-6 10 6v12l-10 6-10-6z"/><path d="M60 10l10-6 10 6v12l-10 6-10-6z"/><path d="M30 28l10-6 10 6v12l-10 6-10-6z"/><path d="M50 28l10-6 10 6v12l-10 6-10-6z"/></g></svg>',
+    chili:'<svg viewBox="0 0 100 60"><path d="M34 18c10-6 26-4 30 8 4 12-6 24-18 24-6 0-10-4-10-10 0-8 4-12-2-22z" fill="#d81e1e" stroke="#6a0c0c" stroke-width="2.5"/><path d="M40 16c-2-6 2-10 8-10" fill="none" stroke="#3d6b1f" stroke-width="4" stroke-linecap="round"/><g fill="#ffb02e"><circle cx="72" cy="14" r="2.5"/><circle cx="24" cy="40" r="2"/><circle cx="76" cy="44" r="2"/></g></svg>',
+    lavender:'<svg viewBox="0 0 100 60"><path d="M50 58V8" stroke="#4f6b3a" stroke-width="2.5"/><g fill="#8f6cc9"><ellipse cx="46" cy="12" rx="4" ry="6"/><ellipse cx="54" cy="16" rx="4" ry="6"/><ellipse cx="46" cy="22" rx="4" ry="6"/><ellipse cx="54" cy="28" rx="4" ry="6"/><ellipse cx="46" cy="34" rx="4" ry="6"/><ellipse cx="54" cy="40" rx="4" ry="5"/></g><path d="M30 58V24M70 58V28" stroke="#4f6b3a" stroke-width="2"/><g fill="#a689d8"><ellipse cx="28" cy="28" rx="3" ry="5"/><ellipse cx="32" cy="36" rx="3" ry="5"/><ellipse cx="68" cy="32" rx="3" ry="5"/><ellipse cx="72" cy="40" rx="3" ry="5"/></g></svg>',
+    bloom:'<svg viewBox="0 0 100 60"><g transform="translate(50 30)"><g fill="#3b5bd6" stroke="#1d2f80" stroke-width="1.5"><ellipse rx="9" ry="16" transform="rotate(0)"/><ellipse rx="9" ry="16" transform="rotate(72)"/><ellipse rx="9" ry="16" transform="rotate(144)"/><ellipse rx="9" ry="16" transform="rotate(216)"/><ellipse rx="9" ry="16" transform="rotate(288)"/></g><circle r="5" fill="#f2e6a0"/></g><g fill="#9fd16a"><circle cx="16" cy="12" r="2.2"/><circle cx="84" cy="18" r="2.2"/><circle cx="20" cy="48" r="2"/><circle cx="82" cy="50" r="2"/></g></svg>',
+    hibiscus:'<svg viewBox="0 0 100 60"><g transform="translate(50 32)"><g fill="#c2182b" stroke="#6a0c16" stroke-width="1.5"><path d="M0 0C-6-20 6-26 10-14z"/><path d="M0 0C14-10 24 0 14 8z" /><path d="M0 0C10 14 0 24-6 14z"/><path d="M0 0C-16 10-22-2-12-8z"/><path d="M0 0C-12-6-8-22 2-18z"/></g><circle r="4" fill="#5a0a14"/><path d="M0 0L6-16" stroke="#f2d35a" stroke-width="2"/><circle cx="6" cy="-16" r="2.5" fill="#f2d35a"/></g></svg>',
+    rosemary:'<svg viewBox="0 0 100 60"><path d="M20 52C40 40 60 24 84 8" stroke="#5b4630" stroke-width="2.5" fill="none"/><g fill="#3e6b3a"><ellipse cx="28" cy="44" rx="7" ry="2.4" transform="rotate(-60 28 44)"/><ellipse cx="34" cy="46" rx="7" ry="2.4" transform="rotate(20 34 46)"/><ellipse cx="40" cy="36" rx="7" ry="2.4" transform="rotate(-60 40 36)"/><ellipse cx="46" cy="38" rx="7" ry="2.4" transform="rotate(20 46 38)"/><ellipse cx="52" cy="28" rx="7" ry="2.4" transform="rotate(-60 52 28)"/><ellipse cx="58" cy="30" rx="7" ry="2.4" transform="rotate(20 58 30)"/><ellipse cx="64" cy="20" rx="7" ry="2.4" transform="rotate(-60 64 20)"/><ellipse cx="70" cy="22" rx="7" ry="2.4" transform="rotate(20 70 22)"/><ellipse cx="78" cy="12" rx="6" ry="2.2" transform="rotate(-40 78 12)"/></g></svg>'
+  };
+  var NOUN={drink:'drink',gummy:'gummies',sauce:'sauce',honey:'honey'};
+  function title(type,f){return (type==='sauce'||type==='honey')?(new RegExp(NOUN[type],'i').test(f.name)?f.name:f.name+' '+NOUN[type]):f.name+' '+NOUN[type];}
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:14,sauce:15},drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head.'},
-    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:20,sauce:21},drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up. Music louder.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30},drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule.'}
+    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:14,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head.'},
+    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:20,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up. Music louder.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule.'}
   ];
   var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
   /* ==================================================== */
@@ -546,6 +589,8 @@
     el.style.setProperty('--liq',f.c); el.style.setProperty('--gum',f.c); el.style.setProperty('--lbl',f.lbl);
     el.innerHTML= type==='drink'
       ? '<div class="btl"><div class="cap"></div><div class="neck"></div><div class="body"></div>'+label(mg)+'</div>'
+      : type==='honey'
+      ? '<div class="jar"><div class="body"></div><div class="rim"></div><div class="lid"></div><div class="deco">'+(DECO[f.deco]||'')+'</div>'+label(mg)+'</div>'
       : type==='sauce'
       ? '<div class="woz"><div class="neck"></div><div class="body"></div><div class="cap"></div><div class="band"></div>'+label(mg)+'</div>'
       : '<div class="pch"><div class="body"></div><div class="zip"></div>'+label(mg)+'</div><div class="gums"><span class="gum"></span><span class="gum"></span><span class="gum"></span></div>';
@@ -559,7 +604,7 @@
     var list=LINE[state.type], f=list[state.i], d=DOSES[state.d], price=d.price[state.type];
     hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',hexA(f.c,.42));
     draw(art,state.type,f,d.mg); draw($('mini-art'),state.type,f,d.mg);
-    ['drink','gummy','sauce'].forEach(function(t){$('t-'+t).setAttribute('aria-pressed',state.type===t);});
+    ['drink','gummy','sauce','honey'].forEach(function(t){$('t-'+t).setAttribute('aria-pressed',state.type===t);});
     chips.innerHTML='';
     list.forEach(function(x,i){
       var b=document.createElement('button'); b.type='button'; b.className='chip'; b.style.setProperty('--c',x.c);
@@ -580,12 +625,12 @@
     [].forEach.call(b.querySelectorAll('.lvl i'),function(x,k){if(k<d.lvl)x.className='on';});
     b.addEventListener('click',function(){state.d=i; render();}); doses.appendChild(b);
   });
-  ['drink','gummy','sauce'].forEach(function(t){$('t-'+t).addEventListener('click',function(){if(state.type!==t){state.type=t;state.i=0;render();}});});
+  ['drink','gummy','sauce','honey'].forEach(function(t){$('t-'+t).addEventListener('click',function(){if(state.type!==t){state.type=t;state.i=0;render();}});});
   $('q-minus').addEventListener('click',function(){if(state.q>1){state.q--;render();}});
   $('q-plus').addEventListener('click',function(){if(state.q<24){state.q++;render();}});
 
   /* ---------- lineup ---------- */
-  ['drink','gummy','sauce'].forEach(function(type){
+  ['drink','gummy','sauce','honey'].forEach(function(type){
     var g=$('g-'+type);
     LINE[type].forEach(function(f,i){
       var c=document.createElement('button'); c.type='button'; c.className='card'; c.style.setProperty('--c',f.c); c.style.setProperty('--glow',hexA(f.c,.38));
@@ -601,7 +646,7 @@
   });
   DOSES.forEach(function(d){
     var t=document.createElement('div'); t.className='tier';
-    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span><span>Sauce <b>'+money(d.price.sauce)+'</b></span></div><p></p>';
+    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span><span>Sauce <b>'+money(d.price.sauce)+'</b></span><span>Honey <b>'+money(d.price.honey)+'</b></span></div><p></p>';
     t.querySelector('b').textContent=d.name; t.querySelector('p').textContent=d.vibe;
     $('tiers').appendChild(t);
   });
