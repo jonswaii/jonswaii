@@ -157,7 +157,7 @@
   .stage{display:grid;place-items:center}
   .stage .art{--s:clamp(8px,2.2vw,13px);animation:float 6s ease-in-out infinite}
   @keyframes float{50%{transform:translateY(-10px)}}
-  @media (max-width:860px){.stage{order:-1}.stage .art{--s:clamp(7px,2.3vw,10px)}}
+  @media (max-width:860px){.stage{order:-1}.stage .art{--s:clamp(5.2px,1.7vw,7.5px)}.hero-in{padding-block:18px 30px}}
 
   /* mantra */
   .mantra{background:var(--mustard);color:var(--forest)}
@@ -187,7 +187,7 @@
   .card .nm i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c)}
   .card .nm b{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.05}
   .card .nt{color:var(--muted);font-size:.86rem;line-height:1.5;margin-top:4px}
-  .buy .desc{display:inline-block;margin-top:6px;font-style:italic;color:#e8e1c9;max-width:46ch}
+  .buy .desc{display:block;flex:1 1 100%;font-style:italic;color:#e8e1c9;max-width:46ch;font-size:.95rem}
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,20px);border-top:2px solid var(--forest);padding-top:24px}
   @media (max-width:700px){.tiers{grid-template-columns:1fr}}
   .tier b{font-family:var(--display);font-weight:900;font-size:clamp(1.5rem,3.5vw,2rem);display:block;line-height:1}
@@ -321,6 +321,10 @@
   .earn .lion{width:30px;color:var(--mustard);flex:0 0 30px}
   .earn em{font-style:normal;color:var(--mustard)}
 
+  .cohead{border-bottom:2px solid var(--forest);padding-bottom:10px;margin-bottom:2px}
+  .cohead .caps{color:var(--forest)}
+  .cohead h3{font-size:clamp(1.6rem,4vw,2.1rem);color:var(--forest);margin-top:6px}
+  .trust{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;font-weight:700;color:var(--forest)}
   .dealstrip{margin-top:16px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;background:var(--mustard);color:var(--forest);border-radius:14px;padding:12px 16px}
   .dealstrip b{font-family:var(--display);font-size:1.3rem}
   .dealstrip span{font-size:.88rem;font-weight:600}
@@ -435,6 +439,7 @@
           <span class="sum"><span class="mini" aria-hidden="true"><span class="art" id="mini-art"></span></span><span id="sum" aria-live="polite"></span></span>
           <span class="qty" role="group" aria-label="Quantity"><button type="button" id="q-minus" aria-label="Less">−</button><span id="q-n">1</span><button type="button" id="q-plus" aria-label="More">+</button></span>
           <button class="btn" type="button" id="add">Add to order</button>
+          <span class="desc" id="buydesc"></span>
         </div>
       </div>
       <div class="stage"><div class="art" id="hero-art" aria-hidden="true"></div></div>
@@ -465,6 +470,7 @@
         <input type="hidden" name="order" id="o-order">
         <input type="hidden" name="total" id="o-total">
         <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <div class="full cohead"><span class="caps">Checkout</span><h3>How do you want it?</h3></div>
         <div class="full method" role="radiogroup" aria-label="Pickup or delivery">
           <label class="mopt"><input type="radio" name="method" value="Pickup" id="m-pick"><span><b>Pickup</b><small>Grab it at our spot. No fee.</small></span></label>
           <label class="mopt"><input type="radio" name="method" value="Local delivery" id="m-del" checked><span><b>Local delivery</b><small>To your door. $5, free over $60.</small></span></label>
@@ -489,7 +495,8 @@
         <label class="full chk"><input type="checkbox" id="o-rew" name="gong_rewards" value="yes" checked> Add me to Gong Rewards and give me $10 in credit.</label>
         <label class="full">Notes (gate code, bulk / event order, etc.)<textarea id="o-msg" name="notes"></textarea></label>
         <label class="full chk"><input type="checkbox" id="o-21" name="age_ok" value="yes" required> I'm 21 or older and will show a valid ID at the door.</label>
-        <div class="full"><button class="btn dark" id="o-send" type="submit">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
+        <div class="full trust"><span>✓ Lab tested</span><span>✓ Small batch</span><span>✓ Made in Richmond, VA</span><span>✓ Pay when you get it</span></div>
+        <div class="full"><button class="btn dark" id="o-send" type="submit" style="width:100%">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
       </form>
     </div>
   </section>
@@ -515,7 +522,7 @@
   </section>
 
 </main>
-<a class="pill" id="pill" href="#order" hidden><span>Your bag</span><span class="c" id="pill-n">0</span><span id="pill-t">$0</span></a>
+<a class="pill" id="pill" href="#order" hidden><span>Checkout</span><span class="c" id="pill-n">0</span><span id="pill-t">$0</span></a>
 
 <footer>
   <div class="wrap row">
@@ -620,7 +627,7 @@
     var sum=$('sum'); sum.innerHTML='<b style="color:var(--cream)"></b><br><span></span>';
     sum.querySelector('b').textContent=title(state.type,f)+' · '+d.mg+' mg · '+money(price);
     sum.querySelector('span').textContent=d[state.type];
-    var ds=document.createElement('span'); ds.className='desc'; ds.textContent=f.note; sum.appendChild(document.createElement('br')); sum.appendChild(ds);
+    $('buydesc').textContent=f.note;
     $('q-n').textContent=state.q;
     $('add').textContent='Add to order · '+money(price*state.q);
   }
@@ -674,7 +681,7 @@
     if(hit) hit.q+=state.q; else bag.push({type:state.type,i:state.i,d:state.d,q:state.q});
     save(); renderBag();
     var pill=$('pill'); pill.classList.add('bump'); setTimeout(function(){pill.classList.remove('bump');},250);
-    $('add').textContent='Added ✓'; setTimeout(render,1100);
+    $('add').textContent='Added ✓ · Checkout below'; setTimeout(render,1600);
   }
   $('add').addEventListener('click',addItem);
 
