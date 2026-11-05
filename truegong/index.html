@@ -321,6 +321,17 @@
   .earn .lion{width:30px;color:var(--mustard);flex:0 0 30px}
   .earn em{font-style:normal;color:var(--mustard)}
 
+  /* rewards mini */
+  .rew-mini{margin-top:16px;background:var(--forest);color:var(--cream);border-radius:20px;padding:18px 20px}
+  .rm-top{display:flex;gap:12px;align-items:center}
+  .rm-top .lion{width:44px;color:var(--mustard);flex:0 0 44px}
+  .rm-top b{display:block;font-family:var(--display);font-size:1.35rem;line-height:1}
+  .rm-top span{font-size:.88rem;color:#d6d0b9}
+  .rm-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
+  .rm-tiers span{border:1.5px solid rgba(243,234,210,.25);border-radius:10px;padding:6px 4px;text-align:center;font-size:.78rem;font-weight:700}
+  .rm-tiers b{display:block;font-family:var(--display);font-size:1.15rem;color:var(--mustard)}
+  .rew-mini p{margin:12px 0 0;font-size:.85rem;color:#d6d0b9}
+
   /* rewards */
   .rewards{background:var(--cream)}
   .rgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,48px);align-items:start}
@@ -385,8 +396,9 @@
   <div class="wrap bar">
     <a class="mark" href="./"><span class="lion" aria-hidden="true"></span><span><b>TRUE GONG</b><small>ELIXIRS</small></span></a>
     <nav>
-      <a class="opt" href="#how">How it works</a><a class="opt" href="#lineup">Lineup</a>
-      <a class="opt" href="#deals">Deals</a><a class="opt" href="#rewards">Rewards</a>
+      <a class="opt" href="#lineup">Menu</a>
+      <a class="opt" href="#deals">Deals</a>
+      <a class="opt" href="#gong">The Gong</a>
       <a href="#order" style="color:var(--mustard);opacity:1">Order</a>
     </nav>
   </div>
@@ -427,42 +439,61 @@
     </div>
   </div>
 
-  <div class="mantra">
-    <div class="wrap">
-      <div class="m"><h3>Clean.</h3><p>Cold pressed fruit, herbs and greens. 100% natural, start to finish.</p></div>
-      <div class="m"><h3>Ital.</h3><p>Food that comes from the earth, the way the elders ate it. Vital, not processed.</p></div>
-      <div class="m"><h3>Easy.</h3><p>Made for the slow part of the day. Sip, sit back, breathe out.</p></div>
-    </div>
   </div>
 
-  <section class="how" id="how">
+
+  <section class="order" id="order">
     <div class="wrap">
-      <div class="head rv"><h2>How it works</h2><span class="caps">Order · Drop your address · We pull up</span></div>
-      <div class="steps rv">
-        <div class="stp">
-          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6h14v6l3 5v23a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3V17l3-5z"/><path d="M14 22h20M14 33h20"/></svg>
-          <h3>Build it</h3><p>Pick drinks, gummies, hot sauce or honey, your flavors and your strength. Mix and match anything.</p>
-        </div>
-        <div class="stp">
-          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 43s14-12.5 14-23a14 14 0 0 0-28 0c0 10.5 14 23 14 23z"/><circle cx="24" cy="20" r="5"/></svg>
-          <h3>Drop your address</h3><p>Tell us where and when. Richmond and the surrounding counties.</p>
-        </div>
-        <div class="stp">
-          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="5" width="22" height="38" rx="4"/><path d="M20 36h8M19 16h10M19 22h7"/></svg>
-          <h3>We text you</h3><p>We confirm your order and send you a delivery window.</p>
-        </div>
-        <div class="stp">
-          <svg viewBox="0 0 48 48" fill="none" stroke="#d9b43c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h24v20H4zM28 20h9l7 7v7H28z"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg>
-          <h3>We pull up</h3><p>Show a valid 21+ ID at the door, pay, and enjoy. No ID, no drop.</p>
+      <div class="rv">
+        <div class="caps" style="color:var(--forest)">Your bag</div>
+        <h2 style="margin-top:14px">Place your order.</h2>
+        <p style="margin:12px 0 0;color:var(--forest);font-weight:500;max-width:44ch">Pick it up or we bring it to you. Pay when you get it. Valid 21+ ID required.</p>
+        <div class="bag" id="bag"></div>
+        <!-- EDIT: rewards tiers + bonuses -->
+        <div class="rew-mini">
+          <div class="rm-top"><span class="lion" aria-hidden="true"></span><div><b>Gong Rewards</b><span>Earn store credit on every order. Credits never expire.</span></div></div>
+          <div class="rm-tiers"><span>Seed <b>2%</b></span><span>Root <b>3%</b></span><span>Lion <b>4%</b></span><span>Pinnacle <b>5%</b></span></div>
+          <p>$10 when you join · $10 on your birthday · $10 for every friend you bring · use up to $15 per order.</p>
         </div>
       </div>
-      <div class="area rv"><span class="caps">We deliver to</span><span>Richmond</span><span>Henrico</span><span>Chesterfield</span><span>Hanover</span></div>
+      <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
+      <form id="oform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+        <input type="hidden" name="_subject" value="New True Gong order">
+        <input type="hidden" name="order" id="o-order">
+        <input type="hidden" name="total" id="o-total">
+        <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <div class="full method" role="radiogroup" aria-label="Pickup or delivery">
+          <label class="mopt"><input type="radio" name="method" value="Pickup" id="m-pick"><span><b>Pickup</b><small>Grab it at our spot. No fee.</small></span></label>
+          <label class="mopt"><input type="radio" name="method" value="Local delivery" id="m-del" checked><span><b>Local delivery</b><small>To your door. $5, free over $60.</small></span></label>
+        </div>
+        <!-- EDIT: pickup location -->
+        <div class="full pickbox" id="pickbox" hidden><b>Pickup location</b>Richmond, VA. We text you the exact spot when your order is ready.</div>
+        <label>Name<input id="o-name" name="name" required autocomplete="name"></label>
+        <label>Phone<input id="o-phone" name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="full">Email<input id="o-email" name="email" type="email" autocomplete="email"></label>
+        <div class="full subgrid" id="delfields">
+          <label class="full">Street address<input id="o-addr" name="address" required autocomplete="street-address"></label>
+          <label>Apt / unit<input id="o-apt" name="apt" autocomplete="address-line2"></label>
+          <label>ZIP<input id="o-zip" name="zip" required inputmode="numeric" autocomplete="postal-code"></label>
+        </div>
+        <label><span id="day-lbl">Delivery day</span><input id="o-day" name="day" type="date" required></label>
+        <label>Time window
+          <select id="o-win" name="window"><option>Afternoon (12–4 PM)</option><option>Evening (4–8 PM)</option><option>Night (8–11 PM)</option></select>
+        </label>
+        <label class="full"><span id="pay-lbl">Pay at drop-off with</span>
+          <select id="o-pay" name="payment"><option>Cash</option><option>Cash App</option><option>Zelle</option></select>
+        </label>
+        <label class="full chk"><input type="checkbox" id="o-rew" name="gong_rewards" value="yes" checked> Add me to Gong Rewards and give me $10 in credit.</label>
+        <label class="full">Notes (gate code, bulk / event order, etc.)<textarea id="o-msg" name="notes"></textarea></label>
+        <label class="full chk"><input type="checkbox" id="o-21" name="age_ok" value="yes" required> I'm 21 or older and will show a valid ID at the door.</label>
+        <div class="full"><button class="btn dark" id="o-send" type="submit">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
+      </form>
     </div>
   </section>
 
   <section id="lineup">
     <div class="wrap">
-      <div class="head rv"><h2>The lineup</h2><span class="caps">Tap one to build it up top</span></div>
+      <div class="head rv"><h2>The menu</h2><span class="caps">Tap anything to build it up top</span></div>
       <h3 class="row-h rv">Drinks <span class="caps">Cold pressed · 12 oz</span></h3>
       <div class="grid rv" id="g-drink"></div>
       <h3 class="row-h rv">Gummies <span class="caps">Fruit-pressed · vegan</span></h3>
@@ -475,7 +506,6 @@
         <div class="rules"><span>Raw &amp; unfiltered</span><span>Never heated past 105°F</span><span>Stir before use</span></div>
       </div>
       <div class="grid rv" id="g-honey"></div>
-      <div class="tiers rv" id="tiers"></div>
     </div>
   </section>
 
@@ -509,50 +539,6 @@
     </div>
   </section>
 
-  <section class="rewards" id="rewards">
-    <div class="wrap">
-      <div class="head rv"><h2>Gong <em style="font-style:normal;color:var(--leather,#8a5a36)">Rewards.</em></h2><span class="caps">Cashback on every order · credits never expire</span></div>
-      <!-- EDIT: tier names, rates, thresholds and bonuses below -->
-      <div class="rgrid">
-        <div class="rv">
-          <div class="ladder">
-            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Seed</h3><p>Everyone starts here. $0+ lifetime.</p></div><div class="rate">2%<small>back</small></div></div>
-            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Root</h3><p>$250 lifetime. Early access to new drops.</p></div><div class="rate">3%<small>back</small></div></div>
-            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Lion</h3><p>$750 lifetime. Free delivery on every order.</p></div><div class="rate">4%<small>back</small></div></div>
-            <div class="tierc"><span class="lion" aria-hidden="true"></span><div><h3>Pinnacle</h3><p>$1,500 lifetime. Free delivery, first taste of every new flavor and a birthday gift.</p></div><div class="rate">5%<small>back</small></div></div>
-          </div>
-        </div>
-        <div class="rv">
-          <ul class="howr">
-            <li><i>1</i><div><b>Earn on every order</b><span>Cashback lands as store credit once your order is delivered.</span></div></li>
-            <li><i>2</i><div><b>Spend it at checkout</b><span>Use up to $15 in credit on any order.</span></div></li>
-            <li><i>3</i><div><b>Climb the tiers</b><span>The more you spend over time, the more you get back. Up to 5%.</span></div></li>
-            <li><i>4</i><div><b>Keep it forever</b><span>Credits never expire.</span></div></li>
-          </ul>
-          <div class="perks2">
-            <div class="bonus"><b>$10</b><span>for joining</span></div>
-            <div class="bonus"><b>$5</b><span>on your first order</span></div>
-            <div class="bonus"><b>$10</b><span>for every friend you bring (they get $10 too)</span></div>
-            <div class="bonus"><b>$10</b><span>on your birthday</span></div>
-          </div>
-          <div class="join">
-            <h3>Join and get $10.</h3>
-            <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
-            <form id="rform" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
-              <input type="hidden" name="_subject" value="New Gong Rewards member">
-              <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
-              <label>Name<input id="r-name" name="name" required autocomplete="name"></label>
-              <label>Phone<input id="r-phone" name="phone" type="tel" required autocomplete="tel"></label>
-              <label>Email<input id="r-email" name="email" type="email" autocomplete="email"></label>
-              <label>Birthday<input id="r-bday" name="birthday" type="date" autocomplete="bday"></label>
-              <label class="full">Referred by (their phone or name, optional)<input id="r-ref" name="referred_by"></label>
-              <div class="full"><button class="btn dark" id="r-send" type="submit">Join Gong Rewards</button><p id="r-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="gong" id="gong">
     <div class="wrap">
@@ -571,47 +557,6 @@
     </div>
   </section>
 
-  <section class="order" id="order">
-    <div class="wrap">
-      <div class="rv">
-        <div class="caps" style="color:var(--forest)">Your bag</div>
-        <h2 style="margin-top:14px">Place your order.</h2>
-        <div class="bag" id="bag"></div>
-      </div>
-      <!-- EDIT: replace YOUR_FORM_ID with your Formspree form code -->
-      <form id="oform" class="rv" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
-        <input type="hidden" name="_subject" value="New True Gong order">
-        <input type="hidden" name="order" id="o-order">
-        <input type="hidden" name="total" id="o-total">
-        <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
-        <label>Name<input id="o-name" name="name" required autocomplete="name"></label>
-        <label>Phone<input id="o-phone" name="phone" type="tel" required autocomplete="tel"></label>
-        <label class="full">Email<input id="o-email" name="email" type="email" autocomplete="email"></label>
-        <div class="full method" role="radiogroup" aria-label="Pickup or delivery">
-          <label class="mopt"><input type="radio" name="method" value="Pickup" id="m-pick"><span><b>Pickup</b><small>Grab it at our spot. No fee.</small></span></label>
-          <label class="mopt"><input type="radio" name="method" value="Local delivery" id="m-del" checked><span><b>Local delivery</b><small>To your door. $5, free over $60.</small></span></label>
-        </div>
-        <!-- EDIT: pickup location -->
-        <div class="full pickbox" id="pickbox" hidden><b>Pickup location</b>Richmond, VA. We text you the exact spot when your order is ready.</div>
-        <div class="full subgrid" id="delfields">
-          <label class="full">Street address<input id="o-addr" name="address" required autocomplete="street-address"></label>
-          <label>Apt / unit<input id="o-apt" name="apt" autocomplete="address-line2"></label>
-          <label>ZIP<input id="o-zip" name="zip" required inputmode="numeric" autocomplete="postal-code"></label>
-        </div>
-        <label><span id="day-lbl">Delivery day</span><input id="o-day" name="day" type="date" required></label>
-        <label>Time window
-          <select id="o-win" name="window"><option>Afternoon (12–4 PM)</option><option>Evening (4–8 PM)</option><option>Night (8–11 PM)</option></select>
-        </label>
-        <label class="full"><span id="pay-lbl">Pay at drop-off with</span>
-          <select id="o-pay" name="payment"><option>Cash</option><option>Cash App</option><option>Zelle</option></select>
-        </label>
-        <label class="full chk"><input type="checkbox" id="o-rew" name="gong_rewards" value="yes" checked> Add me to Gong Rewards and give me $10 in credit.</label>
-        <label class="full">Notes (gate code, bulk / event order, etc.)<textarea id="o-msg" name="notes"></textarea></label>
-        <label class="full chk"><input type="checkbox" id="o-21" name="age_ok" value="yes" required> I'm 21 or older and will show a valid ID at the door.</label>
-        <div class="full"><button class="btn dark" id="o-send" type="submit">Place order</button><p id="o-status" role="status" style="font-weight:700;margin-top:10px"></p></div>
-      </form>
-    </div>
-  </section>
 </main>
 <a class="pill" id="pill" href="#order" hidden><span>Your bag</span><span class="c" id="pill-n">0</span><span id="pill-t">$0</span></a>
 
@@ -748,12 +693,6 @@
       g.appendChild(c);
     });
   });
-  DOSES.forEach(function(d){
-    var t=document.createElement('div'); t.className='tier';
-    t.innerHTML='<b></b><div class="n">'+d.mg+' mg</div><div class="prs"><span>Drink <b>'+money(d.price.drink)+'</b></span><span>Gummies <b>'+money(d.price.gummy)+'</b></span><span>Sauce <b>'+money(d.price.sauce)+'</b></span><span>Honey <b>'+money(d.price.honey)+'</b></span></div><p></p>';
-    t.querySelector('b').textContent=d.name; t.querySelector('p').textContent=d.vibe;
-    $('tiers').appendChild(t);
-  });
 
   /* ---------- bag ---------- */
   var bag=[];
@@ -839,18 +778,6 @@
   }
   $('m-pick').addEventListener('change',setMethod); $('m-del').addEventListener('change',setMethod);
 
-  // rewards signup
-  (function(){
-    var rf=$('rform'), rb=$('r-send'), rs=$('r-status');
-    rf.addEventListener('submit',function(e){
-      e.preventDefault();
-      var bad=rf.querySelector(':invalid'); if(bad){rs.textContent='Add your name and phone.'; bad.focus(); return;}
-      rb.disabled=true; rb.textContent='Joining...'; rs.textContent='';
-      fetch(rf.action,{method:'POST',body:new FormData(rf),headers:{'Accept':'application/json'}})
-        .then(function(r){if(!r.ok)throw 0; rf.reset(); rb.textContent='You\u2019re in ✓'; rs.textContent='Your $10 is waiting. We\u2019ll text you your referral code.';})
-        .catch(function(){rb.disabled=false; rb.textContent='Join Gong Rewards'; rs.textContent="That didn't go through. Try again in a minute.";});
-    });
-  })();
 
   // delivery day: tomorrow or later
   var tmr=new Date(); tmr.setDate(tmr.getDate()+1); $('o-day').min=tmr.toISOString().slice(0,10);
