@@ -186,7 +186,8 @@
   .card .nm{display:flex;align-items:center;gap:8px;margin-top:12px}
   .card .nm i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c)}
   .card .nm b{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.05}
-  .card .nt{color:var(--muted);font-size:.88rem;margin-top:4px}
+  .card .nt{color:var(--muted);font-size:.86rem;line-height:1.5;margin-top:4px}
+  .buy .desc{display:inline-block;margin-top:6px;font-style:italic;color:#e8e1c9;max-width:46ch}
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,20px);border-top:2px solid var(--forest);padding-top:24px}
   @media (max-width:700px){.tiers{grid-template-columns:1fr}}
   .tier b{font-family:var(--display);font-weight:900;font-size:clamp(1.5rem,3.5vw,2rem);display:block;line-height:1}
@@ -528,30 +529,30 @@
   /* ======== EDIT FLAVORS, DOSES + PRICES HERE ======== */
   var LINE={
     drink:[
-      {name:'Brazilian Lemonade',note:'Bright, creamy citrus.',c:'#efe3a6',lbl:'#d9b43c',bg:'#1e3a22'},
-      {name:'Matcha Gong',note:'Smooth green matcha.',c:'#8fb53a',lbl:'#dccb4c',bg:'#1b3218'},
-      {name:'Blackberry Sage',note:'Dark blackberry, earthy sage.',c:'#5a2f4a',lbl:'#d4b23c',bg:'#1e1520'},
-      {name:'Hibiscus Pomegranate',note:'Tart hibiscus, deep pomegranate.',c:'#8e1a24',lbl:'#b9a7e2',bg:'#241216'}
+      {name:'Brazilian Lemonade',note:'Whole limes pressed skin and all, blended smooth and creamy. Tart up front, silky on the way down. The kind of cold that slows the whole day down.',c:'#efe3a6',lbl:'#d9b43c',bg:'#1e3a22'},
+      {name:'Matcha Gong',note:'Stone-ground matcha, cold pressed and smooth as velvet. Earthy, grassy, just a little sweet. The calm, bottled.',c:'#8fb53a',lbl:'#dccb4c',bg:'#1b3218'},
+      {name:'Blackberry Sage',note:'Ripe blackberries pressed deep purple with a whisper of garden sage. Dark, jammy and a little wild. Tastes like the last week of summer.',c:'#5a2f4a',lbl:'#d4b23c',bg:'#1e1520'},
+      {name:'Hibiscus Pomegranate',note:'Hibiscus steeped and pressed with ruby pomegranate. Bright, tart and red to the last drop. Sorrel\'s grown-up cousin.',c:'#8e1a24',lbl:'#b9a7e2',bg:'#241216'}
     ],
     gummy:[
-      {name:'Pineapple Ether',note:'Golden pineapple, light as air.',c:'#f2cf3a',lbl:'#d9b43c',bg:'#22270f'},
-      {name:'Mango Basil',note:'Ripe mango, a little basil.',c:'#f29a1c',lbl:'#e5c534',bg:'#2a1f0c'},
-      {name:'Matcha Blueberry',note:'Matcha with wild blueberry.',c:'#5e5bb0',lbl:'#b9a7e2',bg:'#1c1d2e'},
-      {name:'Field Melon',note:'Fresh-cut watermelon.',c:'#e2453a',lbl:'#d9b43c',bg:'#2a1a15'}
+      {name:'Pineapple Ether',note:'Golden pineapple pressed into a soft, slow chew. Tropical and bright, light as a sea breeze.',c:'#f2cf3a',lbl:'#d9b43c',bg:'#22270f'},
+      {name:'Mango Basil',note:'Sun-ripe mango with a clean snap of fresh basil. Sweet, green and gone too fast.',c:'#f29a1c',lbl:'#e5c534',bg:'#2a1f0c'},
+      {name:'Matcha Blueberry',note:'Earthy matcha folded into wild blueberry. Deep, mellow and made for a slow evening.',c:'#5e5bb0',lbl:'#b9a7e2',bg:'#1c1d2e'},
+      {name:'Field Melon',note:'Fresh-cut watermelon, juicy and clean. Tastes like a cookout in the shade.',c:'#e2453a',lbl:'#d9b43c',bg:'#2a1a15'}
     ],
     sauce:[
-      {name:'Jerk Sauce',note:'Allspice, thyme, scotch bonnet.',heat:3,c:'#5a2414',lbl:'#d9b43c',bg:'#24130c'},
-      {name:'Mango Hot Pepper',note:'Sweet mango up front, heat behind it.',heat:2,c:'#f0861c',lbl:'#e5c534',bg:'#2a1a0a'},
-      {name:'Green Chili Sauce',note:'Bright green chili, lime, garlic.',heat:2,c:'#5f8f2a',lbl:'#b9a7e2',bg:'#17260f'},
-      {name:'Fire Sauce',note:'The hottest one. You were warned.',heat:4,c:'#c8201a',lbl:'#d9b43c',bg:'#2a0f0c'}
+      {name:'Jerk Sauce',note:'Allspice, thyme, scallion and scotch bonnet, done the way it\'s done back home. Smoky, sweet and deep. Brush it, dip it, pour it on everything.',heat:3,c:'#5a2414',lbl:'#d9b43c',bg:'#24130c'},
+      {name:'Mango Hot Pepper',note:'Ripe mango up front, scotch bonnet right behind it. Sweet heat that sneaks up on you. Tacos, wings, grilled fish.',heat:2,c:'#f0861c',lbl:'#e5c534',bg:'#2a1a0a'},
+      {name:'Green Chili Sauce',note:'Bright green chili, fresh lime and garlic. Sharp, zesty, clean heat. Eggs, rice, anything that needs waking up.',heat:2,c:'#5f8f2a',lbl:'#b9a7e2',bg:'#17260f'},
+      {name:'Fire Sauce',note:'Our hottest. Pure scotch bonnet, loud and proud. Flavor first, then the fire. Respect it.',heat:4,c:'#c8201a',lbl:'#d9b43c',bg:'#2a0f0c'}
     ],
     honey:[
-      {name:'The Comb',note:'A chunk of real honeycomb in every jar. Chew the comb, spread the honey. The purest thing we make.',deco:'comb',c:'#e2a72e',lbl:'#d9b43c',bg:'#2a2109'},
-      {name:'Fire Honey',note:'Raw honey steeped with scotch bonnet. Sweet first, then the heat creeps in. Wings, pizza, cornbread.',deco:'chili',c:'#d9761c',lbl:'#d9b43c',bg:'#2a150a'},
-      {name:'Lavender',note:'Raw honey with culinary lavender. Soft, floral and calm. Stir it into warm tea at the end of the night.',deco:'lavender',c:'#e6bf6a',lbl:'#b9a7e2',bg:'#1f1a2a'},
-      {name:'Midnight Bloom',note:'Butterfly pea flower and lime zest turn this one deep purple. Light, floral and a little bright.',deco:'bloom',c:'#6a3f8f',lbl:'#b9a7e2',bg:'#1a1226'},
-      {name:'Crimson',note:'A whole dried hibiscus flower blooms in every jar. Tart, fruity and deep red. Sorrel season, all year.',deco:'hibiscus',c:'#9a2430',lbl:'#d9b43c',bg:'#260f13'},
-      {name:'Rosemary',note:'A whole sprig of rosemary in raw honey. Herbal and savory. Made for cheese boards, roasted veggies and warm bread.',deco:'rosemary',c:'#d8a63a',lbl:'#dccb4c',bg:'#1b2414'}
+      {name:'The Comb',note:'Raw honey with a hand-cut chunk of honeycomb in every jar. Chew the comb, taste the field it came from. Pure gold, exactly how the bees made it.',deco:'comb',c:'#e2a72e',lbl:'#d9b43c',bg:'#2a2109'},
+      {name:'Fire Honey',note:'Raw honey steeped with scotch bonnet. Sweet first, then a slow-rolling heat. Drizzle it on wings, pizza, cornbread and anything fried.',deco:'chili',c:'#d9761c',lbl:'#d9b43c',bg:'#2a150a'},
+      {name:'Lavender',note:'Raw honey with soft culinary lavender. Floral, gentle and calm. Stir it into warm tea as the night winds down.',deco:'lavender',c:'#e6bf6a',lbl:'#b9a7e2',bg:'#1f1a2a'},
+      {name:'Midnight Bloom',note:'Butterfly pea flower and lime zest turn raw honey deep violet. Light, floral and a little bright. As good to look at as it is on a spoon.',deco:'bloom',c:'#6a3f8f',lbl:'#b9a7e2',bg:'#1a1226'},
+      {name:'Crimson',note:'A whole hibiscus flower opens inside every jar. Tart, fruity and deep red. Sorrel season, any time of year.',deco:'hibiscus',c:'#9a2430',lbl:'#d9b43c',bg:'#260f13'},
+      {name:'Rosemary',note:'A whole sprig of rosemary resting in raw honey. Herbal, savory and a little piney. Cheese boards, roasted roots, warm bread.',deco:'rosemary',c:'#d8a63a',lbl:'#dccb4c',bg:'#1b2414'}
     ]
   };
   var DECO={
@@ -565,9 +566,9 @@
   var NOUN={drink:'drink',gummy:'gummies',sauce:'sauce',honey:'honey'};
   function title(type,f){return (type==='sauce'||type==='honey')?(new RegExp(NOUN[type],'i').test(f.name)?f.name:f.name+' '+NOUN[type]):f.name+' '+NOUN[type];}
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:14,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head.'},
-    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:20,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up. Music louder.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule.'}
+    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:14,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'About 3 servings per bottle',gummy:'5 gummies · 5 mg each',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head. The perfect first pour.'},
+    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:20,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'10 gummies · 5 mg each',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up, music louder, worries quieter.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:30,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'10 gummies · 10 mg each',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
   ];
   var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
   /* ==================================================== */
@@ -615,6 +616,7 @@
     var sum=$('sum'); sum.innerHTML='<b style="color:var(--cream)"></b><br><span></span>';
     sum.querySelector('b').textContent=title(state.type,f)+' · '+d.mg+' mg · '+money(price);
     sum.querySelector('span').textContent=d[state.type];
+    var ds=document.createElement('span'); ds.className='desc'; ds.textContent=f.note; sum.appendChild(document.createElement('br')); sum.appendChild(ds);
     $('q-n').textContent=state.q;
     $('add').textContent='Add to order · '+money(price*state.q);
   }
