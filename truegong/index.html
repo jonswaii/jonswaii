@@ -585,10 +585,12 @@
   var NOUN={drink:'tea',gummy:'balm',sauce:'sauce',honey:'honey'};
   function title(type,f){return (type==='sauce'||type==='honey')?(new RegExp(NOUN[type],'i').test(f.name)?f.name:f.name+' '+NOUN[type]):f.name+' '+NOUN[type];}
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,price:{drink:16,gummy:18,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'12 oz bottle · about 3 servings',gummy:'2 oz tin · rub in as needed · topical, no high',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head. The perfect first pour.'},
-    {name:'Floating',mg:50,lvl:2,price:{drink:24,gummy:26,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'2 oz tin · rub in as needed · topical, no high',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up, music louder, worries quieter.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,price:{drink:34,gummy:36,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'2 oz tin · extra strength · topical, no high',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
+    {name:'Chill',mg:25,lvl:1,as:{gummy:{name:'Easy',mg:250}},price:{drink:16,gummy:22,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'12 oz bottle · about 3 servings',gummy:'2 oz tin · daily aches · topical, no high',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head. The perfect first pour.'},
+    {name:'Floating',mg:50,lvl:2,as:{gummy:{name:'Strong',mg:500}},price:{drink:24,gummy:34,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'2 oz tin · deep sore muscles · topical, no high',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up, music louder, worries quieter.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,as:{gummy:{name:'Max',mg:1000}},price:{drink:34,gummy:48,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'2 oz tin · heavy duty relief · topical, no high',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
   ];
+  function DN(d,t){return (d.as&&d.as[t]||d).name;}
+  function MG(d,t){return (d.as&&d.as[t]||d).mg;}
   var DELIVERY=5, FREE_DELIVERY_OVER=60, FREE_DELIVERY_ITEMS=12, MINIMUM=25, EVERY_NTH_FREE=3;
   var BASE_CASHBACK=0.02, FIRST_ORDER_BONUS=5, SIGNUP_BONUS=10;
   /* ==================================================== */
@@ -624,7 +626,7 @@
   function render(){
     var list=LINE[state.type], f=list[state.i], d=DOSES[state.d], price=d.price[state.type];
     hero.style.backgroundColor=f.bg; hero.style.setProperty('--glow',hexA(f.c,.42));
-    draw(art,state.type,f,d.mg); draw($('mini-art'),state.type,f,d.mg);
+    draw(art,state.type,f,MG(d,state.type)); draw($('mini-art'),state.type,f,MG(d,state.type));
     ['drink','gummy','sauce','honey'].forEach(function(t){$('t-'+t).setAttribute('aria-pressed',state.type===t);});
     chips.innerHTML='';
     list.forEach(function(x,i){
@@ -632,9 +634,9 @@
       b.setAttribute('aria-pressed',i===state.i); b.innerHTML='<i></i><span></span>'; b.querySelector('span').textContent=x.name;
       b.addEventListener('click',function(){state.i=i; render();}); chips.appendChild(b);
     });
-    [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d); b.querySelector('.pr').textContent=money(DOSES[i].price[state.type]);});
+    [].forEach.call(doses.children,function(b,i){b.setAttribute('aria-pressed',i===state.d); b.querySelector('.pr').textContent=money(DOSES[i].price[state.type]); b.querySelector('b').textContent=DN(DOSES[i],state.type); b.querySelector('.n').innerHTML=MG(DOSES[i],state.type)+'<small> MG</small>'; b.querySelector('.n').style.fontSize=MG(DOSES[i],state.type)>=1000?'1.25rem':'';b.querySelector('.n').style.whiteSpace='nowrap';});
     var sum=$('sum'); sum.innerHTML='<b style="color:var(--cream)"></b><br><span></span>';
-    sum.querySelector('b').textContent=title(state.type,f)+' · '+d.mg+' mg · '+money(price);
+    sum.querySelector('b').textContent=title(state.type,f)+' · '+MG(d,state.type)+' mg · '+money(price);
     sum.querySelector('span').textContent=d[state.type];
     $('buydesc').textContent=f.note;
     $('q-n').textContent=state.q;
@@ -703,9 +705,9 @@
       var f=LINE[it.type][it.i], d=DOSES[it.d];
       var row=document.createElement('div'); row.className='line';
       row.innerHTML='<span class="th"><span class="art"></span></span><span><b></b><small></small><span class="qty"><button type="button" aria-label="Less">−</button><span></span><button type="button" aria-label="More">+</button></span></span><span class="r"></span>';
-      draw(row.querySelector('.art'),it.type,f,d.mg);
+      draw(row.querySelector('.art'),it.type,f,MG(d,it.type));
       row.querySelector('b').textContent=title(it.type,f);
-      row.querySelector('small').textContent=d.name+' · '+d.mg+' mg · '+money(unit(it))+' each';
+      row.querySelector('small').textContent=DN(d,it.type)+' · '+MG(d,it.type)+' mg · '+money(unit(it))+' each';
       row.querySelector('.qty span').textContent=it.q;
       row.querySelector('.r').textContent=money(unit(it)*it.q);
       var bs=row.querySelectorAll('.qty button');
@@ -734,7 +736,7 @@
     syncForm(t);
   }
   function syncForm(t){
-    var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+title(it.type,f)+' · '+d.name+' '+d.mg+'mg · '+money(unit(it)*it.q);});
+    var lines=bag.map(function(it){var f=LINE[it.type][it.i], d=DOSES[it.d]; return it.q+'x '+title(it.type,f)+' · '+DN(d,it.type)+' '+MG(d,it.type)+'mg · '+money(unit(it)*it.q);});
     lines.push((t.pick?'PICKUP':'DELIVERY')+' · Subtotal '+money(t.sub)+(t.save?' · Savings -'+money(t.save):'')+' · Delivery '+(t.del?money(t.del):'FREE'));
     $('o-order').value=lines.join('\n'); $('o-total').value=money(t.total);
     $('o-send').textContent=t.qty?'Place order · '+money(t.total):'Place order';
