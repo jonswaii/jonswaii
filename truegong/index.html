@@ -585,9 +585,9 @@
   var NOUN={drink:'tea',gummy:'balm',sauce:'sauce',honey:'honey'};
   function title(type,f){return (type==='sauce'||type==='honey')?(new RegExp(NOUN[type],'i').test(f.name)?f.name:f.name+' '+NOUN[type]):f.name+' '+NOUN[type];}
   var DOSES=[
-    {name:'Chill',mg:25,lvl:1,as:{gummy:{name:'Easy',mg:250}},price:{drink:16,gummy:22,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'12 oz bottle · about 3 servings',gummy:'2 oz tin · daily aches · topical, no high',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head. The perfect first pour.'},
-    {name:'Floating',mg:50,lvl:2,as:{gummy:{name:'Strong',mg:500}},price:{drink:24,gummy:34,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'2 oz tin · deep sore muscles · topical, no high',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up, music louder, worries quieter.'},
-    {name:"I'll be back tomorrow",mg:100,lvl:3,as:{gummy:{name:'Max',mg:1000}},price:{drink:34,gummy:48,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'2 oz tin · heavy duty relief · topical, no high',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
+    {name:'Chill',mg:25,lvl:1,as:{gummy:{name:'Easy',mg:25}},price:{drink:16,gummy:18,sauce:15,honey:16},honey:'4 oz jar · about 1 mg per teaspoon',drink:'12 oz bottle · about 3 servings',gummy:'2 oz tin · won\'t get you high, made to relax you',sauce:'5 oz bottle · about 1 mg per teaspoon',vibe:'Easy body, clear head. The perfect first pour.'},
+    {name:'Floating',mg:50,lvl:2,as:{gummy:{name:'Deep',mg:50}},price:{drink:24,gummy:24,sauce:21,honey:22},honey:'4 oz jar · about 2 mg per teaspoon',drink:'5 servings per bottle · 10 mg each',gummy:'2 oz tin · won\'t get you high, made to relax you',sauce:'5 oz bottle · about 2 mg per teaspoon',vibe:'Feet up, music louder, worries quieter.'},
+    {name:"I'll be back tomorrow",mg:100,lvl:3,as:{gummy:{name:'Melt',mg:100}},price:{drink:34,gummy:32,sauce:30,honey:32},honey:'4 oz jar · about 4 mg per teaspoon',drink:'10 servings per bottle · 10 mg each',gummy:'2 oz tin · won\'t get you high, made to relax you',sauce:'5 oz bottle · about 3 mg per teaspoon',vibe:'Clear your schedule. See you in the morning.'}
   ];
   function DN(d,t){return (d.as&&d.as[t]||d).name;}
   function MG(d,t){return (d.as&&d.as[t]||d).mg;}
